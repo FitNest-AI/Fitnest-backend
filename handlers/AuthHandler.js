@@ -147,15 +147,12 @@ module.exports = {
         email,
         password,
         username,
-        image: `https://storage.googleapis.com/${process.env.GCS_BUCKET_NAME}/avatar/${process.env.DEFAULT_AVATAR}`,
         roleId: role.id,
       });
 
-      const token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
+      user.token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
         expiresIn: '300s',
       });
-
-      user.token = token;
       await user.save();
 
       // send email verify register

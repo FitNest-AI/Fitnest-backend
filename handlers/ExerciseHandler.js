@@ -267,27 +267,46 @@ module.exports = {
   },
 
   searchExerciseHandler: async (req, res) => {
+    const {page, q, targetMuscle, level, side} = req.query;
     try {
       const query = {};
 
-      if (req.query.q) {
-        query.name = {$regex: `.*${req.query.q}.*`};
+      if (q) {
+        query.name = {$regex: `.*${q}.*`};
       }
 
-      if (req.query.tm) {
-        query.targetMuscleId = {$in: req.query.tm};
+      if (targetMuscle) {
+        query.targetMuscleId = {$in: targetMuscle};
       }
 
-      const exercise = await ExercisesModel.find(query).select('_id name image levelId').populate({path: 'levelId', select: '_id name'});
+      if (level) {
+        query.levelId = {$in: level};
+      }
 
-      if (!exercise) {
+      if (side) {
+        query.sideId = {$in: side};
+      }
+
+      const exercise = await ExercisesModel.find(query).select('_id name image levelId targetMuscleId').populate({path: 'levelId', select: '_id name'}).lean();
+
+      const itemsPerPage = 5;
+      const offset = (page - 1) * itemsPerPage;
+      const pageCount = Math.floor(exercise.length / itemsPerPage);
+
+      const exerciseNew = exercise.slice(offset, offset + itemsPerPage);
+
+      if (!exerciseNew || exerciseNew.length === 0) {
         throw new CustomError(400, 'Exercise not found');
       }
 
       res.status(200).json({
-        success: false,
+        success: true,
         message: 'Exercise data successfully found',
-        exercise,
+        data: {
+          exercise: exerciseNew,
+          count: exerciseNew.length,
+          pageCount,
+        },
       });
     } catch (error) {
       // console.log(error.stack);
