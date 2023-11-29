@@ -35,8 +35,8 @@ This Api will be used to authenticate new user
 **Example**
 ```
 curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
---data-urlencode 'email=rahman.adityaaa31@gmail.com' \
---data-urlencode 'password=password' \
+--data-urlencode 'email=yourEmail@gmail.com' \
+--data-urlencode 'password=yourPassword' \
 --data-urlencode 'confirmPassword=password'
 ```
 
@@ -47,7 +47,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
         "data": {
             "user": {
             "email": "yourEmail@gmail.com",
-            "username": "yourUsername",
+            "username": "userEYIKFgmlh0PpULQEzEg7KoC5PwDItZyb",
             "verify": false,
             "roleId": "6560765f1844dab5919f6ea2",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjcyMzg2MzhiZGU4NzFmYzBkOWVjYSIsImlhdCI6MTcwMTI1ODExOCwiZXhwIjoxNzAxMjU4NDE4fQ.Fx3qhNABJAxYDl2W12JnVw2tiTw6Tok4E5cnAsfyACE"
@@ -82,7 +82,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 
 **Example**
 ```
-    curl --location -g --request POST 'http://{{base_url}}/api/v1/auth/verify?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjU3Mzk3NWJhZjE5MzYyYzUyMGE1NCIsImlhdCI6MTcwMTE0NzU0MywiZXhwIjoxNzAxMTQ3ODQzfQ.2mUc0Nd-clhZ5BUyB4CkUF6TN7j13ZWhYrguBaXBPKc'
+    curl --location -g --request POST 'http://{{base_url}}/api/v1/auth/verify?token={{token}}'
 ```
 
 ```JSON
@@ -120,7 +120,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 
 **Example**
 ```
-    curl --location -g --request POST 'http://{{base_url}}/api/v1/auth/verify?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjU3Mzk3NWJhZjE5MzYyYzUyMGE1NCIsImlhdCI6MTcwMTE0NzU0MywiZXhwIjoxNzAxMTQ3ODQzfQ.2mUc0Nd-clhZ5BUyB4CkUF6TN7j13ZWhYrguBaXBPKc'
+    curl --location -g --request GET 'http://localhost:3000/api/v1/auth/resend-verify'
 ```
 
 ```JSON
@@ -159,7 +159,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 
 ```
     curl --location -g 'http://{{base_url}}/api/v1/auth/forget-password' \
-    --data-urlencode 'email=rahman.adityaaa31@gmail.com'
+    --data-urlencode 'email=yourEmail@gmail.com'
 ```
 
 ```JSON
@@ -196,7 +196,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 **Example**
 
 ```
-curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWMwNWUwZDA1YTkyNTk3NmFmYzA3MSIsImlhdCI6MTcwMTIzNDM2NywiZXhwIjoxNzAxMjM0NDI3fQ.p38reQ5zzhLAYSEDKRkkqxfhoqpzEdkO5xC24289Ifc' \
+curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token={{token}}' \
 ```
 
 ```JSON
@@ -238,8 +238,8 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token=eyJhbGc
 
 ```
 curl --location -g 'http://{{base_url}}/api/v1/auth/login' \
---data-urlencode 'email=rahman.adityaaa31@gmail.com' \
---data-urlencode 'password=VWGqDNvoNHfuEXZUsGHLdWqOuKmTrIMu'
+--data-urlencode 'email=yourEmail@gmail.com' \
+--data-urlencode 'password=yourPassword'
 ```
 
 ```JSON
@@ -248,7 +248,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/login' \
      "message": "Authentication successful. Welcome!",
      "data": {
         "user": {
-            "email": "rahman.adityaaa31@gmail.com",
+            "email": "yourEmail",
             "username": "userEYIKFgmlh0PpULQEzEg7KoC5PwDItZyb",
             "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
             "verify": true,
