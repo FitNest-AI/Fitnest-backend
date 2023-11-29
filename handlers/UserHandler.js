@@ -1,6 +1,7 @@
 const CustomError = require('../utils/CustomError');
 const UsersModel = require('../models/UsersModel');
 const bcrypt = require('bcrypt');
+const RolesModel = require('../models/RolesModel');
 
 module.exports = {
   fetchAllUserHandler: async (req, res) => {
@@ -238,9 +239,10 @@ module.exports = {
   },
 
   editUserRoleHandler: async (req, res) => {
-    const {roleId} = req.body;
     try {
+      const roleId = await RolesModel.findOne({name: 'premium'}).select('_id');
       const user = await UsersModel.findByIdAndUpdate(req.user.id, {roleId}, {new: true, runValidators: true}).select('email username image verify roleId profileId');
+
 
       if (!user) {
         throw new CustomError(400, 'User role edit failure');
@@ -252,7 +254,7 @@ module.exports = {
         data: {user},
       });
     } catch (error) {
-      // console.log(error.stack);
+      console.log(error.stack);
 
       // id error handle
       if (error.name === 'CastError') {

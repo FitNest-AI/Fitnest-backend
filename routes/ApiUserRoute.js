@@ -12,6 +12,6 @@ route.get('/all', fetchAllUserHandler);
 route.get('/', isLogin, fetchUserHandler);
 route.put('/', isLogin, editUserHandler);
 route.put('/image', isLogin, uploadToBucket('/avatar').single('image'), editUserImageHandler);
-route.put('/role', isLogin, editUserRoleHandler);
+route.post('/role', isLogin, editUserRoleHandler);
 
 module.exports = route;

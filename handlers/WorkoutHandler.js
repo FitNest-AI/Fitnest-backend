@@ -50,10 +50,10 @@ module.exports = {
   },
 
   fetchWorkoutByIdHandler: async (req, res) => {
-    const {id} = req.params;
+    const {workoutId} = req.params;
     const userId = req.user._id;
     try {
-      const workout = await WorkoutsModel.findOne({_id: id, userId}).select('name desc rest day time moveset')
+      const workout = await WorkoutsModel.findOne({_id: workoutId, userId}).select('name desc rest day time moveset')
           .populate({path: 'moveset.exerciseId', select: '_id name desc levelId', populate: {path: 'levelId', select: '_id name'}});
 
       if (!workout) {
@@ -150,13 +150,13 @@ module.exports = {
   },
 
   editWorkoutByIdHandler: async (req, res) => {
-    const {id} = req.params;
+    const {workoutId} = req.params;
     const {name, desc, rest, day, time} = req.body;
 
     const userId = req.user._id;
     try {
-      const workout = await WorkoutsModel.findOneAndUpdate({_id: id, userId: userId}, {
-        name, desc, rest, day, time, moveset, userId,
+      const workout = await WorkoutsModel.findOneAndUpdate({_id: workoutId, userId: userId}, {
+        name, desc, rest, day, time, userId,
       }, {new: true, runValidators: true});
 
       if (!workout) {
@@ -169,7 +169,7 @@ module.exports = {
         data: {workout},
       });
     } catch (error) {
-      // console.log(error.stack);
+      console.log(error.stack);
 
       // workoutId Error handle
       if (error.name === 'CustomError') {
@@ -216,11 +216,11 @@ module.exports = {
   },
 
   deleteWorkoutByIdHandler: async (req, res) => {
-    const {id} = req.params;
+    const {workoutId} = req.params;
     const userId = req.user._id;
 
     try {
-      const workout = await WorkoutsModel.findOneAndDelete({_id: id, userId: userId});
+      const workout = await WorkoutsModel.findOneAndDelete({_id: workoutId, userId: userId});
 
       if (!workout) {
         throw new CustomError(400, 'Workout data delete failure');
@@ -235,7 +235,7 @@ module.exports = {
 
       // workoutId Error handle
       if (error.name === 'CustomError') {
-        return res.status(400).json({
+        return res.status(error.code).json({
           success: false,
           message: error.message,
         });
@@ -256,14 +256,14 @@ module.exports = {
     }
   },
 
-  insertMovesetOnWorkoutByIdHandler: async (req, res) => {
-    const {id} = req.params;
+  insertExerciseOnWorkoutByIdHandler: async (req, res) => {
+    const {workoutId} = req.params;
     const userId = req.user._id;
     const {set, rep, exerciseId} = req.body;
 
     try {
       const workout = await WorkoutsModel.findOneAndUpdate(
-          {_id: id, userId: userId},
+          {_id: workoutId, userId: userId},
           {$push: {moveset: {set: set, rep: rep, exerciseId: exerciseId}}},
           {new: true, runValidators: true},
       );
@@ -271,7 +271,7 @@ module.exports = {
       res.status(201).json({
         success: true,
         message: 'Moveset data insert successful',
-        workout,
+        data: {workout: workout},
       });
     } catch (error) {
       // Handle validation error
@@ -304,12 +304,16 @@ module.exports = {
     }
   },
 
-  deleteMovesetOnWorkoutByIdHandler: async (req, res) => {
-    const {id, movesetId} = req.params;
+  deleteExerciseOnWorkoutByIdHandler: async (req, res) => {
+    const {workoutId, exerciseId} = req.params;
     const userId = req.user._id;
 
     try {
-      const workout = await WorkoutsModel.findOneAndUpdate({_id: id, userId}, {'$pull': {'moveset': {'_id': movesetId}}}, {new: true, runValidators: true});
+      const workout = await WorkoutsModel.findOneAndUpdate(
+          {_id: workoutId, userId},
+          {$pull: {'moveset': {'exerciseId': exerciseId}}},
+          {new: true, runValidators: true},
+      );
 
       if (!workout) {
         throw new CustomError(400, 'Workout data delete failure');
@@ -321,7 +325,21 @@ module.exports = {
         workout,
       });
     } catch (error) {
+      console.log(error.stack);
 
+      // workoutId Error handle
+      if (error.name === 'CustomError') {
+        return res.status(error.code).json({
+          success: false,
+          message: error.message,
+        });
+      }
+
+      // Handle other errors
+      return res.status(500).json({
+        success: false,
+        message: 'Internal server error',
+      });
     }
   },
 };

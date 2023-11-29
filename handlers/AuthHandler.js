@@ -159,7 +159,15 @@ module.exports = {
       return res.status(201).json({
         success: true,
         message: 'Registration successful',
-        user,
+        data: {
+          user: {
+            email: user.email,
+            username: user.username,
+            verify: user.verify,
+            roleId: user.roleId._id,
+            token: user.token,
+          },
+        },
       });
     } catch (error) {
       // console.log(error.stack);
@@ -216,12 +224,9 @@ module.exports = {
         throw new CustomError(400, 'Email not registered. Please try again');
       }
 
-      const token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
+      user.token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
         expiresIn: '300s',
       });
-
-
-      user.token = token;
       await user.save();
 
       // re-send email verify register
@@ -230,7 +235,9 @@ module.exports = {
       return res.status(200).json({
         success: true,
         message: 'Token successfully sent',
-        token,
+        data: {
+          token: user.token,
+        },
       });
     } catch (error) {
       // console.log(error.stack);
@@ -258,8 +265,8 @@ module.exports = {
       const decoded = jwt.verify(token, process.env.ACCESS_SECRET_KEY);
       const user = await UsersModel.findById(decoded.id);
 
-      if (!user.token === token) {
-        throw new CustomError(400, 'Incorrect token. Please try again');
+      if (user.token !== token) {
+        throw new CustomError(400, 'Invalid token');
       }
 
       // user update
@@ -272,10 +279,7 @@ module.exports = {
         message: 'Verification successful',
         user: {
           email: user.email,
-          username: user.username,
-          image: user.image,
           verify: user.verify,
-          roleId: user.roleId,
         },
       });
     } catch (error) {
@@ -324,11 +328,9 @@ module.exports = {
         throw new CustomError(400, 'Email not registered. Please try again');
       }
 
-      const token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
+      user.token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
         expiresIn: '60s',
-      });
-
-      user.token = token;
+      }); ;
       await user.save();
 
       // send email token forget password
@@ -337,7 +339,9 @@ module.exports = {
       return res.status(200).json({
         success: true,
         message: 'Token successfully sent',
-        token: user.token,
+        data: {
+          token: user.token,
+        },
       });
     } catch (error) {
       // console.log(error.stack);
@@ -365,8 +369,8 @@ module.exports = {
       const decoded = jwt.verify(token, process.env.ACCESS_SECRET_KEY);
       const user = await UsersModel.findById(decoded.id);
 
-      if (!user.token === token) {
-        throw new CustomError(400, 'Incorrect token. Please try again');
+      if (user.token !== token) {
+        throw new CustomError(400, 'Invalid token');
       }
 
       // send newPassword

@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {fetchAllWorkoutHandler, fetchWorkoutByIdHandler, insertWorkoutHandler, editWorkoutByIdHandler, deleteWorkoutByIdHandler, insertMovesetOnWorkoutByIdHandler, deleteMovesetOnWorkoutByIdHandler} = require('../handlers/WorkoutHandler');
+const {fetchAllWorkoutHandler, fetchWorkoutByIdHandler, insertWorkoutHandler, editWorkoutByIdHandler, deleteWorkoutByIdHandler, insertExerciseOnWorkoutByIdHandler, deleteExerciseOnWorkoutByIdHandler} = require('../handlers/WorkoutHandler');
 const {isLogin} = require('../middlewares/AuthMiddleware');
 
 // eslint-disable-next-line new-cap
@@ -8,12 +8,12 @@ const route = Router();
 // Workout Route
 route.get('/all', fetchAllWorkoutHandler);
 route.post('/', isLogin, insertWorkoutHandler);
-route.get('/:id', isLogin, fetchWorkoutByIdHandler);
-route.put('/:id', isLogin, editWorkoutByIdHandler);
-route.delete('/:id', isLogin, deleteWorkoutByIdHandler);
+route.get('/:workoutId', isLogin, fetchWorkoutByIdHandler);
+route.put('/:workoutId', isLogin, editWorkoutByIdHandler);
+route.delete('/:workoutId', isLogin, deleteWorkoutByIdHandler);
 
-route.post('/:id/moveset/', isLogin, insertMovesetOnWorkoutByIdHandler);
+route.post('/:workoutId/moveset/', isLogin, insertExerciseOnWorkoutByIdHandler);
 
-route.delete('/:id/moveset/:movesetId', isLogin, deleteMovesetOnWorkoutByIdHandler);
+route.delete('/:workoutId/moveset/:exerciseId', isLogin, deleteExerciseOnWorkoutByIdHandler);
 
 module.exports = route;

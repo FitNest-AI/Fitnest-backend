@@ -292,4 +292,3 @@ const seeding = async () => {
 };
 
 seeding();
-

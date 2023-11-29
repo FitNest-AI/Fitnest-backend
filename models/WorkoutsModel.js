@@ -26,6 +26,7 @@ const WorkoutsSchema = new Schema({
     max: [120, 'Too high. Please enter a value <= 120'],
   },
   moveset: [{
+    _id: false,
     set: {
       type: Number,
       required: true,
@@ -41,6 +42,7 @@ const WorkoutsSchema = new Schema({
       required: true,
       ref: 'Exercises',
     },
+
   }],
   userId: {
     type: ObjectId,
