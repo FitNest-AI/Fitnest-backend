@@ -65,9 +65,9 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 
 **Query**
 
-| Parameter         | Status     | Description                  |
-| :--------         | :-------   | :-------------------------   |
-| `token`           | `required` | Token for verifying account. | 
+| Parameter         | Description                  |
+| :--------         | :-------------------------   |
+| `token`           | Token for verifying account. | 
 
 **Response**
 
@@ -181,9 +181,9 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 
 **Query**
 
-| Parameter         | Status     | Description                |
-| :--------         | :-------   | :------------------------- |
-| `token`           | `required` | Token for resetting the account password. | 
+| Parameter | Description                |
+| :-------- | :------------------------- |
+| `token`   | Token for resetting the account password. | 
 
 
 **Response**
