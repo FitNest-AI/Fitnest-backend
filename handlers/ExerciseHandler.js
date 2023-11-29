@@ -267,9 +267,14 @@ module.exports = {
   },
 
   searchExerciseHandler: async (req, res) => {
-    const {page, q, targetMuscle, level, side} = req.query;
+    let {page} = req.query;
+    const {q, targetMuscle, level, side} = req.query;
     try {
       const query = {};
+
+      if (page <= 0 || !page) {
+        page = 1;
+      }
 
       if (q) {
         query.name = {$regex: `.*${q}.*`};

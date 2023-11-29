@@ -141,15 +141,13 @@ module.exports = {
         throw new CustomError(422, 'Password confirmation does not match');
       }
 
-      const role = await RolesModel.findOne({name: 'standard'});
-
       const user = new UsersModel({
         email,
         password,
         username,
-        roleId: role.id,
       });
 
+      user.roleId = await RolesModel.findOne({name: 'standard'});
       user.token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
         expiresIn: '300s',
       });
@@ -272,7 +270,13 @@ module.exports = {
       return res.status(201).json({
         success: true,
         message: 'Verification successful',
-        user,
+        user: {
+          email: user.email,
+          username: user.username,
+          image: user.image,
+          verify: user.verify,
+          roleId: user.roleId,
+        },
       });
     } catch (error) {
       // console.log(error.stack);
