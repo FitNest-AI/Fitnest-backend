@@ -2,7 +2,7 @@
 
 This Api will be used to authenticate new user
 
-## 1.authRegister
+## 1.authentication Registration
 
 **HTTP Request**
 ```
@@ -21,15 +21,15 @@ This Api will be used to authenticate new user
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   | ``
-| `message`    |   | ``
-| `user`       |   | ``
-| `email`      |   | ``
-| `username`   |   | ``
-| `image`      |   | ``
-| `verify`     |   | ``
-| `roleId`     |   | ``
-| `token`      |   | ``
+| `success`    |   | `####True` adfdsf
+| `message`    |   | 
+| `user`       |   | 
+| `email`      |   | 
+| `username`   |   | 
+| `image`      |   | 
+| `verify`     |   | 
+| `roleId`     |   | 
+| `token`      |   | 
 
 **Example**
 ```
