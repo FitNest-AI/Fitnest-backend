@@ -21,7 +21,7 @@ This Api will be used to authenticate new user
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   | `True` adfdsf
+| `success`    |   | `True`
 | `message`    |   | 
 | `user`       |   | 
 | `email`      |   | 
