@@ -124,7 +124,6 @@ PUT /api/v1/user/image
 
 **Response Body**
 
-```
 | Parameter | Description                |
 | :-------- | :------------------------- |
 | `success` | `True` if data edit is successful, `False` otherwise.  |
@@ -137,7 +136,6 @@ PUT /api/v1/user/image
 | `image`   | URL of the user's updated profile image.  |
 | `verify`  | Verification status of the user's account (`True` or `False`).  |
 | `roleId`  | Identifier specifying the user's role or permissions.  |
-```
 
 **Example**
 
