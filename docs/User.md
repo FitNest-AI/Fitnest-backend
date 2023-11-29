@@ -2,65 +2,62 @@
 
 This Api is for User
 
-## 1.fetchAllUserData
+## 1.Fetch All User Data
 
 **HTTP Request**
 
 ```
-    GET /api/v1/user/all
+GET /api/v1/user/all
 ```
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `data`       |   |
-| `user`       |   |
-| `_id`        |   |
-| `email`      |   |
-| `username`   |   |
-| `image`      |   |
-| `verify`     |   |
-| `roleId`     |   |
-| `count`      |   |
+| `success`    | `True` if data fetch is successful, `False` otherwise.  |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for user data.  |
+| `user`       | Array containing user information.  |
+| `_id`        | User ID.  |
+| `email`      | User's email address.  |
+| `username`   | User's username.  |
+| `image`      | URL of the user's profile image.  |
+| `verify`     | Verification status of the user's account (`True` or `False`).  |
+| `roleId`     | Identifier specifying the user's role or permissions.  |
+| `count`      | Total count of users fetched.  |
 
 **Example**
 
 ```
-curl --location 'localhost:3000/api/v1/user/all'
+curl --location '{{base_url}}/api/v1/user/all'
 ```
 
 ```JSON
     {
-    "success": true,
-    "message": "User all data fetch successful",
-    "data": {
-        "user": [
-            {
-                "_id": "655c05e0d05a925976afc071",
-                "email": "rahman.adityaaa31@gmail.com",
-                "username": "userEYIKFgmlh0PpULQEzEg7KoC5PwDItZyb",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
-                "verify": true,
-                "roleId": "65526a6fa4cc0197cdb53483"
-            },
-            {
-                "_id": "656573975baf19362c520a54",
-                "email": "adityarahman59@gmail.com",
-                "username": "userDVIkhmVkFUSndlT2u4fx8rCX9nv9gjBk",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
-                "verify": false,
-                "roleId": "65526a6fa4cc0197cdb53483"
-            }
-        ],
-        "count": 2
+        "success": true,
+        "message": "User all data fetch successful",
+        "data": {
+            "user": [
+                {
+                    "_id": "6567833b40e7fd3fc45734bd",
+                    "email": "yourEmail@gmail.com",
+                    "username": "user11vRzaEFhjapd82MKIcC70Ao256kNOMb",
+                    "image": "https://storage.googleapis.com/fitnest-project-bucket/avatar/default.png",
+                    "verify": true,
+                    "roleId": "6560765f1844dab5919f6ea2"
+                }
+            ],
+            "count": 1
+        }
     }
-}
 ```
 
-## 2.fetchUserDataWhenLogin
+## 2.Fetch User Data
+
+***Note***
+```
+AllUserAuthenticate
+```
 
 **HTTP Request**
 
@@ -68,50 +65,55 @@ curl --location 'localhost:3000/api/v1/user/all'
     GET /api/v1/user
 ```
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `data`       |   |
-| `user`       |   |
-| `_id`        |   |
-| `email`      |   |
-| `username`   |   |
-| `image`      |   |
-| `verify`     |   |
-| `roleId`     |   |
+| `success`    | `True` if data fetch is successful, `False` otherwise.  |
+| `message`    | Explanation of the outcome (success or failure details). |
+| `data`       | Container for user data.  |
+| `user`       | Object containing user information.  |
+| `_id`        | User ID.  |
+| `email`      | User's email address.  |
+| `username`   | User's username.  |
+| `image`      | URL of the user's profile image.  |
+| `verify`     | Verification status of the user's account (`True` or `False`).  |
+| `roleId`     | Identifier specifying the user's role or permissions. |
 
 **Example**
 
 ```
-curl --location 'localhost:3000/api/v1/user'
+curl --location '{{base_url}}/api/v1/user'
 ```
 
 ```JSON
     {
-     "success": true,
-     "message": "User data fetch successful",
-     "data": {
-        "user": {
-            "_id": "655c05e0d05a925976afc071",
-            "email": "rahman.adityaaa31@gmail.com",
-            "username": "userEYIKFgmlh0PpULQEzEg7KoC5PwDItZyb",
-            "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
-            "verify": true,
-            "roleId": "65526a6fa4cc0197cdb53483"
+        "success": true,
+        "message": "User data fetch successful",
+        "data": {
+            "user": {
+                "_id": "6567833b40e7fd3fc45734bd",
+                "email": "yourEmail@gmail.com",
+                "username": "user11vRzaEFhjapd82MKIcC70Ao256kNOMb",
+                "image": "https://storage.googleapis.com/fitnest-project-bucket/avatar/default.png",
+                "verify": true,
+                "roleId": "6560765f1844dab5919f6ea2"
+            }
         }
-     }
     }
 ```
 
-## 3.editUserImage
+## 3.Edit User Image
+
+***Note***
+```
+AllUserAuthenticate
+```
 
 **HTTP Request**
 
 ```
-    PUT /api/v1/user/image
+PUT /api/v1/user/image
 ```
 
 **Request Body**
@@ -120,61 +122,89 @@ curl --location 'localhost:3000/api/v1/user'
 | :-------- | :------------------------- |
 | `image`   |   |
 
-**Response**
+**Response Body**
 
 ```
 | Parameter | Description                |
 | :-------- | :------------------------- |
-| `name`    |   |
+| `success` | `True` if data edit is successful, `False` otherwise.  |
+| `message` | Explanation of the outcome (success or failure details).  |
+| `data`    | Container for user data.  |
+| `user`    | Object containing updated user information.  |
+| `_id`     | User ID.  |
+| `email`   | User's email address.  |
+| `username`| User's username.  |
+| `image`   | URL of the user's updated profile image.  |
+| `verify`  | Verification status of the user's account (`True` or `False`).  |
+| `roleId`  | Identifier specifying the user's role or permissions.  |
 ```
 
 **Example**
 
 ```
-curl --location --request PUT 'localhost:3000/api/v1/user/image' \
---form 'image=@"c:\\Users\\zsyrhn22\\Downloads\\man.png"'
+curl --location --request PUT '{{base_url}}/api/v1/user/image' \
+--form 'image=@"{{localPath}}"'
 ```
 
 ```JSON
+    {
+        "success": true,
+        "message": "User data edit successful",
+        "data": {
+            "user": {
+                "_id": "6567833b40e7fd3fc45734bd",
+                "email": "yourEmail@gmail.com",
+                "username": "user11vRzaEFhjapd82MKIcC70Ao256kNOMb",
+                "image": "https://storage.googleapis.com/fitnest-project-bucket/avatar/NEqmDUSWD5eoFcBRkNpEbQy5ZtU7RM9L-20231130-021834",
+                "verify": true,
+                "roleId": "6560765f1844dab5919f6ea2"
+            }
+        }
+    }
 ```
 
-## 4.editUserDataWhenLogin
+## 4.Edit User Data
+
+***Note***
+```
+AllUserAuthenticate
+```
 
 **HTTP Request**
 
 ```
-    PUT /api/v1/user
+PUT /api/v1/user
 ```
 
 **Request Body**
 
 | Parameter          | Description                |
 | :----------------- | :------------------------- |
-| `username`         |   |
-| `password`         |   |
-| `confirmPassword`  |   |
+| `username`         | New username for the user.  |
+| `password`         | New password for the user.  |
+| `confirmPassword`  | Confirmation of the new password. Must match the provided password.  |
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `data`       |   |
-| `user`       |   |
-| `_id`        |   |
-| `email`      |   |
-| `username`   |   |
-| `image`      |   |
-| `verify`     |   |
-| `roleId`     |   |
+| `success`    | `True` if data edit is successful, `False` otherwise.  |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for user data.  |
+| `user`       | Object containing updated user information.  |
+| `_id`        | User ID.  |
+| `email`      | User's email address.  |
+| `username`   | User's updated username.  |
+| `image`      | URL of the user's profile image.  |
+| `verify`     | Verification status of the user's account (`True` or `False`).  |
+| `roleId`     | Identifier specifying the user's role or permissions.  |
 
 **Example**
 ```
-curl --location --request PUT 'localhost:3000/api/v1/user' \
---data-urlencode 'username=dota' \
---data-urlencode 'password=gampang' \
---data-urlencode 'confirmPassword=gampang'
+curl --location --request PUT '{{base_url}}/api/v1/user' \
+--data-urlencode 'username=yourUsername' \
+--data-urlencode 'password=newPassword' \
+--data-urlencode 'confirmPassword=newPassword'
 ```
 
 ```JSON
@@ -184,8 +214,8 @@ curl --location --request PUT 'localhost:3000/api/v1/user' \
      "data": {
         "user": {
             "_id": "655c05e0d05a925976afc071",
-            "email": "rahman.adityaaa31@gmail.com",
-            "username": "dota",
+            "email": "yourEmail@gmail.com",
+            "username": "yourUsername",
             "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
             "verify": true,
             "roleId": "65526a6fa4cc0197cdb53483"
@@ -194,40 +224,33 @@ curl --location --request PUT 'localhost:3000/api/v1/user' \
     }
 ```
 
-## 5.editUserRole
+## 5.Edit User Role
 
 **HTTP Request**
 
 ```
-    PUT /api/v1/user/role
+PUT /api/v1/user/role
 ```
 
-**Request Body**
-
-| Parameter  | Description                |
-| :--------- | :------------------------- |
-| `roleId`   |   |
-
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `data`       |   |
-| `user`       |   |
-| `_id`        |   |
-| `email`      |   |
-| `username`   |   |
-| `image`      |   |
-| `verify`     |   |
-| `roleId`     |   |
+| `success`    | `True` if data edit is successful, `False` otherwise.  |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for user data.  |
+| `user`       | Object containing updated user information.  |
+| `_id`        | User ID.  |
+| `email`      | User's email address.  |
+| `username`   | User's username.  |
+| `image`      | URL of the user's profile image.  |
+| `verify`     | Verification status of the user's account (`True` or `False`).  |
+| `roleId`     | Updated identifier specifying the user's role or permissions.  |
 
 **Example**
 
 ```
-curl --location --request PUT 'localhost:3000/api/v1/user/role' \
---data-urlencode 'roleId=65526a6fa4cc0197cdb53484'
+curl --location --request PUT '{{base_url}}/api/v1/user/role'
 ```
 
 ```JSON
