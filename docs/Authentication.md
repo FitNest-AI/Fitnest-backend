@@ -21,20 +21,15 @@ This Api will be used to authenticate new user
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `user`       |   |
-| `email`      |   |
-| `password`   |   |
-| `username`   |   |
-| `image`      |   |
-| `verify`     |   |
-| `roleId`     |   |
-| `_id`        |   |
-| `token`      |   |
-| `createdAt`  |   |
-| `UpdatedAt`  |   |
-| `__v`        |   |
+| `success`    |   | ``
+| `message`    |   | ``
+| `user`       |   | ``
+| `email`      |   | ``
+| `username`   |   | ``
+| `image`      |   | ``
+| `verify`     |   | ``
+| `roleId`     |   | ``
+| `token`      |   | ``
 
 **Example**
 ```
