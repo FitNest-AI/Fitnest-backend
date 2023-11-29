@@ -2,7 +2,7 @@
 
 This Api will be used to authenticate new user
 
-## 1.authRegister
+## 1.Auth Register
 
 **HTTP Request**
 ```
@@ -11,25 +11,26 @@ This Api will be used to authenticate new user
 
 **Request Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `email`           |  email that haven't registered for creating new account  |
-| `password`        |  password must contain 8 character|
-| `confirmPassword` |  must be the same as password|
+| Parameter         | Status     | Description                |
+| :--------         | :-------   | :------------------------- |
+| `email`           | `required` | Email address for creating a new account. |
+| `password`        | `required` | Password (minimum 8 characters). |
+| `confirmPassword` | `required` | Confirmation of the password. Must match the provided password. |
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   | ``
-| `message`    |   | ``
-| `user`       |   | ``
-| `email`      |   | ``
-| `username`   |   | ``
-| `image`      |   | ``
-| `verify`     |   | ``
-| `roleId`     |   | ``
-| `token`      |   | ``
+| `success`    | `True` if registration is successful, `False` if registration fails.  |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for registration information.  |
+| `user`       | Registered user details |
+| `email`      | Email address of the registered user.  |
+| `username`   | Default username assigned by the server.  |
+| `image`      | Default profile image or avatar assigned by the server.  |
+| `verify`     | Verification status of the user's account (`True` or `False`). |
+| `roleId`     | Identifier specifying the user's role or permissions.  |
+| `token`      | Authentication token for verifying the user's account.  |
 
 **Example**
 ```
@@ -40,55 +41,44 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 ```
 
 ```JSON
-     {
-      "success": true,
-      "message": "Registration successful",
-      "user": {
-          "email": "adityarahman59@gmail.com",
-          "password": "$2b$10$aEm3az1niD5M/QFhkzrlVelvmUV87onQ18fCv2r4IH72O9hLJnzlW",
-          "username": "userDVIkhmVkFUSndlT2u4fx8rCX9nv9gjBk",
-          "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
-          "verify": false,
-          "roleId": "65526a6fa4cc0197cdb53483",
-          "_id": "656573975baf19362c520a54",
-          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjU3Mzk3NWJhZjE5MzYyYzUyMGE1NCIsImlhdCI6MTcwMTE0NzU0MywiZXhwIjoxNzAxMTQ3ODQzfQ.2mUc0Nd-clhZ5BUyB4CkUF6TN7j13ZWhYrguBaXBPKc",
-          "createdAt": "2023-11-28T04:59:03.382Z",
-          "updatedAt": "2023-11-28T04:59:03.382Z",
-          "__v": 0
-       } 
-     }
+    {
+        "success": true,
+        "message": "Registration successful",
+        "data": {
+            "user": {
+            "email": "yourEmail@gmail.com",
+            "username": "yourUsername",
+            "verify": false,
+            "roleId": "6560765f1844dab5919f6ea2",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjcyMzg2MzhiZGU4NzFmYzBkOWVjYSIsImlhdCI6MTcwMTI1ODExOCwiZXhwIjoxNzAxMjU4NDE4fQ.Fx3qhNABJAxYDl2W12JnVw2tiTw6Tok4E5cnAsfyACE"
+            }
+        }
+    }
 ```
 
-## 2.authVerifyWithToken
+## 2.Auth Verify
 
 **HTTP Request**
 ```
   GET /api/v1/auth/verify?token={{token}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter | Status   | Description                |
-| :-------- | :------- | :------------------------- |
-| `token`   | ``       |                            |
+| Parameter         | Status     | Description                  |
+| :--------         | :-------   | :-------------------------   |
+| `token`           | `required` | Token for verifying account. | 
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `user`       |   |
-| `_id`        |   |
-| `email`      |   |
-| `password`   |   |
-| `username`   |   |
-| `image`      |   |
-| `verify`     |   |
-| `roleId`     |   |
-| `createdAt`  |   |
-| `UpdatedAt`  |   |
-| `__v`        |   |
+| `success`    | `True` if verification is successful, `False` if verification fails.  |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for verification information.  |
+| `user`       | Verified user details.  |
+| `email`      | Email address of the registered user.  |
+| `verify`     | Verification status of the user's account (`True` or `False`).  |
 
 **Example**
 ```
@@ -97,42 +87,73 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 
 ```JSON
     {
-     "success": true,
-     "message": "Verification successful",
-     "user": {
-        "_id": "655c05e0d05a925976afc071",
-        "email": "rahman.adityaaa31@gmail.com",
-        "password": "$2b$10$jKq0lVeKC2D3mCRkRLYWguDKUZ8OAOTPlz2YRjNEAhuO06I.CLhBa",
-        "username": "userEYIKFgmlh0PpULQEzEg7KoC5PwDItZyb",
-        "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
-        "verify": true,
-        "roleId": "65526a6fa4cc0197cdb53483",
-        "createdAt": "2023-11-21T01:20:32.267Z",
-        "updatedAt": "2023-11-29T04:55:59.092Z",
-        "__v": 0
-     }
+        "success": true,
+        "message": "Verification successful",
+        "user": {
+            "email": "yourEmail@gmail.com",
+            "verify": true
+        }
     }
 ```
 
-## 3.authForgetPassword
+## 3.Auth Resend Token Verify
+
+**HTTP Request**
+```
+  GET /api/v1/auth/resend-verify
+```
+
+**Parameter**
+
+| Parameter         | Status     | Description                |
+| :--------         | :-------   | :------------------------- |
+| `email`           | `required` | Email address of the registered user. | 
+
+**Response**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `success`    | `True` if resend token is successful, `False` if resend token fails.  |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for verification information.  |
+| `token`      | Resend authentication token for verifying the user's account.  |
+
+**Example**
+```
+    curl --location -g --request POST 'http://{{base_url}}/api/v1/auth/verify?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjU3Mzk3NWJhZjE5MzYyYzUyMGE1NCIsImlhdCI6MTcwMTE0NzU0MywiZXhwIjoxNzAxMTQ3ODQzfQ.2mUc0Nd-clhZ5BUyB4CkUF6TN7j13ZWhYrguBaXBPKc'
+```
+
+```JSON
+    {
+        "success": true,
+        "message": "Verification successful",
+        "data": {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjU3Mzk3NWJhZjE5MzYyYzUyMGE1NCIsImlhdCI6MTcwMTIzNDM2NywiZXhwIjoxNzAxMjM0NDI3fQ.p38reQ5zzhLAYSEDKRkkqxfhoqpzEdkO5xC24289Ifc"
+        }
+    }
+```
+
+## 4. Auth Forget Password
 
 **HTTP Request**
 ```
     GET /api/v1/auth/forget-password
 ```
-**Request Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `email`           |    |
+**Parameter**
+
+| Parameter         | Status     | Description                |
+| :--------         | :-------   | :------------------------- |
+| `email`           | `required` | Email address of the registered user. | 
 
 **Response**
 
-| Parameter  | Description                |
-| :--------- | :------------------------- |
-| `success`  |   |
-| `message`  |   |
-| `token`    |   |
+| Parameter    | Description                |
+| :---------   | :------------------------- |
+| `success`    | `True` if the token is successfully sent, `False` if sending fails.  |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for forget password information.  |
+| `token`      | Token access for resetting the user's account password.  |
 
 **Example**
 
@@ -143,32 +164,34 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 
 ```JSON
     {
-    "success": true,
-    "message": "Token successfully sent",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWMwNWUwZDA1YTkyNTk3NmFmYzA3MSIsImlhdCI6MTcwMTIzNDM2NywiZXhwIjoxNzAxMjM0NDI3fQ.p38reQ5zzhLAYSEDKRkkqxfhoqpzEdkO5xC24289Ifc"
+        "success": true,
+        "message": "Token successfully sent",
+        "data": {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWMwNWUwZDA1YTkyNTk3NmFmYzA3MSIsImlhdCI6MTcwMTIzNDM2NywiZXhwIjoxNzAxMjM0NDI3fQ.p38reQ5zzhLAYSEDKRkkqxfhoqpzEdkO5xC24289Ifc"
+        }
     }
 ```
 
-## 4.authResetPasswordWithToken
+## 5.Auth Reset Password
 
 **HTTP Request**
 ```
     GET /api/v1/auth/reset-password?token={{token}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter |          | Description                |
-| :-------- | :------- | :------------------------- |
-| `token`   | ``       |  |
+| Parameter         | Status     | Description                |
+| :--------         | :-------   | :------------------------- |
+| `token`           | `required` | Token for resetting the account password. | 
 
 
 **Response**
 
 | Parameter         | Description                |
 | :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
+| `success`         | `True` if resetting the password is successful, `False` if resetting fails.  |
+| `message`         | Explanation of the outcome (success or failure details).  |
 
 **Example**
 
@@ -178,8 +201,8 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token=eyJhbGc
 
 ```JSON
     {
-    "success": true,
-    "message": "Reset Password Successful"
+        "success": true,
+        "message": "Reset Password Successful"
     }
 ```
 
@@ -192,24 +215,24 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token=eyJhbGc
 
 **Request Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `email`           |  Using email that has been registered |
-| `password`        |  password must contain 8 character|
+| Parameter         | Status     | Description                |
+| :--------         | :-------   | :------------------------- |
+| `email`           | `required` | Email address of the registered user. | 
+| `password`        | `required` | Password (minimum 8 characters). | 
 
 **Response**
 
 | Parameter         | Description                |
 | :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
-| `data`            |   |
-| `user`            |   |
-| `email`           |   |
-| `username`        |   |
-| `image`           |   |
-| `verify`          |   |
-| `roleId`          |   |
+| `success`         | `True` if authentication is successful, `False` if authentication fails.  |
+| `message`         | Explanation of the outcome (success or failure details).  |
+| `data`            | Container for login information.  |
+| `user`            | Authenticated user details.  |
+| `email`           | Email address of the registered user.  |
+| `username`        | Username by the user.  |
+| `image`           | URL of the user's profile image or avatar.  |
+| `verify`          | Verification status of the user's account (True or False).  |
+| `roleId`          | Identifier specifying the user's role or permissions.  |
 
 **Example**
 
@@ -246,8 +269,8 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/login' \
 
 | Parameter         | Description                |
 | :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
+| `success`         | `True` if logout is successful, `False` if logout fails.  |
+| `message`         | Explanation of the outcome (success or failure details).  |
 
 **Example**
 
@@ -259,41 +282,5 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/logout'
     {
     "success": true,
     "message": "You have successfully logged out"
-    }
-```
-
-## 7.authResendTokenVerify
-
-**HTTP Request**
-```
-    GET /api/v1/auth/resend-verify
-```
-
-**Request Body**
-
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `email`           |    |
-
-**Response**
-
-| Parameter  | Description                |
-| :--------- | :------------------------- |
-| `success`  |   |
-| `message`  |   |
-| `token`    |   |
-
-**Example**
-
-```
-curl --location 'http://localhost:3000/api/v1/auth/resend-verify' \
---data-urlencode 'email=rahman.adityaaa31@gmail.com'
-```
-
-```JSON
-    {
-    "success": true,
-    "message": "Token successfully sent",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWMwNWUwZDA1YTkyNTk3NmFmYzA3MSIsImlhdCI6MTcwMTIzMzczMCwiZXhwIjoxNzAxMjM0MDMwfQ.QsPj9Cxn7yLwOPW6i0KoM212znubNCGhr9Wu9QyRR7I"
     }
 ```

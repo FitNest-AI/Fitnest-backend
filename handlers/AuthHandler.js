@@ -277,9 +277,11 @@ module.exports = {
       return res.status(201).json({
         success: true,
         message: 'Verification successful',
-        user: {
-          email: user.email,
-          verify: user.verify,
+        data: {
+          user: {
+            email: user.email,
+            verify: user.verify,
+          },
         },
       });
     } catch (error) {
