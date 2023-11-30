@@ -22,7 +22,7 @@ This Api will be used to authenticate new user
 | `name`       | Exercise name.  |
 | `image`      | URL for the exercise image.  |
 | `levelId`    | Identifier specifying the exercise level. |
-| `count`      |   |
+| `count`      | Total exercise data |
 
 **Example**
 
