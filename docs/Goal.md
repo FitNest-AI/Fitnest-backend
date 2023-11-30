@@ -1,8 +1,8 @@
 # Goal
 
-This Api will be used to authenticate new user
+This Api will be used to provide Goal Data.
 
-## 1.fetchAllGoalData
+## 1. Fetch All Goals Data
 
 **HTTP Request**
 
@@ -14,14 +14,13 @@ This Api will be used to authenticate new user
 
 | Parameter | Description                |
 | :-------- | :------------------------- |
-| `success` |   |
-| `message` |   |
-| `data`    |   |
-| `goal`    |   |
-| `_id`     |   |
-| `name`    |   |
-| `__v`     |   |
-| `count`   |   |
+| `success` | `true` if data fetch successful,`false` if data fetch fails. |
+| `message` | Explanation of the outcome (success or failure details). |
+| `data`    | container for goals data. |
+| `goal`    | Array containing goal information.  |
+| `_id`     | Goals Id. |
+| `name`    | The name of goals. |
+| `count`   | Total count of goals fetched. |
 
 **Example**
 
@@ -61,7 +60,7 @@ curl --location 'http://localhost:3000/api/v1/goal/all'
     }
 ```
 
-## 2.fetchGoalDataById
+## 2.Fetch Goal Data
 
 **HTTP Request**
 
@@ -69,23 +68,22 @@ curl --location 'http://localhost:3000/api/v1/goal/all'
     GET /api/v1/goal/{{goalId}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter | Status   | Description                |
-| :-------- | :------- | :------------------------- |
-| `goalId`  | ``       |  |
+| Parameter | Description    |
+| :-------- | :------------- |
+| `goalId`  | Insert Goal Id to fetch the data |
 
 **Response**
 
 | Parameter | Description                |
 | :-------- | :------------------------- |
-| `success` |   |
-| `message` |   |
-| `data`    |   |
-| `goal`    |   |
-| `_id`     |   |
-| `name`    |   |
-| `__v`     |   |
+| `success` | `true` if data fetch successful,`false` if data fetch fails.|
+| `message` | Explanation of the outcome (success or failure details). |
+| `data`    | Container for goal data. |
+| `goal`    | Object containing goal information. |
+| `_id`     | Goal ID. |
+| `name`    | The name of goal.  |
 
 **Example**
 
@@ -107,7 +105,7 @@ curl --location -g 'http://localhost:3000/api/v1/goal/65526a70a4cc0197cdb534a4'
     }
 ```
 
-## 3.editGoalDataById
+## 3.Edit Goal Data
 
 **HTTP Request**
 
@@ -115,29 +113,28 @@ curl --location -g 'http://localhost:3000/api/v1/goal/65526a70a4cc0197cdb534a4'
     PUT /api/v1/goal/{{goalId}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter | Status   | Description                |
-| :-------- | :------- | :------------------------- |
-| `goalId`  | ``       |  |
+| Parameter | Description    |
+| :-------- | :------------- |
+| `goalId`  | Insert Goal Id to edit the data |
 
 **Request Body**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `name`    |   |
+| Parameter | Status      | Description       |
+| :-------- | :---------- | :---------------- |
+| `name`    | `Optional`  | New name of goal. |
 
 **Response**
 
 | Parameter | Description                |
 | :-------- | :------------------------- |
-| `success` |   |
-| `message` |   |
-| `data`    |   |
-| `goal`    |   |
-| `_id`     |   |
-| `name`    |   |
-| `__v`     |   |
+| `success` | `true` if data edit successful,`false` if data edit fails. |
+| `message` | Explanation of the outcome (success or failure details).  |
+| `data`    | Container for goal data.  |
+| `goal`    | Object containing goal information.  |
+| `_id`     | Goal ID.  |
+| `name`    | The name of goal.  |
 
 **Example**
 
@@ -162,7 +159,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/goal/65526a70a4cc
     }
 ```
 
-## 4.deleteGoalDataById
+## 4.Delete Goal Data
 
 **HTTP Request**
 
@@ -170,18 +167,18 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/goal/65526a70a4cc
     DELETE /api/v1/goal/{{goalId}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter | Status   | Description                |
-| :-------- | :------- | :------------------------- |
-| `goalId`  | ``       |  |
+| Parameter | Description    |
+| :-------- | :------------- |
+| `goalId`  | Insert Goal Id to delete the data|
 
 **Response**
 
 | Parameter | Description                |
 | :-------- | :------------------------- |
-| `success` |   |
-| `message` |   |
+| `success` | `true` if delete data successful,`false` if delete data fails. |
+| `message` | Explanation of the outcome (success or failure details).  |
 
 **Example**
 
@@ -196,7 +193,7 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/goal/65667ebb5
     }
 ```
 
-## 5. insertGoalData
+## 5.Insert Goal Data
 
 **HTTP Request**
 
@@ -206,21 +203,20 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/goal/65667ebb5
 
 **Request Body**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `name`    |   |
+| Parameter | Status      | Description       |
+| :-------- | :---------- | :---------------- |
+| `name`    | `Optional`  | New name of goal. |
 
 **Response**
 
 | Parameter | Description                |
 | :-------- | :------------------------- |
-| `success` |   |
-| `message` |   |
-| `data`    |   |
-| `goal`    |   |
-| `_id`     |   |
-| `name`    |   |
-| `__v`     |   |
+| `success` | `true` if insert data successful,`false` if insert data fails. |
+| `message` | Explanation of the outcome (success or failure details).  |
+| `data`    | Container for goal data.  |
+| `goal`    | Object containing goal information.  |
+| `_id`     | Goal ID.  |
+| `name`    | The name of goal.  |
 
 **Example**
 
