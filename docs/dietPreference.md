@@ -1,8 +1,8 @@
 # Diet Preference
 
-This Api will be used to authenticate new user
+This Api will be used to provide Diet Preference Data.
 
-## 1.insertDietPrefData
+## 1.Insert Diet Preference
 
 **HTTP Request**
 ```
@@ -11,25 +11,23 @@ This Api will be used to authenticate new user
 
 **Request Body**
 
-| Parameter   | Description                |
-| :---------- | :------------------------- |
-| `name`      |    |
-| `desc`      |    |
+| Parameter | Status      | Description       |
+| :-------- | :---------- | :---------------- |
+| `name`    | `Required`  | Insert the name of diet preference. |
+| `desc`    | `Required`  | The description of diet preference. |
 
 
 **Response**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
-| `data`            |   |
-| `dietPref`        |   |
-| `name`            |   |
-| `desc`            |   |
-| `_id`             |   |
-| `__v`             |   |
-
+| Parameter  | Description                |
+| :--------- | :------------------------- |
+| `success`  | `true` if insert data successful,`false` if insert data fails. |
+| `message`  | Explanation of the outcome (success or failure details). |
+| `data`     | Container for diet preference data.  |
+| `dietPref` | Object containing diet preference information.  |
+| `name`     | The name of diet preference.  |
+| `desc`     | Containing the description of diet preference.  |
+| `_id`      | Diet Preference ID. |
 
 **Example**
 ```
@@ -55,7 +53,7 @@ curl --location 'http://localhost:3000/api/v1/diet-pref' \
     }
 ```
 
-## 2.fetchDietPrefDataByID
+## 2.Fetch Diet Preference
 
 **HTTP Request**
 ```
@@ -64,23 +62,21 @@ curl --location 'http://localhost:3000/api/v1/diet-pref' \
 
 **Parameter**
 
-| Parameter | Status   | Description                |
-| :-------- | :------- | :------------------------- |
-| `id`      | ``       |  |
+| Parameter    | Description    |
+| :----------- | :------------- |
+| `dietPrefId` | Insert diet preference Id to fetch the data|
 
 **Response**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
-| `data`            |   |
-| `dietPref`        |   |
-| `_id`             |   |
-| `name`            |   |
-| `desc`            |   |
-| `__v`             |   |
-
+| Parameter  | Description                |
+| :--------- | :------------------------- |
+| `success`  | `true` if insert data successful,`false` if insert data fails. |
+| `message`  | Explanation of the outcome (success or failure details). |
+| `data`     | Container for diet preference data.  |
+| `dietPref` | Object containing diet preference information.  |
+| `_id`      | Diet Preference ID. |
+| `name`     | The name of diet preference.  |
+| `desc`     | Containing the description of diet preference.  |
 
 **Example**
 
@@ -103,7 +99,7 @@ curl --location 'http://localhost:3000/api/v1/diet-pref/665526a70a4cc0197cdb5348
     }
 ```
 
-## 3.editLevelDataById
+## 3.Edit Diet Preference Data
 
 **HTTP Request**
 
@@ -111,32 +107,30 @@ curl --location 'http://localhost:3000/api/v1/diet-pref/665526a70a4cc0197cdb5348
     PUT /api/v1/diet-pref/{{id}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter | Status   | Description                |
-| :-------- | :------- | :------------------------- |
-| `id`      | ``       |  |
+| Parameter    | Description    |
+| :----------- | :------------- |
+| `dietPrefId` | Insert diet preference Id to edit the data|
 
 **Request Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `name`            |   |
-| `desc`            |   |
+| Parameter | Status      | Description       |
+| :-------- | :---------- | :---------------- |
+| `name`    | `Optional`  | Insert the name of diet preference. |
+| `desc`    | `Optional`  | Insert the new description of diet preference. |
 
 **Response**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
-| `data`            |   |
-| `dietPref`        |   |
-| `_id`             |   |
-| `name`            |   |
-| `desc`            |   |
-| `__v`             |   |
-
+| Parameter  | Description                |
+| :--------- | :------------------------- |
+| `success`  | `true` if edit data successful,`false` if edit data fails. |
+| `message`  | Explanation of the outcome (success or failure details). |
+| `data`     | Container for diet preference data.  |
+| `dietPref` | Object containing diet preference information.  |
+| `_id`      | Diet Preference ID. |
+| `name`     | The name of diet preference.  |
+| `desc`     | Containing the description of diet preference.  |
 
 **Example**
 
@@ -163,7 +157,7 @@ curl --location --request PUT 'http://localhost:3000/api/v1/diet-pref/6566c9fc8b
     }
 ```
 
-## 4.fetchAllDietPrefData
+## 4.Fetch All Diet Preference Data
 
 **HTTP Request**
 
@@ -173,17 +167,16 @@ curl --location --request PUT 'http://localhost:3000/api/v1/diet-pref/6566c9fc8b
 
 **Response**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
-| `data`            |   |
-| `dietPref`        |   |
-| `_id`             |   |
-| `name`            |   |
-| `desc`            |   |
-| `__v`             |   |
-| `count`           |   |
+| Parameter  | Description                |
+| :--------- | :------------------------- |
+| `success`  | `true` if fetch data successful,`false` if fetch data fails. |
+| `message`  | Explanation of the outcome (success or failure details). |
+| `data`     | Container for diet preference data.  |
+| `dietPref` | Array containing diet preference information.  |
+| `_id`      | Diet Preference ID. |
+| `name`     | The name of diet preference.  |
+| `desc`     | Containing the description of diet preference.  |
+| `count`    | Total count of diet Preference fetched. |
 
 **Example**
 
@@ -233,7 +226,7 @@ curl --location 'http://localhost:3000/api/v1/diet-pref/all'
     }
 ```
 
-## 5.deleteDietPrefDataById
+## 5.Delete Data Preference Data
 
 **HTTP Request**
 
@@ -241,18 +234,18 @@ curl --location 'http://localhost:3000/api/v1/diet-pref/all'
     DELETE  api/v1/diet-pref/{{dietPrefId}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter | Status   | Description                |
-| :-------- | :------- | :------------------------- |
-| `id`      | ``       |  |
+| Parameter    | Description    |
+| :----------- | :------------- |
+| `dietPrefId` | Insert diet preference Id to delete the data|
 
 **Response**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         |   |
-| `message`         |   |
+| Parameter | Description                |
+| :-------- | :------------------------- |
+| `success` | `true` if delete data successful,`false` if delete data fails. |
+| `message` | Explanation of the outcome (success or failure details).  |
 
 
 **Example**
@@ -267,4 +260,3 @@ curl --location --request DELETE 'http://localhost:3000/api/v1/diet-pref/6566c9f
     "message": "Diet pref data delete successful"
     }
 ```
-
