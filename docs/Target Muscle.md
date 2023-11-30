@@ -1,8 +1,8 @@
 # Target Muscle
 
-This Api for target Muscle
+This Api will be used to provide Diet Preference Data.
 
-## 1.insertTargetMuscleData
+## 1.Insert Target Muscle
 
 **HTTP Request**
 
@@ -12,21 +12,21 @@ This Api for target Muscle
 
 **Request Body**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `name`    |   |
+| Parameter | Status      | Description       |
+| :-------- | :---------- | :---------------- |
+| `name`    | `Required`  | Insert the name of Target Muscle. |
+
 
 **Response**
 
-| Parameter        | Description                |
-| :--------------- | :------------------------- |
-| `success`        |   |
-| `message`        |   |
-| `data`           |   |
-| `targetMuscle`   |   |
-| `_id`            |   |
-| `name`           |   |
-| `__v`            |   |
+| Parameter      | Description                |
+| :------------- | :------------------------- |
+| `success`      | `true` if insert data successful,`false` if insert data fails. |
+| `message`      | Explanation of the outcome (success or failure details). |
+| `data`         | Container for target muscle data  |
+| `targetMuscle` | Object containing target muscle information.  |
+| `_id`          | Target Muscle ID |
+| `name`         | The name of target muscle.  |
 
 **Example**
 
@@ -51,7 +51,7 @@ curl --location 'http://localhost:3000/api/v1/target-muscle' \
     } 
 ```
 
-## 2.fetchTargetMuscleDataById
+## 2.Fetch Target Muscle Data
 
 **HTTP Request**
 
@@ -59,23 +59,23 @@ curl --location 'http://localhost:3000/api/v1/target-muscle' \
     GET /api/v1/target-muscle/{{targetMuscleId}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter        | Status   | Description                |
-| :--------------- | :------- | :------------------------- |
-| `targetMuscleId` | ``       |  |
+| Parameter        | Description    |
+| :--------------- | :------------- |
+| `targetMuscleId` | Insert Target Muscle Id to fetch the data. |
+
 
 **Response**
 
-| Parameter        | Description                |
-| :--------------- | :------------------------- |
-| `success`        |   |
-| `message`        |   |
-| `data`           |   |
-| `targetMuscle`   |   |
-| `_id`            |   |
-| `name`           |   |
-| `__v`            |   |
+| Parameter      | Description                |
+| :------------- | :------------------------- |
+| `success`      | `true` if data fetch successful,`false` if data fetch fails.|
+| `message`      | Explanation of the outcome (success or failure details). |
+| `data`         | Container for target muscle data. |
+| `targetMuscle` | Object containing target muscle information. |
+| `_id`          | Target Muscle ID. |
+| `name`         | The name of target muscle.  |
 
 **Example**
 
@@ -97,7 +97,7 @@ curl --location -g 'http://localhost:3000/api/v1/target-muscle/656692fa5baf19362
     }
 ```
 
-## 3.editTargetMuscleDataById
+## 3.Edit Target Muscle Data
 
 **HTTP Request**
 
@@ -105,29 +105,28 @@ curl --location -g 'http://localhost:3000/api/v1/target-muscle/656692fa5baf19362
     PUT /api/v1/target-muscle/{{targetMuscleId}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter        | Status   | Description                |
-| :--------------- | :------- | :------------------------- |
-| `targetMuscleId` | ``       |  |
+| Parameter        | Description    |
+| :--------------- | :------------- |
+| `targetMuscleId` | Insert Target Muscle Id to edit the data. |
+
 
 **Request Body**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `name`    |   |
-
+| Parameter | Status      | Description       |
+| :-------- | :---------- | :---------------- |
+| `name`    | `Required`  | Insert the new name of Target Muscle. |
 **Response**
 
-| Parameter        | Description                |
-| :--------------- | :------------------------- |
-| `success`        |   |
-| `message`        |   |
-| `data`           |   |
-| `targetMuscle`   |   |
-| `_id`            |   |
-| `name`           |   |
-| `__v`            |   |
+| Parameter      | Description                |
+| :------------- | :------------------------- |
+| `success`      | `true` if data edit successful,`false` if data edit fails. |
+| `message`      | Explanation of the outcome (success or failure details). |
+| `data`         | Container for target muscle data. |
+| `targetMuscle` | Object containing target muscle information. |
+| `_id`          | Target Muscle ID. |
+| `name`         | The name of target muscle.  |
 
 **Example**
 
@@ -152,7 +151,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/target-muscle/656
     }
 ```
 
-## 4.fetchAllTargetMuscleData
+## 4.Fetch All Target Muscle Data
 
 **HTTP Request**
 
@@ -162,16 +161,15 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/target-muscle/656
 
 **Response**
 
-| Parameter        | Description                |
-| :--------------- | :------------------------- |
-| `success`        |   |
-| `message`        |   |
-| `data`           |   |
-| `targetMuscle`   |   |
-| `_id`            |   |
-| `name`           |   |
-| `__v`            |   |
-| `count`          |   |
+| Parameter      | Description                |
+| :------------- | :------------------------- |
+| `success`      | `true` if data fetch successful,`false` if data fetch fails. |
+| `message`      | Explanation of the outcome (success or failure details). |
+| `data`         | Container for target muscle data. |
+| `targetMuscle` | Array containing target muscle information. |
+| `_id`          | Target Muscle ID. |
+| `name`         | The name of target muscle.  |
+| `count`        | Total count of target muscle fetched. |
 
 **Example**
 
@@ -241,7 +239,7 @@ curl --location 'http://localhost:3000/api/v1/target-muscle/all'
 }
 ```
 
-## 5.deleteTargetMuscleDataById
+## 5.Delete Target Muscle Data
 
 **HTTP Request**
 
@@ -249,18 +247,18 @@ curl --location 'http://localhost:3000/api/v1/target-muscle/all'
     DELETE /api/v1/target-muscle/{{targetMuscleId}}
 ```
 
-**Parameter**
+**Query**
 
-| Parameter        | Status   | Description                |
-| :--------------- | :------- | :------------------------- |
-| `targetMuscleId` | ``       |  |
+| Parameter        | Description    |
+| :--------------- | :------------- |
+| `targetMuscleId` | Insert Target Muscle Id to delete the data. |
 
 **Response**
 
 | Parameter | Description                |
 | :-------- | :------------------------- |
-| `success` |   |
-| `message` |   |
+| `success` | `true` if delete data successful,`false` if delete data fails. |
+| `message` | Explanation of the outcome (success or failure details).  |
 
 **Example**
 
