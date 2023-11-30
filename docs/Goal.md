@@ -25,7 +25,7 @@ This Api will be used to provide Goal Data.
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/goal/all'
+curl --location 'http://{{base_url}}/api/v1/goal/all'
 ```
 
 ```JSON
@@ -88,7 +88,7 @@ curl --location 'http://localhost:3000/api/v1/goal/all'
 **Example**
 
 ```
-curl --location -g 'http://localhost:3000/api/v1/goal/65526a70a4cc0197cdb534a4'
+curl --location -g 'http://{{base_url}}/api/v1/goal/65526a70a4cc0197cdb534a4'
 ```
 
 ```JSON
@@ -139,7 +139,7 @@ curl --location -g 'http://localhost:3000/api/v1/goal/65526a70a4cc0197cdb534a4'
 **Example**
 
 ```
-curl --location -g --request PUT 'http://localhost:3000/api/v1/goal/65526a70a4cc0197cdb534a4' \
+curl --location -g --request PUT 'http://{{base_url}}/api/v1/goal/65526a70a4cc0197cdb534a4' \
 --data '{
   "name": "keep fit and healthy"
 }'
@@ -183,7 +183,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/goal/65526a70a4cc
 **Example**
 
 ```
-curl --location -g --request DELETE 'http://localhost:3000/api/v1/goal/65667ebb5baf19362c520a66'
+curl --location -g --request DELETE 'http://{{base_url}}/api/v1/goal/65667ebb5baf19362c520a66'
 ```
 
 ```JSON
@@ -221,7 +221,7 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/goal/65667ebb5
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/goal' \
+curl --location 'http://{{base_url}}/api/v1/goal' \
 --data '{
   "name": "healthy"
 }'

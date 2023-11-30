@@ -31,7 +31,7 @@ This Api will be used to provide Diet Preference Data.
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/target-muscle' \
+curl --location 'http://{{base_url}}/api/v1/target-muscle' \
 --data '{
   "name": "feet"
 }'
@@ -80,7 +80,7 @@ curl --location 'http://localhost:3000/api/v1/target-muscle' \
 **Example**
 
 ```
-curl --location -g 'http://localhost:3000/api/v1/target-muscle/656692fa5baf19362c520a70'
+curl --location -g 'http://{{base_url}}/api/v1/target-muscle/656692fa5baf19362c520a70'
 ```
 
 ```JSON
@@ -132,7 +132,7 @@ curl --location -g 'http://localhost:3000/api/v1/target-muscle/656692fa5baf19362
 **Example**
 
 ```
-curl --location -g --request PUT 'http://localhost:3000/api/v1/target-muscle/656692fa5baf19362c520a70' \
+curl --location -g --request PUT 'http://{{base_url}}/api/v1/target-muscle/656692fa5baf19362c520a70' \
 --data '{
   "name": "hand"
 }'
@@ -175,7 +175,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/target-muscle/656
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/target-muscle/all'
+curl --location 'http://{{base_url}}/api/v1/target-muscle/all'
 ```
 
 ```JSON
@@ -264,7 +264,7 @@ curl --location 'http://localhost:3000/api/v1/target-muscle/all'
 **Example**
 
 ```
-curl --location -g --request DELETE 'http://localhost:3000/api/v1/target-muscle/656692fa5baf19362c520a70'
+curl --location -g --request DELETE 'http://{{base_url}}/api/v1/target-muscle/656692fa5baf19362c520a70'
 ```
 
 ```JSON

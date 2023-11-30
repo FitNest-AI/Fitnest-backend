@@ -31,7 +31,7 @@ This Api will be used to provide Diet Preference Data.
 
 **Example**
 ```
-curl --location 'http://localhost:3000/api/v1/diet-pref' \
+curl --location 'http://{{baseUrl}}}}/api/v1/diet-pref' \
 --data '{
   "name": "Omnivora",
   "desc": "eat everything"
@@ -81,7 +81,7 @@ curl --location 'http://localhost:3000/api/v1/diet-pref' \
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/diet-pref/665526a70a4cc0197cdb5348f'
+curl --location 'http://{{baseUrl}}}}/api/v1/diet-pref/665526a70a4cc0197cdb5348f'
 ```
 
 ```JSON
@@ -135,7 +135,7 @@ curl --location 'http://localhost:3000/api/v1/diet-pref/665526a70a4cc0197cdb5348
 **Example**
 
 ```
-curl --location --request PUT 'http://localhost:3000/api/v1/diet-pref/6566c9fc8b19eeb3258352c0' \
+curl --location --request PUT 'http://{{baseUrl}}}}/api/v1/diet-pref/6566c9fc8b19eeb3258352c0' \
 --data '{
   "name": "karnivora",
   "desc": "eat daging"
@@ -181,7 +181,7 @@ curl --location --request PUT 'http://localhost:3000/api/v1/diet-pref/6566c9fc8b
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/diet-pref/all'
+curl --location 'http://{{baseUrl}}}}/api/v1/diet-pref/all'
 ```
 
 ```JSON
@@ -251,7 +251,7 @@ curl --location 'http://localhost:3000/api/v1/diet-pref/all'
 **Example**
 
 ```
-curl --location --request DELETE 'http://localhost:3000/api/v1/diet-pref/6566c9fc8b19eeb3258352c0'
+curl --location --request DELETE 'http://{{baseUrl}}}}/api/v1/diet-pref/6566c9fc8b19eeb3258352c0'
 ```
 
 ```JSON

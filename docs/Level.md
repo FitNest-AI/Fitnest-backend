@@ -31,7 +31,7 @@ This Api will be used to provide Level Data.
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/level' \
+curl --location 'http://{{base_url}}/api/v1/level' \
 --data '{
   "name": "mudah"
 }'
@@ -79,7 +79,7 @@ curl --location 'http://localhost:3000/api/v1/level' \
 **Example**
 
 ```
-curl --location -g 'http://localhost:3000/api/v1/level/65526a6fa4cc0197cdb53487'
+curl --location -g 'http://{{base_url}}/api/v1/level/65526a6fa4cc0197cdb53487'
 ```
 
 ```JSON
@@ -131,7 +131,7 @@ curl --location -g 'http://localhost:3000/api/v1/level/65526a6fa4cc0197cdb53487'
 **Example**
 
 ```
-curl --location -g --request PUT 'http://localhost:3000/api/v1/level/{{levelId}}' \
+curl --location -g --request PUT 'http://{{base_url}}/api/v1/level/{{levelId}}' \
 --data '{
   "name": "sepuh"
 }'
@@ -174,7 +174,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/level/{{levelId}}
 **Example**
 
 ```
-curl --location 'http://localhost:3000/api/v1/level/all'
+curl --location 'http://{{base_url}}/api/v1/level/all'
 ```
 
 ```JSON
@@ -243,7 +243,7 @@ curl --location 'http://localhost:3000/api/v1/level/all'
 **Example**
 
 ```
-curl --location -g --request DELETE 'http://localhost:3000/api/v1/level/6566801f5baf19362c520a69'
+curl --location -g --request DELETE 'http://{{base_url}}/api/v1/level/6566801f5baf19362c520a69'
 ```
 
 ```JSON
