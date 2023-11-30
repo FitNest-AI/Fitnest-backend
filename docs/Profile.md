@@ -21,7 +21,7 @@ AllUserAuthenticate
 | :--------             | :-------                          | :------------------------- |
 | `firstname`           | `optional`                        | User's first name. | 
 | `lastname`            | `optional`                        | User's last name. |
-| `gender`              | `optional`                        | User's gender. |
+| `gender`              | `optional`                        | User's gender. `man` or `woman`. |
 | `dateOfBirth`         | `optional`                        | User's date of birth (format: YYYY-MM-DD). |
 | `height`              | `optional`                        | User's height (in cm) - Minimum: 50, Maximum: 280. |
 | `Weight`              | `optional`                        | User's weight (in kg) - Minimum: 10, Maximum: 600. |
@@ -125,7 +125,7 @@ AllUserAuthenticate
 | :--------             | :-------                          | :------------------------- |
 | `firstname`           | `optional`                        | User's first name. | 
 | `lastname`            | `optional`                        | User's last name. |
-| `gender`              | `optional`                        | User's gender. |
+| `gender`              | `optional`                        | User's gender. `man` or `woman`. |
 | `dateOfBirth`         | `optional`                        | User's date of birth (format: YYYY-MM-DD). |
 | `height`              | `optional`                        | User's height (in cm) - Minimum: 50, Maximum: 280. |
 | `Weight`              | `optional`                        | User's weight (in kg) - Minimum: 10, Maximum: 600. |
