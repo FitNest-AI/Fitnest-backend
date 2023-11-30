@@ -210,7 +210,7 @@ curl --location 'http://{{base_url}}/api/v1/exercise' \
     }
 ```
 
-## 3.Fetch Exercise Data
+## 3.Fetch Detail Exercise Data
 
 **HTTP Request**
 
