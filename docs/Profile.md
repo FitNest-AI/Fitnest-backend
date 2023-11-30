@@ -23,8 +23,8 @@ AllUserAuthenticate
 | `lastname`            | `optional`                        | User's last name. |
 | `gender`              | `optional`                        | User's gender. `man` or `woman`. |
 | `dateOfBirth`         | `optional`                        | User's date of birth (format: YYYY-MM-DD). |
-| `height`              | `optional`                        | User's height (in cm) - Minimum: 50, Maximum: 280. |
-| `Weight`              | `optional`                        | User's weight (in kg) - Minimum: 10, Maximum: 600. |
+| `height`              | `optional`                        | User's height (in cm) - `Min: 50`, `Max: 280`. |
+| `Weight`              | `optional`                        | User's weight (in kg) - `Min: 10`, `Max: 600`. |
 | `goalId`              | `optional` `array`                | Array of goal identifiers. |
 | `levelId`             | `optional`                        | Identifier specifying the user's fitness level. |
 | `targetMuscleId`      | `optional` `array`                | Array of target muscle identifiers. |
@@ -121,19 +121,19 @@ AllUserAuthenticate
 
 **Request Body**
 
-| Parameter             | Status                            | Description                |
-| :--------             | :-------                          | :------------------------- |
-| `firstname`           | `optional`                        | User's first name. | 
-| `lastname`            | `optional`                        | User's last name. |
-| `gender`              | `optional`                        | User's gender. `man` or `woman`. |
-| `dateOfBirth`         | `optional`                        | User's date of birth (format: YYYY-MM-DD). |
-| `height`              | `optional`                        | User's height (in cm) - Minimum: 50, Maximum: 280. |
-| `Weight`              | `optional`                        | User's weight (in kg) - Minimum: 10, Maximum: 600. |
-| `goalId`              | `optional` `array`                | Array of goal identifiers. |
-| `levelId`             | `optional`                        | Identifier specifying the user's fitness level. |
-| `targetMuscleId`      | `optional` `array`                | Array of target muscle identifiers. |
-| `conditionId`         | `optional`                        | Identifier specifying the user's fitness condition. |
-| `dietPrefId`          | `optional`                        | Identifier specifying the user's dietary preferences. |
+| Parameter             | Status     | Description                |
+| :--------             | :-------   | :------------------------- |
+| `firstname`           | `optional` | User's first name. | 
+| `lastname`            | `optional` | User's last name. |
+| `gender`              | `optional` | User's gender. `man` or `woman`. |
+| `dateOfBirth`         | `optional` | User's date of birth (format: YYYY-MM-DD). |
+| `height`              | `optional` | User's height (in cm) - `Min: 50`, `Max: 280`. |
+| `Weight`              | `optional` | User's weight (in kg) - `Min: 10`, `Max: 600`. |
+| `goalId`              | `optional` | Array of goal identifiers. |
+| `levelId`             | `optional` | Identifier specifying the user's fitness level. |
+| `targetMuscleId`      | `optional` | Array of target muscle identifiers. |
+| `conditionId`         | `optional` | Identifier specifying the user's fitness condition. |
+| `dietPrefId`          | `optional` | Identifier specifying the user's dietary preferences. |
 
 **Response Body**
 
