@@ -114,7 +114,7 @@ curl --location -g 'http://localhost:3000/api/v1/level/65526a6fa4cc0197cdb53487'
 
 | Parameter | Status      | Description       |
 | :-------- | :---------- | :---------------- |
-| `name`    | `Required`  | New name of level. |
+| `name`    | `Optional`  | New name of level. |
 
 
 **Response**
