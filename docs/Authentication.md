@@ -14,7 +14,7 @@ This Api will be used to authenticate new user
 | Parameter         | Status               | Description                |
 | :--------         | :-------             | :------------------------- |
 | `email`           | `required`           | Email address for creating a new account. |
-| `password`        | `required` `min: 8`  | Password (minimum 8 characters). |
+| `password`        | `required`           | Password (minimum 8 characters). |
 | `confirmPassword` | `required`           | Confirmation of the password. Must match the provided password. |
 
 **Response Body**
@@ -218,7 +218,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token={{token
 | Parameter         | Status                | Description                |
 | :--------         | :-------              | :------------------------- |
 | `email`           | `required`            | Email address of the registered user. | 
-| `password`        | `required` `min: 8`   | Password (minimum 8 characters). | 
+| `password`        | `required`            | Password (minimum 8 characters). | 
 
 **Response Body**
 
