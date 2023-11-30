@@ -116,7 +116,8 @@ curl --location -g 'http://localhost:3000/api/v1/target-muscle/656692fa5baf19362
 
 | Parameter | Status      | Description       |
 | :-------- | :---------- | :---------------- |
-| `name`    | `Required`  | Insert the new name of Target Muscle. |
+| `name`    | `Optional`  | Insert the new name of Target Muscle. |
+
 **Response**
 
 | Parameter      | Description                |
