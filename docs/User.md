@@ -118,9 +118,9 @@ PUT /api/v1/user/image
 
 **Request Body**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `image`   |   |
+| Parameter         | Status     | Description                |
+| :--------         | :-------   | :------------------------- |
+| `image`           | `required` | Email address of the registered user. | 
 
 **Response Body**
 
@@ -176,11 +176,11 @@ PUT /api/v1/user
 
 **Request Body**
 
-| Parameter          | Description                |
-| :----------------- | :------------------------- |
-| `username`         | New username for the user.  |
-| `password`         | New password for the user.  |
-| `confirmPassword`  | Confirmation of the new password. Must match the provided password.  |
+| Parameter             | Status     | Description                |
+| :--------             | :-------   | :------------------------- |
+| `username`            | `optional` | New username for the user. | 
+| `password`            | `optional` | New password for the user. |
+| `confirmPassword`     | `optional` | Confirmation of the new password. Must match the provided password. |
 
 **Response Body**
 

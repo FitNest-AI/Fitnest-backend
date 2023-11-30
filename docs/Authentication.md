@@ -11,13 +11,13 @@ This Api will be used to authenticate new user
 
 **Request Body**
 
-| Parameter         | Status     | Description                |
-| :--------         | :-------   | :------------------------- |
-| `email`           | `required` | Email address for creating a new account. |
-| `password`        | `required` | Password (minimum 8 characters). |
-| `confirmPassword` | `required` | Confirmation of the password. Must match the provided password. |
+| Parameter         | Status               | Description                |
+| :--------         | :-------             | :------------------------- |
+| `email`           | `required`           | Email address for creating a new account. |
+| `password`        | `required` `min: 8`  | Password (minimum 8 characters). |
+| `confirmPassword` | `required`           | Confirmation of the password. Must match the provided password. |
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
@@ -69,7 +69,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 | :--------         | :-------------------------   |
 | `token`           | Token for verifying account. | 
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
@@ -103,13 +103,13 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
   GET /api/v1/auth/resend-verify
 ```
 
-**Parameter**
+**Request Body**
 
 | Parameter         | Status     | Description                |
 | :--------         | :-------   | :------------------------- |
 | `email`           | `required` | Email address of the registered user. | 
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
@@ -140,13 +140,13 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
     GET /api/v1/auth/forget-password
 ```
 
-**Parameter**
+**Request Body**
 
 | Parameter         | Status     | Description                |
 | :--------         | :-------   | :------------------------- |
 | `email`           | `required` | Email address of the registered user. | 
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :---------   | :------------------------- |
@@ -186,7 +186,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 | `token`   | Token for resetting the account password. | 
 
 
-**Response**
+**Response Body**
 
 | Parameter         | Description                |
 | :---------------- | :------------------------- |
@@ -206,7 +206,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token={{token
     }
 ```
 
-## 5.authLogin
+## 5.Auth Login
 
 **HTTP Request**
 ```
@@ -215,12 +215,12 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token={{token
 
 **Request Body**
 
-| Parameter         | Status     | Description                |
-| :--------         | :-------   | :------------------------- |
-| `email`           | `required` | Email address of the registered user. | 
-| `password`        | `required` | Password (minimum 8 characters). | 
+| Parameter         | Status                | Description                |
+| :--------         | :-------              | :------------------------- |
+| `email`           | `required`            | Email address of the registered user. | 
+| `password`        | `required` `min: 8`   | Password (minimum 8 characters). | 
 
-**Response**
+**Response Body**
 
 | Parameter         | Description                |
 | :---------------- | :------------------------- |
@@ -258,14 +258,14 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/login' \
     }
 ```
 
-## 6.authLogout
+## 6.Auth Logout
 
 **HTTP Request**
 ```
   GET /api/v1/auth/logout
 ```
 
-**Response**
+**Response Body**
 
 | Parameter         | Description                |
 | :---------------- | :------------------------- |
