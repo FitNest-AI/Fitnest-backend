@@ -1,6 +1,6 @@
 # Exercise
 
-This Api will be used to authenticate new user
+This Api will be used to provide Exercise Data.
 
 ## 1.Fetch All Exercise Data
 
