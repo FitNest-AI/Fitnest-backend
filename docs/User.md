@@ -258,8 +258,8 @@ curl --location --request PUT '{{base_url}}/api/v1/user/role'
      "data": {
         "user": {
             "_id": "655c05e0d05a925976afc071",
-            "email": "rahman.adityaaa31@gmail.com",
-            "username": "dota",
+            "email": "yourEmail@gmail.com",
+            "username": "yourUsername",
             "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
             "verify": true,
             "roleId": "65526a6fa4cc0197cdb53484"
