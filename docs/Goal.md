@@ -205,7 +205,7 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/goal/65667ebb5
 
 | Parameter | Status      | Description       |
 | :-------- | :---------- | :---------------- |
-| `name`    | `Optional`  | New name of goal. |
+| `name`    | `Required`  | New name of goal. |
 
 **Response**
 
