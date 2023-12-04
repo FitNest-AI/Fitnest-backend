@@ -40,8 +40,9 @@ module.exports = {
   },
 
   fetchUserHandler: async (req, res) => {
+    const {id} = req.user;
     try {
-      const user = await UsersModel.findById(req.user.id).select('email username image verify roleId profileId');
+      const user = await UsersModel.findById(id).select('email username image verify roleId profileId');
 
       if (!user) {
         throw new CustomError(400, 'User data fetch failure');
@@ -82,10 +83,11 @@ module.exports = {
   },
 
   editUserHandler: async (req, res) => {
+    const {id} = req.user;
     let {username, password, confirmPassword} = req.body;
 
     try {
-      const user = await UsersModel.findById(req.user.id);
+      const user = await UsersModel.findById(id);
 
       if (!user) {
         throw new CustomError(400, 'User data edit failure');
@@ -109,7 +111,7 @@ module.exports = {
         username = user.username;
       }
 
-      const userUpdate = await UsersModel.findByIdAndUpdate(req.user.id, {
+      const userUpdate = await UsersModel.findByIdAndUpdate(id, {
         username,
         password,
       }, {new: true, runValidators: true}).select('email username image verify roleId profileId');
@@ -163,6 +165,7 @@ module.exports = {
   },
 
   editUserImageHandler: async (req, res) => {
+    const {id} = req.user;
     try {
       let image = null;
 
@@ -176,7 +179,7 @@ module.exports = {
         }
       }
 
-      const user = await UsersModel.findByIdAndUpdate(req.user.id, {
+      const user = await UsersModel.findByIdAndUpdate(id, {
         image,
       }, {new: true, runValidators: true}).select('email username image verify roleId profileId');
 
@@ -239,9 +242,11 @@ module.exports = {
   },
 
   editUserRoleHandler: async (req, res) => {
+    const {id} = req.user;
+
     try {
       const roleId = await RolesModel.findOne({name: 'premium'}).select('_id');
-      const user = await UsersModel.findByIdAndUpdate(req.user.id, {roleId}, {new: true, runValidators: true}).select('email username image verify roleId profileId');
+      const user = await UsersModel.findByIdAndUpdate(id, {roleId}, {new: true, runValidators: true}).select('email username image verify roleId profileId');
 
 
       if (!user) {

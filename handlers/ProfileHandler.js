@@ -42,10 +42,10 @@ module.exports = {
   },
 
   fetchProfileHandler: async (req, res) => {
-    const userId = req.user._id;
+    const {id} = req.user;
 
     try {
-      const profile = await ProfilesModel.findOne({userId: userId}).select('firstname lastname gender dateOfBirth height weight bmi')
+      const profile = await ProfilesModel.findOne({userId: id}).select('firstname lastname gender dateOfBirth height weight bmi')
           .populate({path: 'goalId', select: '_id name'})
           .populate({path: 'levelId', select: '_id name'})
           .populate({path: 'targetMuscleId', select: '_id name'})
@@ -91,8 +91,8 @@ module.exports = {
   },
 
   insertProfileHandler: async (req, res) => {
-    const {firstname, lastname, gender, dateOfBirth, height, weight, goalId, levelId, targetMuscleId, conditionId, dietPrefId} = req.body;
     const {id} = req.user;
+    const {firstname, lastname, gender, dateOfBirth, height, weight, goalId, levelId, targetMuscleId, conditionId, dietPrefId} = req.body;
     try {
       const heightMeter = height / 100;
       const bmi = !height || !weight ? 0 : parseFloat(weight / (heightMeter * heightMeter)).toFixed(2);
@@ -166,8 +166,8 @@ module.exports = {
   },
 
   editProfileHandler: async (req, res) => {
-    const {firstname, lastname, gender, dateOfBirth, height, weight, goalId, levelId, targetMuscleId, conditionId, dietPrefId} = req.body;
     const {id} = req.user;
+    const {firstname, lastname, gender, dateOfBirth, height, weight, goalId, levelId, targetMuscleId, conditionId, dietPrefId} = req.body;
 
     try {
       const heightMeter = height / 100;

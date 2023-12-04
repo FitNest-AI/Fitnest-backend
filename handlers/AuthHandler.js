@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
-const passport = require('passport');
+// const passport = require('passport');
 const randomstring = require('randomstring');
+const bcrypt = require('bcrypt');
 
 const CustomError = require('../utils/CustomError');
 const sendEmailVerify = require('../utils/SendEmailVerify');
@@ -10,107 +11,57 @@ const RolesModel = require('../models/RolesModel');
 
 module.exports = {
 
-  // authLoginHandler: async (req, res) => {
-  //   const {email, password} = req.body;
-
-  //   try {
-  //     if (!email || !password) {
-  //       throw new CustomError(400, 'Please enter your email and password');
-  //     }
-
-  //     const user = await UsersModel.findOne({email: email.toLowerCase()}).select(['username', 'password', 'email', 'verify', 'image']);
-
-  //     if (!user) {
-  //       throw new CustomError(403, 'Incorrect email or password. Please try again');
-  //     }
-
-  //     if (!bcrypt.compareSync(password, user.password)) {
-  //       throw new CustomError(403, 'Incorrect password. Please try again');
-  //     }
-
-  //     if (!user.verify) {
-  //       throw new CustomError(403, 'Account not verified. Check your email');
-  //     }
-
-  //     const payload = {
-  //       _id: user._id,
-  //       username: user.username,
-  //       image: user.image,
-  //     };
-
-  //     const token = jwt.sign(payload, process.env.ACCESS_SECRET_KEY, {expiresIn: '60s'});
-  //     res.cookie('token', token, {
-  //       httpOnly: true,
-  //       secure: false,
-  //     });
-
-  //     res.status(200).json({
-  //       success: true,
-  //       message: 'Authentication successful. Welcome!',
-  //       data: {
-  //         user: {_id: user._id},
-  //       },
-  //     });
-  //   } catch (error) {
-  //     console.log(error.stack);
-
-  //     if (error.name === 'CustomError') {
-  //       return res.status(error.code).json({
-  //         success: false,
-  //         message: error.message,
-  //       });
-  //     }
-
-  //     // Server error handle
-  //     return res.status(500).json({
-  //       success: false,
-  //       message: 'Internal server error',
-  //     });
-  //   }
-  // },
-
   authLoginHandler: async (req, res, next) => {
-    passport.authenticate('local', async (error, user, info) => {
-      try {
-        if (error) {
-          throw error;
-        }
+    const {email, password} = req.body;
 
-        if (!user) {
-          throw new CustomError(401, info.message);
-        }
+    try {
+      const user = await UsersModel.findOne({email});
 
-        return await req.login(user, () => {
-          res.status(200).json({
-            success: true,
-            ...info,
-            data: {
-              user: {
-                email: user.email,
-                username: user.username,
-                image: user.image,
-                verify: user.verify,
-                roleId: user.roleId,
-              },
-            },
-          });
-        });
-      } catch (error) {
-        // console.log(error.stack);
+      if (!user) {
+        throw new Error('Incorrect email or password. Please try again.');
+      };
 
-        if (error.name === 'CustomError') {
-          return res.status(error.code).json({
-            success: false,
-            message: error.message,
-          });
-        }
+      if (!bcrypt.compareSync(password, user.password)) {
+        throw new Error('Incorrect password. Please try again.');
+      };
 
-        return res.status(500).json({
+      if (!user.verify) {
+        throw new Error('Click the verification link in your email');
+      }
+
+      const token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
+        expiresIn: '365d',
+      });
+
+      res.status(200).json({
+        success: true,
+        message: 'Authentication successful. Welcome!',
+        data: {
+          user: {
+            email: user.email,
+            username: user.username,
+            image: user.image,
+            verify: user.verify,
+            roleId: user.roleId,
+            token,
+          },
+        },
+      });
+    } catch (error) {
+      console.log(error.stack);
+
+      if (error.name === 'CustomError') {
+        return res.status(error.code).json({
           success: false,
-          message: 'Internal server error',
+          message: error.message,
         });
       }
-    })(req, res, next);
+
+      return res.status(500).json({
+        success: false,
+        message: 'Internal server error',
+      });
+    }
   },
 
   authLogoutHandler: async (req, res) => {

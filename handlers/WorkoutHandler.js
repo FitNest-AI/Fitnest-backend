@@ -3,7 +3,7 @@ const WorkoutsModel = require('../models/WorkoutsModel');
 
 module.exports = {
   fetchAllWorkoutHandler: async (req, res) => {
-    const userId = req.user._id;
+    const userId = req.user.id;
     try {
       const workout = await WorkoutsModel.find().where({userId: userId});
 
@@ -51,7 +51,7 @@ module.exports = {
 
   fetchWorkoutByIdHandler: async (req, res) => {
     const {workoutId} = req.params;
-    const userId = req.user._id;
+    const userId = req.user.id;
     try {
       const workout = await WorkoutsModel.findOne({_id: workoutId, userId}).select('name desc rest day time moveset')
           .populate({path: 'moveset.exerciseId', select: '_id name desc levelId', populate: {path: 'levelId', select: '_id name'}});
@@ -93,7 +93,7 @@ module.exports = {
 
   insertWorkoutHandler: async (req, res) => {
     const {name, desc, rest, day, time, moveset} = req.body;
-    const userId = req.user._id;
+    const userId = req.user.id;
     try {
       const workout = new WorkoutsModel({
         name, desc, rest, day, time, moveset, userId,
@@ -153,7 +153,7 @@ module.exports = {
     const {workoutId} = req.params;
     const {name, desc, rest, day, time} = req.body;
 
-    const userId = req.user._id;
+    const userId = req.user.id;
     try {
       const workout = await WorkoutsModel.findOneAndUpdate({_id: workoutId, userId: userId}, {
         name, desc, rest, day, time, userId,
@@ -217,7 +217,7 @@ module.exports = {
 
   deleteWorkoutByIdHandler: async (req, res) => {
     const {workoutId} = req.params;
-    const userId = req.user._id;
+    const userId = req.user.id;
 
     try {
       const workout = await WorkoutsModel.findOneAndDelete({_id: workoutId, userId: userId});
@@ -258,7 +258,7 @@ module.exports = {
 
   insertExerciseOnWorkoutByIdHandler: async (req, res) => {
     const {workoutId} = req.params;
-    const userId = req.user._id;
+    const userId = req.user.id;
     const {set, rep, exerciseId} = req.body;
 
     try {
@@ -306,7 +306,7 @@ module.exports = {
 
   deleteExerciseOnWorkoutByIdHandler: async (req, res) => {
     const {workoutId, exerciseId} = req.params;
-    const userId = req.user._id;
+    const userId = req.user.id;
 
     try {
       const workout = await WorkoutsModel.findOneAndUpdate(
