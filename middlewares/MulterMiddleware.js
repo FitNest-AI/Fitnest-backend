@@ -1,6 +1,5 @@
 const multer = require('multer');
 const path = require('path');
-const dateFormat = require('dateformat');
 const multerGoogleStorage = require('multer-cloud-storage');
 
 const randomstring = require('randomstring');
@@ -14,7 +13,7 @@ const uploadToBucket = (destination) => multer({
 
     destination: destination,
     filename: async (req, file, done) => {
-      done(null, `${randomstring.generate()}-${dateFormat(new Date(), 'yyyymmdd-HHMMss')}`);
+      done(null, `${randomstring.generate()}`);
     },
   }),
   limits: {

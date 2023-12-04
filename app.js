@@ -46,7 +46,6 @@ app.use('/api/v1/auth', require('./routes/ApiAuthRoute'));
 
 app.use('/api/v1/user', require('./routes/ApiUserRoute'));
 app.use('/api/v1/user/profile', require('./routes/ApiProfileRoute'));
-
 app.use('/api/v1/user/workout', require('./routes/ApiWorkoutRoute'));
 
 app.use('/api/v1/exercise', require('./routes/ApiExerciseRoute'));
@@ -55,10 +54,17 @@ app.use('/api/v1/level', require('./routes/ApiLevelRoute'));
 app.use('/api/v1/target-muscle', require('./routes/ApiTargetMuscleRoute'));
 app.use('/api/v1/diet-pref', require('./routes/ApiDietPrefRoute'));
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'FitNest API is up',
+  });
+});
+
 app.all('*', (req, res) => {
   res.status(404).json({
     success: false,
-    message: 'The requested resource could not be found',
+    message: 'No results found',
   });
 });
 
