@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {isLogin, isLogout} = require('../middlewares/AuthMiddleware');
+const {isLogin} = require('../middlewares/AuthMiddleware');
 const {
   authLoginHandler,
   authLogoutHandler,
@@ -18,14 +18,14 @@ const route = Router();
 // });
 
 // authetication route
-route.post('/register', isLogout, authRegisterHandler);
-route.get('/verify', isLogout, authVerifyHandle);
-route.get('/resend-verify', isLogout, authResendVerifyHandle);
+route.post('/register', authRegisterHandler);
+route.get('/verify', authVerifyHandle);
+route.get('/resend-verify', authResendVerifyHandle);
 
-route.get('/forget-password', isLogout, authForgetPasswordHandler);
-route.get('/reset-password', isLogout, authResetPasswordhandler);
+route.get('/forget-password', authForgetPasswordHandler);
+route.get('/reset-password', authResetPasswordhandler);
 
-route.post('/login', isLogout, authLoginHandler);
+route.post('/login', authLoginHandler);
 route.get('/logout', isLogin, authLogoutHandler);
 
 // route.get('/google', passport.authenticate('google', {scope: ['email', 'profile']}));

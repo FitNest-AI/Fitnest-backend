@@ -16,22 +16,18 @@ module.exports = {
     });
   },
 
-  isLogout: (req, res, next) => {
-    const token = req.headers['authorization'];
+  // isLogout: (req, res, next) => {
+  //   const token = req.headers['authorization'];
 
-    if (!token) {
-      next();
-    } else {
-      jwt.verify(token, process.env.ACCESS_SECRET_KEY, (err, user) => {
-        if (err) {
-          next();
-        }
+  //   jwt.verify(token, process.env.ACCESS_SECRET_KEY, (err, user) => {
+  //     if (err) {
+  //       next();
+  //     }
 
-        return res.status(401).json({
-          success: false,
-          message: 'You are already logged in.',
-        });
-      });
-    }
-  },
+  //     return res.status(401).json({
+  //       success: false,
+  //       message: 'You are already logged in.',
+  //     });
+  //   });
+  // },
 };

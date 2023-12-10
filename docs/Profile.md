@@ -28,7 +28,6 @@ AllUserAuthenticate
 | `goalId`              | `optional` `array`                | Array of goal identifiers. |
 | `levelId`             | `optional`                        | Identifier specifying the user's fitness level. |
 | `targetMuscleId`      | `optional` `array`                | Array of target muscle identifiers. |
-| `conditionId`         | `optional`                        | Identifier specifying the user's fitness condition. |
 | `dietPrefId`          | `optional`                        | Identifier specifying the user's dietary preferences. |
 
 **Response Body**
@@ -49,7 +48,6 @@ AllUserAuthenticate
 | `goalId`          | Array of goal identifiers.  |
 | `levelId`         | Identifier specifying the user's fitness level.  |
 | `targetMuscleId`  | Array of target muscle identifiers.  |
-| `conditionId`     | Identifier specifying the user's fitness condition.  |
 | `dietPrefId`      | Identifier specifying the user's dietary preferences.  |
 
 
@@ -68,7 +66,6 @@ curl --location '{{base_url}}/api/v1/user/profile' \
 --data-urlencode 'levelId={{levelId}}' \
 --data-urlencode 'targetMuscleId={{targetMuscleId1}}' \
 --data-urlencode 'targetMuscleId={{targetMuscleId2}}' \
---data-urlencode 'conditionId={{conditionId}}' \
 --data-urlencode 'dietPrefId={{dietPrefId}}'
 ```
 
@@ -94,7 +91,6 @@ curl --location '{{base_url}}/api/v1/user/profile' \
                     "6560765f1844dab5919f6ebf",
                     "6560765f1844dab5919f6ec5"
                 ],
-                "conditionId": "6560765f1844dab5919f6eb1",
                 "dietPrefId": "65671d4885a200b7bce166bf",
                 "userId": "6567833b40e7fd3fc45734bd",
                 "_id": "65682857139e2be4d050ee90",
@@ -132,7 +128,6 @@ AllUserAuthenticate
 | `goalId`              | `optional` | Array of goal identifiers. |
 | `levelId`             | `optional` | Identifier specifying the user's fitness level. |
 | `targetMuscleId`      | `optional` | Array of target muscle identifiers. |
-| `conditionId`         | `optional` | Identifier specifying the user's fitness condition. |
 | `dietPrefId`          | `optional` | Identifier specifying the user's dietary preferences. |
 
 **Response Body**
@@ -153,7 +148,6 @@ AllUserAuthenticate
 | `goalId`          | Updated Array of goal identifiers.  |
 | `levelId`         | Updated Identifier specifying the user's fitness level.  |
 | `targetMuscleId`  | Updated Array of target muscle identifiers.  |
-| `conditionId`     | Updated Identifier specifying the user's fitness condition.  |
 | `dietPrefId`      | Updated Identifier specifying the user's dietary preferences.  |
 
 **Example**
@@ -171,7 +165,6 @@ curl --location --request PUT '{{base_url}}/api/v1/user/profile' \
 --data-urlencode 'levelId={{levelId}}' \
 --data-urlencode 'targetMuscleId={{targetMuscleId1}}' \
 --data-urlencode 'targetMuscleId={{targetMuscleId2}}' \
---data-urlencode 'conditionId={{conditionId}}' \
 --data-urlencode 'dietPrefId={{dietPrefId}}'
 ```
 
@@ -197,7 +190,6 @@ curl --location --request PUT '{{base_url}}/api/v1/user/profile' \
                     "6560765f1844dab5919f6ebf",
                     "6560765f1844dab5919f6ec5"
                 ],
-                "conditionId": "6560765f1844dab5919f6eb1",
                 "dietPrefId": "65671d4885a200b7bce166bf",
                 "userId": "6567833b40e7fd3fc45734bd",
                 "_id": "65682857139e2be4d050ee90",
@@ -240,7 +232,6 @@ AllUserAuthenticate
 | `goalId`          | Array of goal identifiers.  |
 | `levelId`         | Identifier specifying the user's fitness level.  |
 | `targetMuscleId`  | Array of target muscle identifiers.  |
-| `conditionId`     | Identifier specifying the user's fitness condition.  |
 | `dietPrefId`      | Identifier specifying the user's dietary preferences.  |
 
 **Example**
@@ -287,10 +278,6 @@ curl --location '{{base_url}}/api/v1/user/profile'
                     "name": "biceps"
                     }
                 ],
-                "conditionId": {
-                    "_id": "6560765f1844dab5919f6eb1",
-                    "name": "fit"
-                },
                 "dietPrefId": null
             }
         }
@@ -323,7 +310,6 @@ curl --location '{{base_url}}/api/v1/user/profile'
 | `goalId`          | Array of goal identifiers.  |
 | `levelId`         | Identifier specifying the user's fitness level.  |
 | `targetMuscleId`  | Array of target muscle identifiers.  |
-| `conditionId`     | Identifier specifying the user's fitness condition.  |
 | `dietPrefId`      | Identifier specifying the user's dietary preferences.  |
 
 **Example**
@@ -370,10 +356,6 @@ curl --location '{{base_url}}/api/v1/user/profile/all'
           "name": "biceps"
         }
       ],
-      "conditionId": {
-        "_id": "6560765f1844dab5919f6eb1",
-        "name": "fit"
-      },
       "dietPrefId": null
     }
   }
