@@ -6,15 +6,12 @@ const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const passport = require('passport');
 
 const app = express();
 const port = process.env.PORT;
 
 // Database connection Config
 require('./configs/DatabaseConfig').connect(process.env.MONGO_URI);
-// Passport Config
-require('./configs/PassportConfig');
 
 // express-session init
 app.use(session({
@@ -34,11 +31,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 // parse application/json
 app.use(express.json());
 app.use(bodyParser.json());
-
-// passport init
-app.use(passport.initialize());
-// passport session
-app.use(passport.session());
 
 // routes
 app.use('/api/v1/auth', require('./routes/ApiAuthRoute'));
