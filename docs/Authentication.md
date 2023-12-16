@@ -233,6 +233,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token={{token
 | `image`           | URL of the user's profile image or avatar.  |
 | `verify`          | Verification status of the user's account (True or False).  |
 | `roleId`          | Identifier specifying the user's role or permissions.  |
+| `token`           | User authentication token for API authorization.  |
 
 **Example**
 
@@ -252,7 +253,8 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/login' \
             "username": "userEYIKFgmlh0PpULQEzEg7KoC5PwDItZyb",
             "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/avatar/default_avatar.png",
             "verify": true,
-            "roleId": "65526a6fa4cc0197cdb53483"
+            "roleId": "65526a6fa4cc0197cdb53483",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmQ5MGMzYWYyN2Q5Mjg4YjgzMWNiMSIsImlhdCI6MTcwMjcwNjYxNSwiZXhwIjoxNzM0MjQyNjE1fQ.3lbnwsSYbfj-uzaFwBaT3SeAwUv4pgFkifV6JrZJ2B0"
         }
      }
     }

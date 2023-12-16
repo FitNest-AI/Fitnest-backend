@@ -10,6 +10,12 @@ This Api For Workout
     POST /api/v1/user/workout
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Request Body**
 
 | Parameter    | Description                |
@@ -108,6 +114,12 @@ curl --location 'http://localhost:3000/api/v1/user/workout' \
     GET /api/v1/user/workout/{{workoutId}}
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Parameter**
 
 | Parameter   | Status   | Description                |
@@ -203,6 +215,12 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
     PUT /api/v1/user/workout/{{workoutId}}
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Parameter**
 
 | Parameter   | Status   | Description                |
@@ -244,6 +262,12 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/user/workout/{{wo
 ```
     GET /api/v1/user/workout/all
 ```
+
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
 
 **Response**
 
@@ -299,6 +323,12 @@ curl --location 'http://localhost:3000/api/v1/user/workout/all'
     DELETE /api/v1/user/workout/{{workoutId}}
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Parameter**
 
 | Parameter   | Status   | Description                |
@@ -332,6 +362,12 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
 ```
     POST /api/v1/user/workout/{{workoutId}}/moveset
 ```
+
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
 
 **Parameter**
 
@@ -426,6 +462,12 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 ```
     DELETE /api/v1/user/workout/{{workoutId}}/moveset/{{movesetId}}
 ```
+
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
 
 **Parameter**
 

@@ -65,6 +65,12 @@ AllUserAuthenticate
     GET /api/v1/user
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Response Body**
 
 | Parameter    | Description                |
@@ -115,6 +121,12 @@ AllUserAuthenticate
 ```
 PUT /api/v1/user/image
 ```
+
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
 
 **Request Body**
 
@@ -174,6 +186,12 @@ AllUserAuthenticate
 PUT /api/v1/user
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Request Body**
 
 | Parameter             | Status     | Description                |
@@ -229,6 +247,12 @@ curl --location --request PUT '{{base_url}}/api/v1/user' \
 ```
 PUT /api/v1/user/role
 ```
+
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
 
 **Response Body**
 

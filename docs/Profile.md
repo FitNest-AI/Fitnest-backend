@@ -15,6 +15,12 @@ AllUserAuthenticate
     POST /api/v1/user/profile
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Request Body**
 
 | Parameter             | Status                            | Description                |
@@ -115,6 +121,12 @@ AllUserAuthenticate
     PUT /api/v1/user/profile
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
+
 **Request Body**
 
 | Parameter             | Status     | Description                |
@@ -213,6 +225,12 @@ AllUserAuthenticate
 ```
     GET /api/v1/user/profile
 ```
+
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `token`      | User authentication token for API authorization.  |
 
 **Response Body**
 
