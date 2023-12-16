@@ -48,7 +48,7 @@ module.exports = {
         },
       });
     } catch (error) {
-      console.log(error.stack);
+      // console.log(error.stack);
 
       if (error.name === 'CustomError') {
         return res.status(error.code).json({
@@ -81,7 +81,7 @@ module.exports = {
         message: 'You have successfully logged out',
       });
     } catch (error) {
-      console.log(error.stack);
+      // console.log(error.stack);
 
       if (error.name === 'CustomError') {
         return res.status(error.code).json({

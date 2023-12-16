@@ -67,7 +67,7 @@ module.exports = {
         data: {workout},
       });
     } catch (error) {
-      console.log(error.stack);
+      // console.log(error.stack);
 
       // Id Error handle
       if (error.name === 'CustomError') {
@@ -170,7 +170,7 @@ module.exports = {
         data: {workout},
       });
     } catch (error) {
-      console.log(error.stack);
+      // console.log(error.stack);
 
       // workoutId Error handle
       if (error.name === 'CustomError') {
@@ -326,7 +326,7 @@ module.exports = {
         workout,
       });
     } catch (error) {
-      console.log(error.stack);
+      // console.log(error.stack);
 
       // workoutId Error handle
       if (error.name === 'CustomError') {
