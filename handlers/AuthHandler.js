@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-// const passport = require('passport');
 const randomstring = require('randomstring');
 const bcrypt = require('bcrypt');
 
