@@ -10,6 +10,12 @@ This Api will be used to provide workout data.
     POST /api/v1/user/workout
 ```
 
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `Authorization`      | User authentication token for API authorization.  |
+
 **Request Body**
 
 | Parameter    | Status     | Description                |
@@ -71,35 +77,33 @@ curl --location 'http://localhost:3000/api/v1/user/workout' \
 ```
 
 ```JSON
-    {
-     "success": true,
-     "message": "Workout data insert successful",
-     "data": {
-        "workout": {
-            "name": "eren",
-            "desc": "males, mao rumbling aja",
-            "day": "sunday",
-            "time": "05:30",
-            "rest": 60,
-            "moveset": [
-                {
-                    "set": 2,
-                    "rep": 10,
-                    "exerciseId": "6552f13f03dbf0159e051060",
-                    "_id": "6566e0f78b19eeb32583530b"
-                },
-                {
-                    "set": 1,
-                    "rep": 20,
-                    "exerciseId": "6552f13f03dbf0159e051062",
-                    "_id": "6566e0f78b19eeb32583530c"
-                }
-            ],
-            "userId": "655c05e0d05a925976afc071",
-            "_id": "6566e0f78b19eeb32583530a"
+{
+  "success": true,
+  "message": "Workout data insert successful",
+  "data": {
+    "workout": {
+      "name": "eren",
+      "desc": "males, mao rumbling aja",
+      "day": "sunday",
+      "time": "05:30",
+      "rest": 60,
+      "moveset": [
+        {
+          "set": 2,
+          "rep": 10,
+          "exerciseId": "657e0b96d9f7222a44045e36"
+        },
+        {
+          "set": 1,
+          "rep": 20,
+          "exerciseId": "657e0b96d9f7222a44045e37"
         }
-     }
+      ],
+      "userId": "657e1ec6ff172371414daea2",
+      "_id": "657e21c7483e3fd413fda67c"
     }
+  }
+}
 ```
 
 ## 2. Fetch Workout Data When Login
@@ -112,9 +116,15 @@ curl --location 'http://localhost:3000/api/v1/user/workout' \
 
 **Query**
 
-| Parameter   | Description                |
-| :---------- | :------------------------- |
-| `workoutId` | Insert Workout ID to fetch the data. |
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `Authorization`      | User authentication token for API authorization.  |
+
+**Parameter**
+
+| Parameter   | Status   | Description                |
+| :---------- | :------- | :------------------------- |
+| `workoutId` | ``       |  |
 
 **Response**
 
@@ -151,50 +161,82 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 ```
 
 ```JSON
-    {
-     "success": true,
-     "message": "Workout data fetch successful",
-     "data": {
-        "workout": {
-            "_id": "6566e2a28b19eeb32583531d",
-            "name": "eren",
-            "desc": "males, mao rumbling aja",
-            "day": "sunday",
-            "time": "05:30",
-            "rest": 60,
-            "moveset": [
-                {
-                    "set": 2,
-                    "rep": 10,
-                    "exerciseId": {
-                        "_id": "6552f13f03dbf0159e051064",
-                        "name": "crunches",
-                        "desc": "Crunches are a basic abdominal exercise that targets the rectus abdominis. It is effective for building core strength and definition.",
-                        "levelId": {
-                            "_id": "65526a6fa4cc0197cdb53487",
-                            "name": "beginner"
-                        }
-                    },
-                    "_id": "6566e2a28b19eeb32583531e"
-                },
-                {
-                    "set": 1,
-                    "rep": 20,
-                    "exerciseId": {
-                        "_id": "6552f13f03dbf0159e051062",
-                        "name": "pull-up",
-                        "desc": "Pull-up is a challenging upper body exercise that targets the back, biceps, and shoulders. It helps build strength and muscle definition in the upper body.",
-                        "levelId": {
-                            "_id": "65526a6fa4cc0197cdb53488",
-                            "name": "intermediate"
-                        }
-                    },
-                    "_id": "6566e2a28b19eeb32583531f"
-                }
-            ]
+{
+  "success": true,
+  "message": "Workout data fetch successful",
+  "data": {
+    "workout": {
+      "_id": "657e2378d68a3f8812200f9f",
+      "name": "eren",
+      "desc": "males, mao rumbling aja",
+      "day": "sunday",
+      "time": "05:30",
+      "rest": 60,
+      "moveset": [
+        {
+          "set": 2,
+          "rep": 10,
+          "exerciseId": {
+            "_id": "657e0b96d9f7222a44045e36",
+            "name": "squat",
+            "desc": "Squat is a fundamental lower body exercise that targets the quadriceps, hamstrings, and glutes. It also engages the core muscles for stability.",
+            "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+            "levelId": {
+              "_id": "657e033a7744a82ac69b8e92",
+              "name": "easy"
+            },
+            "start": {
+              "right_knee": 0,
+              "left_knee": 0,
+              "right_hip": 130,
+              "left_hip": 130,
+              "right_elbow": 360,
+              "left_elbow": 360
+            },
+            "end": {
+              "right_knee": 90,
+              "left_knee": 90,
+              "right_hip": 50,
+              "left_hip": 50,
+              "right_elbow": 360,
+              "left_elbow": 360
+            }
+          }
+        },
+        {
+          "set": 1,
+          "rep": 20,
+          "exerciseId": {
+            "_id": "657e0b96d9f7222a44045e37",
+            "name": "push-up",
+            "desc": "Push-up is a compound exercise that targets the chest, shoulders, and triceps. It also engages the core for stability.",
+            "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+            "levelId": {
+              "_id": "657e033a7744a82ac69b8e92",
+              "name": "easy"
+            },
+            "start": {
+              "right_knee": 10,
+              "left_knee": 10,
+              "right_hip": 10,
+              "left_hip": 10,
+              "right_elbow": 350,
+              "left_elbow": 350
+            },
+            "end": {
+              "right_knee": 15,
+              "left_knee": 15,
+              "right_hip": 10,
+              "left_hip": 10,
+              "right_elbow": 250,
+              "left_elbow": 250
+            }
+          }
         }
-     }
+      ]
     }
+  }
+}
 
 ```
 
@@ -208,9 +250,15 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 
 **Query**
 
-| Parameter   | Description        |
-| :---------- | :----------------- |
-| `_id`       | Workout identifier |
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `Authorization`      | User authentication token for API authorization.  |
+
+**Parameter**
+
+| Parameter   | Status   | Description                |
+| :---------- | :------- | :------------------------- |
+| `workoutId` | ``       |  |
 
 **Request Body**
 
@@ -238,6 +286,36 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/user/workout/{{wo
 ```
 
 ```JSON
+{
+  "success": true,
+  "message": "Workout data edit successful",
+  "data": {
+    "workout": {
+      "_id": "657e21c7483e3fd413fda67c",
+      "name": "latihan jadi goku",
+      "desc": "latihan dengan tekanan gravitasi tinggi",
+      "day": "monday",
+      "time": "05:30",
+      "rest": 15,
+      "moveset": [
+        {
+          "set": 2,
+          "rep": 10,
+          "exerciseId": "657e0b96d9f7222a44045e36"
+        },
+        {
+          "set": 1,
+          "rep": 20,
+          "exerciseId": "657e0b96d9f7222a44045e37"
+        }
+      ],
+      "userId": "657e1ec6ff172371414daea2",
+      "createdAt": "2023-12-16T22:16:39.035Z",
+      "updatedAt": "2023-12-16T22:17:41.054Z",
+      "__v": 0
+    }
+  }
+}
 ```
 
 ## 4. Fetch All Workout Data
@@ -247,6 +325,12 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/user/workout/{{wo
 ```
     GET /api/v1/user/workout/all
 ```
+
+**HTTP Headers**
+
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Response**
 
@@ -272,24 +356,24 @@ curl --location 'http://localhost:3000/api/v1/user/workout/all'
 ```
 
 ```JSON
-    {
-    "success": true,
-    "message": "Workout all data fetch successful",
-    "data": {
-        "workout": [
-            {
-                "_id": "6566e2a28b19eeb32583531d",
-                "name": "eren",
-                "desc": "males, mao rumbling aja",
-                "rest": 60,
-                "day": "sunday",
-                "time": "05:30",
-                "moveset": 2
-            }
-        ],
-        "count": 1
-     }
-    }
+{
+  "success": true,
+  "message": "Workout all data fetch successful",
+  "data": {
+    "workout": [
+      {
+        "_id": "657e2378d68a3f8812200f9f",
+        "name": "eren",
+        "desc": "males, mao rumbling aja",
+        "rest": 60,
+        "day": "sunday",
+        "time": "05:30",
+        "moveset": 2
+      }
+    ],
+    "count": 1
+  }
+}
 ```
 
 ## 5. Delete Workout Data By Id When Login
@@ -302,9 +386,15 @@ curl --location 'http://localhost:3000/api/v1/user/workout/all'
 
 **Query**
 
-| Parameter   | Description        |
-| :---------- | :----------------- |
-| `_id`       | Workout Identifier |
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `Authorization`      | User authentication token for API authorization.  |
+
+**Parameter**
+
+| Parameter   | Status   | Description                |
+| :---------- | :------- | :------------------------- |
+| `workoutId` | ``       |  |
 
 **Response**
 
@@ -336,9 +426,15 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
 
 **Query**
 
-| Parameter   | Description         |
-| :---------- | :------------------ |
-| `_id`       | Workout identifier. |
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `Authorization`      | User authentication token for API authorization.  |
+
+**Parameter**
+
+| Parameter   | Status   | Description                |
+| :---------- | :------- | :------------------------- |
+| `workoutId` | ``       |  |
 
 **Request Body**
 
@@ -381,42 +477,41 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 ```
 
 ```JSON
-    {
-     "success": true,
-     "message": "Moveset data insert successful",
-     "workout": {
-        "_id": "6566e2a28b19eeb32583531d",
-        "name": "eren",
-        "desc": "males, mao rumbling aja",
-        "day": "sunday",
-        "time": "05:30",
-        "rest": 60,
-        "moveset": [
-            {
-                "set": 2,
-                "rep": 10,
-                "exerciseId": "6552f13f03dbf0159e051064",
-                "_id": "6566e2a28b19eeb32583531e"
-            },
-            {
-                "set": 1,
-                "rep": 20,
-                "exerciseId": "6552f13f03dbf0159e051062",
-                "_id": "6566e2a28b19eeb32583531f"
-            },
-            {
-                "set": 1,
-                "rep": 20,
-                "exerciseId": "6552f13f03dbf0159e051069",
-                "_id": "6566e6228b19eeb32583533b"
-            }
-        ],
-        "userId": "655c05e0d05a925976afc071",
-        "createdAt": "2023-11-29T07:05:06.094Z",
-        "updatedAt": "2023-11-29T07:20:02.973Z",
-        "__v": 0
-     }
+{
+  "success": true,
+  "message": "Moveset data insert successful",
+  "data": {
+    "workout": {
+      "_id": "657e21c7483e3fd413fda67c",
+      "name": "latihan jadi goku",
+      "desc": "latihan dengan tekanan gravitasi tinggi",
+      "day": "monday",
+      "time": "05:30",
+      "rest": 15,
+      "moveset": [
+        {
+          "set": 2,
+          "rep": 10,
+          "exerciseId": "657e0b96d9f7222a44045e36"
+        },
+        {
+          "set": 1,
+          "rep": 20,
+          "exerciseId": "657e0b96d9f7222a44045e37"
+        },
+        {
+          "set": 3,
+          "rep": 10,
+          "exerciseId": "657e0b96d9f7222a44045e36"
+        }
+      ],
+      "userId": "657e1ec6ff172371414daea2",
+      "createdAt": "2023-12-16T22:16:39.035Z",
+      "updatedAt": "2023-12-16T22:17:54.748Z",
+      "__v": 0
     }
+  }
+}
 ```
 
 ## 7. Delete Moveset In Workout Data By Id When Login
@@ -429,10 +524,16 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 
 **Query**
 
-| Parameter   | Description        |
-| :---------- | :----------------- |
-| `workoutId` | Workout identifier. |
-| `movesetId` | Moveset identifier. |
+| Parameter    | Description                |
+| :----------- | :------------------------- |
+| `Authorization`      | User authentication token for API authorization.  |
+
+**Parameter**
+
+| Parameter   | Status   | Description                |
+| :---------- | :------- | :------------------------- |
+| `workoutId` | ``       |  |
+| `movesetId` | ``       |  |
 
 **Response**
 
@@ -463,34 +564,27 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
 ```
 
 ```JSON
-    {
-     "success": true,
-     "message": "moveset data delete successful",
-     "workout": {
-        "_id": "6566e2a28b19eeb32583531d",
-        "name": "eren",
-        "desc": "males, mao rumbling aja",
-        "day": "sunday",
-        "time": "05:30",
-        "rest": 60,
-        "moveset": [
-            {
-                "set": 2,
-                "rep": 10,
-                "exerciseId": "6552f13f03dbf0159e051064",
-                "_id": "6566e2a28b19eeb32583531e"
-            },
-            {
-                "set": 1,
-                "rep": 20,
-                "exerciseId": "6552f13f03dbf0159e051062",
-                "_id": "6566e2a28b19eeb32583531f"
-            }
-        ],
-        "userId": "655c05e0d05a925976afc071",
-        "createdAt": "2023-11-29T07:05:06.094Z",
-        "updatedAt": "2023-11-29T07:25:50.466Z",
-        "__v": 0
-     }
-    }
+{
+  "success": true,
+  "message": "moveset data delete successful",
+  "workout": {
+    "_id": "657e21c7483e3fd413fda67c",
+    "name": "latihan jadi goku",
+    "desc": "latihan dengan tekanan gravitasi tinggi",
+    "day": "monday",
+    "time": "05:30",
+    "rest": 15,
+    "moveset": [
+      {
+        "set": 1,
+        "rep": 20,
+        "exerciseId": "657e0b96d9f7222a44045e37"
+      }
+    ],
+    "userId": "657e1ec6ff172371414daea2",
+    "createdAt": "2023-12-16T22:16:39.035Z",
+    "updatedAt": "2023-12-16T22:18:13.845Z",
+    "__v": 0
+  }
+}
 ```
