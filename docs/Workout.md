@@ -252,7 +252,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/user/workout/{{wo
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    | `true` if data fetch sucessful, `false` if data fetch fails. |
+| `success`    | `true` if data fetch successful, `false` if data fetch fails. |
 | `message`    | Explanation of the outcome (success or failure details).  |
 | `data`       | Container for Workout data.  |
 | `workout`    | Object containing workout information.  |
@@ -342,18 +342,18 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
 
 **Request Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `rep`        |   |
-| `set`        |   |
-| `exerciseId` |  Exercise identifier. |
+| Parameter    | Status     | Description                 |
+| :----------- | :--------- |  :------------------------- |
+| `set`        | `Required` | A set of reps performed consecutively without a rest break. |
+| `rep`        | `Required` | The number of times the movement is performed in one set.  |
+| `exerciseId` | `Required` | Exercise identifier. |
 
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    | `true` if data insert sucessful, `false` if data insert fails. |
+| `success`    | `true` if data insert successful, `false` if data insert fails. |
 | `message`    | Explanation of the outcome (success or failure details).  |
 | `workout`    | Object containing workout information.  |
 | `_id`        | Workout identifier.  |
@@ -438,7 +438,7 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    | `true` if delete data sucessful, `false` if delete data fails. |
+| `success`    | `true` if delete data successful, `false` if delete data fails. |
 | `message`    | Explanation of the outcome (success or failure details).  |
 | `workout`    | Object containing workout information.  |
 | `_id`        | Workout identifier.  |
