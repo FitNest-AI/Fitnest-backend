@@ -1,8 +1,8 @@
 # Workout
 
-This Api For Workout
+This Api will be used to provide workout data.
 
-## 1.insertWorkoutDataWhenLogin
+## 1. Insert Workout Data When Login
 
 **HTTP Request**
 
@@ -10,44 +10,40 @@ This Api For Workout
     POST /api/v1/user/workout
 ```
 
-**HTTP Headers**
-
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
-
 **Request Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `name`       |   |
-| `desc`       |   |
-| `rest`       |   |
-| `day`        |   |
-| `time`       |   |
-| `moveset`    |   |
-| `set`        |   |
-| `rep`        |   |
-| `exerciseId` |   |
+| Parameter    | Status     | Description                |
+| :----------- | :--------- | :------------------------- |
+| `name`       | `Required` | The name of the workout.    |
+| `desc`       | `Required` | The description of the workout. |
+| `rest`       | `Required` | Rest time between each set.     |
+| `day`        | `Required` | Reminder to exercise by day.    |
+| `time`       | `Required` | Reminder to exercise by time.   |
+| `moveset`    | `Required` | Array Containing moveset information. |
+| `set`        | `Required` | A set of reps performed consecutively without a rest break. |
+| `rep`        | `Required` | The number of times the movement is performed in one set.  |
+| `Id`         | `Required` | Exercise identifier.     |
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `data`       |   |
-| `workout`    |   |
-| `name`       |   |
-| `desc`       |   |
-| `day`        |   |
-| `time`       |   |
-| `rest`       |   |
-| `moveset`    |   |
-| `set`        |   |
-| `rep`        |   |
-| `exerciseId` |   |
-| `_id`        |   |
+| `success`    | `true` if insert data successful, `false` if insert data fails. |
+| `message`    | Explanation of the outcome (success or failure details). |
+| `data`       | Container for Workout data.  |
+| `workout`    | Object containing workout information.  |
+| `name`       | The name of the workout.  |
+| `desc`       | The description of the workout.  |
+| `day`        | Reminder to exercise by day.  |
+| `time`       | Reminder to exercise by time.  |
+| `rest`       | Rest time between each set.  |
+| `moveset`    | Array Containing moveset information.  |
+| `set`        | A set of reps performed consecutively without a rest break. |
+| `rep`        | The number of times the movement is performed in one set.  |
+| `exerciseId` | Exercise identifier. |
+ `_id`         | Moveset Identifier. |
+| `userId`     | User identifier. |
+| `_id`        | Workout identifier. |
 
 **Example**
 
@@ -106,7 +102,7 @@ curl --location 'http://localhost:3000/api/v1/user/workout' \
     }
 ```
 
-## 2.fetchWorkoutDataWhenLogin
+## 2. Fetch Workout Data When Login
 
 **HTTP Request**
 
@@ -114,42 +110,37 @@ curl --location 'http://localhost:3000/api/v1/user/workout' \
     GET /api/v1/user/workout/{{workoutId}}
 ```
 
-**HTTP Headers**
+**Query**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
-
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
+| Parameter   | Description                |
+| :---------- | :------------------------- |
+| `workoutId` | Insert Workout ID to fetch the data. |
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `data`       |   |
-| `workout`    |   |
-| `name`       |   |
-| `desc`       |   |
-| `day`        |   |
-| `time`       |   |
-| `rest`       |   |
-| `moveset`    |   |
-| `set`        |   |
-| `rep`        |   |
-| `exerciseId` |   |
-| `_id`        |   |
-| `name`       |   |
-| `desc`       |   |
-| `levelId`    |   |
-| `_id`        |   |
-| `name`       |   |
-| `_id`        |   |
+| `success`    | `true` if data fetch sucessful, `false` if data fetch fails. |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for Workout data.  |
+| `workout`    | Object containing workout information.  |
+| `_id`        | Workout identifier.  |
+| `name`       | The name of the workout.  |
+| `desc`       | The description of the workout.  |
+| `day`        | Reminder to exercise by day.  |
+| `time`       | Reminder to exercise by time.  |
+| `rest`       | Rest time between each set.  |
+| `moveset`    | Array Containing moveset information.  |
+| `set`        | A set of reps performed consecutively without a rest break. |
+| `rep`        | The number of times the movement is performed in one set.  |
+| `exerciseId` | Object containing exercise information.  |
+| `_id`        | Exercise identifier.  |
+| `name`       | The name of exercise.  |
+| `desc`       | The description of the exercise.  |
+| `levelId`    | Object containing level information.  |
+| `_id`        | Level identifier.  |
+| `name`       | The name of level.  |
+| `_id`        | Moveset identifier.  |
 
 
 
@@ -207,7 +198,7 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 
 ```
 
-## 3.editWorkoutDataByIdWhenLogin
+## 3. Edit Workout Data By Id When Login
 
 **HTTP Request**
 
@@ -215,25 +206,19 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
     PUT /api/v1/user/workout/{{workoutId}}
 ```
 
-**HTTP Headers**
+**Query**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
-
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
+| Parameter   | Description        |
+| :---------- | :----------------- |
+| `_id`       | Workout identifier |
 
 **Request Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `name`       |   |
-| `desc`       |   |
-| `rest`       |   |
+| Parameter    | Status     | Description                |
+| :----------- | :--------- | :------------------------- |
+| `name`       | `Required` | The name of the workout.    |
+| `desc`       | `Required` | The description of the workout. |
+| `rest`       | `Required` | Rest time between each set.     |
 
 **Response**
 
@@ -255,7 +240,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/user/workout/{{wo
 ```JSON
 ```
 
-## 4.fetchAllWorkoutData
+## 4. Fetch All Workout Data
 
 **HTTP Request**
 
@@ -263,30 +248,22 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/user/workout/{{wo
     GET /api/v1/user/workout/all
 ```
 
-**HTTP Headers**
-
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
-
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `data`       |   |
-| `workout`    |   |
-| `_id`        |   |
-| `name`       |   |
-| `desc`       |   |
-| `rest`       |   |
-| `day`        |   |
-| `time`       |   |
-| `moveset`    |   |
-| `count`      |   |
-| `exerciseId` |   |
-| `_id`        |   |
+| `success`    | `true` if data fetch sucessful, `false` if data fetch fails. |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for Workout data.  |
+| `workout`    | Object containing workout information.  |
+| `_id`        | Workout identifier.  |
+| `name`       | The name of the workout.  |
+| `desc`       | The description of the workout.  |
+| `day`        | Reminder to exercise by day.  |
+| `time`       | Reminder to exercise by time.  |
+| `rest`       | Rest time between each set.  |
+| `moveset`    | Total count of moveset. |
+| `count`      | Total count of workout fetched. |
 
 **Example**
 
@@ -315,7 +292,7 @@ curl --location 'http://localhost:3000/api/v1/user/workout/all'
     }
 ```
 
-## 5.deleteWorkoutDataByIdWhenLogin
+## 5. Delete Workout Data By Id When Login
 
 **HTTP Request**
 
@@ -323,24 +300,18 @@ curl --location 'http://localhost:3000/api/v1/user/workout/all'
     DELETE /api/v1/user/workout/{{workoutId}}
 ```
 
-**HTTP Headers**
+**Query**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
-
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
+| Parameter   | Description        |
+| :---------- | :----------------- |
+| `_id`       | Workout Identifier |
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
+| `success`    | `true` if delete data successful,`false` if delete data fails |
+| `message`    | Explanation of the outcome (success or failure details).  |
 
 **Example**
 
@@ -355,7 +326,7 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
     }
 ```
 
-## 6.insertMovesetInWorkoutWhenLogin
+## 6. Insert Moveset In Workout When Login
 
 **HTTP Request**
 
@@ -363,17 +334,11 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
     POST /api/v1/user/workout/{{workoutId}}/moveset
 ```
 
-**HTTP Headers**
+**Query**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
-
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
+| Parameter   | Description         |
+| :---------- | :------------------ |
+| `_id`       | Workout identifier. |
 
 **Request Body**
 
@@ -381,31 +346,30 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
 | :----------- | :------------------------- |
 | `rep`        |   |
 | `set`        |   |
-| `exerciseId` |   |
+| `exerciseId` |  Exercise identifier. |
 
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `workout`    |   |
-| `_id`        |   |
-| `name`       |   |
-| `desc`       |   |
-| `day`        |   |
-| `time`       |   |
-| `rest`       |   |
-| `moveset`    |   |
-| `set`        |   |
-| `rep`        |   |
-| `exerciseId` |   |
-| `_id`        |   |
-| `userId`     |   |
-| `createdAt`  |   |
-| `updatedAt`  |   |
-| `__v`        |   |
+| `success`    | `true` if data insert sucessful, `false` if data insert fails. |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `workout`    | Object containing workout information.  |
+| `_id`        | Workout identifier.  |
+| `name`       | The name of the workout.  |
+| `desc`       | The description of the workout.  |
+| `day`        | Reminder to exercise by day.  |
+| `time`       | Reminder to exercise by time.  |
+| `rest`       | Rest time between each set.  |
+| `moveset`    | Array Containing moveset information.  |
+| `set`        | A set of reps performed consecutively without a rest break. |
+| `rep`        | The number of times the movement is performed in one set.  |
+| `exerciseId` | Object containing exercise information.  |
+| `_id`        | Exercise identifier.  |
+| `userId`     | User identifier.  |
+| `createdAt`  | Time when created. |
+| `updatedAt`  | Time when updated. |
 
 **Example**
 
@@ -455,7 +419,7 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
     }
 ```
 
-## 7.deleteMoveseitInWorkoutDataByIdWhenLogin
+## 7. Delete Moveset In Workout Data By Id When Login
 
 **HTTP Request**
 
@@ -463,41 +427,34 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
     DELETE /api/v1/user/workout/{{workoutId}}/moveset/{{movesetId}}
 ```
 
-**HTTP Headers**
+**Query**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
-
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
-| `movesetId` | ``       |  |
+| Parameter   | Description        |
+| :---------- | :----------------- |
+| `workoutId` | Workout identifier. |
+| `movesetId` | Moveset identifier. |
 
 **Response**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `success`    |   |
-| `message`    |   |
-| `workout`    |   |
-| `_id`        |   |
-| `name`       |   |
-| `desc`       |   |
-| `day`        |   |
-| `time`       |   |
-| `rest`       |   |
-| `moveset`    |   |
-| `set`        |   |
-| `rep`        |   |
-| `exerciseId` |   |
-| `_id`        |   |
-| `userId`     |   |
-| `createdAt`  |   |
-| `updatedAt`  |   |
-| `__v`        |   |
+| `success`    | `true` if delete data sucessful, `false` if delete data fails. |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `workout`    | Object containing workout information.  |
+| `_id`        | Workout identifier.  |
+| `name`       | The name of the workout.  |
+| `desc`       | The description of the workout.  |
+| `day`        | Reminder to exercise by day.  |
+| `time`       | Reminder to exercise by time.  |
+| `rest`       | Rest time between each set.  |
+| `moveset`    | Array Containing moveset information.  |
+| `set`        | A set of reps performed consecutively without a rest break. |
+| `rep`        | The number of times the movement is performed in one set.  |
+| `exerciseId` | Object containing exercise information.  |
+| `_id`        | Exercise identifier.  |
+| `userId`     | User identifier.  |
+| `createdAt`  | Time when created.  |
+| `updatedAt`  | Time when updated. |
 
 **Example**
 
