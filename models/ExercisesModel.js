@@ -36,7 +36,7 @@ const ExercisesSchema = new Schema({
   },
   orientation: {
     type: String,
-    enum: ['potrait', 'landscape'],
+    enum: ['portrait', 'landscape'],
     required: [true, 'orientation is required'],
   },
   instruction: {
