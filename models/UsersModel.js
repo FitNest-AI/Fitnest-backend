@@ -29,7 +29,7 @@ const usersSchema = new Schema({
   image: {
     type: String,
     required: [true, 'Image is required'],
-    default: `https://storage.googleapis.com/${process.env.GCS_BUCKET_NAME}/avatar/${process.env.DEFAULT_AVATAR}`,
+    default: `https://storage.googleapis.com/${process.env.GCS_BUCKET_NAME}/avatar/default.png`,
   },
   verify: {
     type: Boolean,

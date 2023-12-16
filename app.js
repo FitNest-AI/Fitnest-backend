@@ -9,7 +9,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 
 const app = express();
-const hostname = process.env.HOST;
 const port = process.env.PORT;
 
 // Database connection Config
@@ -68,6 +67,6 @@ app.all('*', (req, res) => {
   });
 });
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(port, () => {
+  console.log('Listening on port', port);
 });
