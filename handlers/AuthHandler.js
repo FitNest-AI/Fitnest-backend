@@ -7,6 +7,7 @@ const sendEmailVerify = require('../utils/SendEmailVerify');
 
 const UsersModel = require('../models/UsersModel');
 const RolesModel = require('../models/RolesModel');
+const BlacklistTokensModel = require('../models/BlacklistTokensModel');
 
 module.exports = {
 
@@ -17,15 +18,15 @@ module.exports = {
       const user = await UsersModel.findOne({email});
 
       if (!user) {
-        throw new Error('Incorrect email or password. Please try again.');
+        throw new CustomError(400, 'Incorrect email or password. Please try again.');
       };
 
       if (!bcrypt.compareSync(password, user.password)) {
-        throw new Error('Incorrect password. Please try again.');
+        throw new CustomError(400, 'Incorrect password. Please try again.');
       };
 
       if (!user.verify) {
-        throw new Error('Click the verification link in your email');
+        throw new CustomError(400, 'Click the verification link in your email');
       }
 
       const token = jwt.sign({id: user._id}, process.env.ACCESS_SECRET_KEY, {
@@ -64,16 +65,30 @@ module.exports = {
   },
 
   authLogoutHandler: async (req, res) => {
+    const token = req.headers['authorization'];
+
     try {
-      return await req.logout(() => {
-        req.session.destroy();
-        res.status(200).clearCookie('connect.sid', {path: '/'}).json({
-          success: true,
-          message: 'You have successfully logged out',
-        });
+      // Add the token to the blacklist
+      const blacklistToken = new BlacklistTokensModel({
+        token,
+        expiresAt: new Date(),
+      });
+
+      blacklistToken.save();
+
+      return res.status(200).json({
+        success: true,
+        message: 'You have successfully logged out',
       });
     } catch (error) {
-      // console.log(error.stack);
+      console.log(error.stack);
+
+      if (error.name === 'CustomError') {
+        return res.status(error.code).json({
+          success: false,
+          message: error.message,
+        });
+      }
 
       return res.status(500).json({
         success: false,

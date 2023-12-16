@@ -50,8 +50,9 @@ module.exports = {
   },
 
   fetchWorkoutByIdHandler: async (req, res) => {
-    const {workoutId} = req.params;
     const userId = req.user.id;
+    const {workoutId} = req.params;
+
     try {
       const workout = await WorkoutsModel.findOne({_id: workoutId, userId}).select('name desc rest day time moveset')
           .populate({path: 'moveset.exerciseId', select: '_id name desc levelId', populate: {path: 'levelId', select: '_id name'}});
@@ -66,7 +67,7 @@ module.exports = {
         data: {workout},
       });
     } catch (error) {
-      // console.log(error.stack);
+      console.log(error.stack);
 
       // Id Error handle
       if (error.name === 'CustomError') {

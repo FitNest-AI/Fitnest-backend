@@ -6,7 +6,7 @@ const {isLogin} = require('../middlewares/AuthMiddleware');
 const route = Router();
 
 // Workout Route
-route.get('/all', fetchAllWorkoutHandler);
+route.get('/all', isLogin, fetchAllWorkoutHandler);
 route.post('/', isLogin, insertWorkoutHandler);
 route.get('/:workoutId', isLogin, fetchWorkoutByIdHandler);
 route.put('/:workoutId', isLogin, editWorkoutByIdHandler);

@@ -50,8 +50,7 @@ module.exports = {
           .populate({path: 'levelId', select: '_id name'})
           .populate({path: 'targetMuscleId', select: '_id name'})
           .populate({path: 'conditionId', select: '_id name'})
-          .populate({path: 'dietPrefId', select: '_id name'})
-          .lean();
+          .populate({path: 'dietPrefId', select: '_id name'});
 
       if (!profile) {
         throw new CustomError(400, 'Profile data fetch failure');
