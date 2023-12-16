@@ -13,10 +13,6 @@ const {
 // eslint-disable-next-line new-cap
 const route = Router();
 
-// route.get('/', (req, res) => {
-//   res.send('Auth Documentation');
-// });
-
 // authetication route
 route.post('/register', authRegisterHandler);
 route.get('/verify', authVerifyHandle);
