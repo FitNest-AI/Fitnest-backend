@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 const {ObjectId} = mongoose.Schema;
 
-require('./SidesModel');
 require('./TargetMusclesModel');
 require('./LevelsModel');
 

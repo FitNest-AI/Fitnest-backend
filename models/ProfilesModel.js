@@ -6,7 +6,6 @@ require('./LevelsModel');
 require('./GoalsModel');
 require('./TargetMusclesModel');
 require('./DietPrefsModel');
-require('./ConditionsModel');
 require('./UsersModel');
 
 const ProfilesSchema = new Schema({
