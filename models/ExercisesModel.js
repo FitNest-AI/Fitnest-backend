@@ -30,18 +30,27 @@ const ExercisesSchema = new Schema({
     required: [true, 'targetMuscleId is required'],
     ref: 'Target_Muscles',
   }],
-  sideId: {
-    type: ObjectId,
-    required: [true, 'sideId is required'],
-    ref: 'Sides',
+  direction: {
+    type: String,
+    enum: ['front', 'side'],
+    required: [true, 'direction is required'],
   },
   orientation: {
     type: String,
+    enum: ['potrait', 'landscape'],
     required: [true, 'orientation is required'],
   },
   instruction: {
     type: String,
     required: [true, 'instruction is required'],
+  },
+  start: {
+    type: Object,
+    required: [true, 'start is required'],
+  },
+  end: {
+    type: Object,
+    required: [true, 'end is required'],
   },
 });
 

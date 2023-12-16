@@ -40,7 +40,6 @@ module.exports = {
     const {id} = req.params;
     try {
       const exercise = await ExercisesModel.findById(id)
-          .populate({path: 'sideId', select: '_id name instruction'})
           .populate({path: 'levelId', select: '_id name instruction'})
           .populate({path: 'targetMuscleId', select: '_id name instruction'});
 
@@ -292,7 +291,7 @@ module.exports = {
         query.sideId = {$in: side};
       }
 
-      const exercise = await ExercisesModel.find(query).select('_id name image levelId targetMuscleId').populate({path: 'levelId', select: '_id name'}).lean();
+      const exercise = await ExercisesModel.find(query).select('_id name image levelId').populate({path: 'levelId', select: '_id name'}).lean();
 
       const itemsPerPage = 5;
       const offset = (page - 1) * itemsPerPage;
