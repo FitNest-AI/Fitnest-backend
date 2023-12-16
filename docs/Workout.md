@@ -2,7 +2,7 @@
 
 This Api will be used to provide workout data.
 
-## 1. Insert Workout Data When Login
+## 1. Insert Workout Data
 
 **HTTP Request**
 
@@ -28,7 +28,7 @@ This Api will be used to provide workout data.
 | `moveset`    | `Required` | Array Containing moveset information. |
 | `set`        | `Required` | A set of reps performed consecutively without a rest break. |
 | `rep`        | `Required` | The number of times the movement is performed in one set.  |
-| `Id`         | `Required` | Exercise identifier.     |
+| `exerciseId`         | `Required` | Exercise identifier.     |
 
 **Response**
 
@@ -106,7 +106,7 @@ curl --location 'http://localhost:3000/api/v1/user/workout' \
 }
 ```
 
-## 2. Fetch Workout Data When Login
+## 2. Fetch Workout Data
 
 **HTTP Request**
 
@@ -114,50 +114,51 @@ curl --location 'http://localhost:3000/api/v1/user/workout' \
     GET /api/v1/user/workout/{{workoutId}}
 ```
 
-**Query**
+**params**
+
+| Parameter   | Status      | Description                |
+| :---------- | :-------    | :------------------------- |
+| `workoutId` | `required`  | workout identifier |
+
+**HTTP Headers**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
 | `Authorization`      | User authentication token for API authorization.  |
 
-**Parameter**
+**Response Body**
 
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
-
-**Response**
-
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `true` if data fetch sucessful, `false` if data fetch fails. |
+| Parameter    | Description                                             |
+| :----------- | :------------------------------------------------------ |
+| `success`    | `true` if data fetch is successful, `false` if data fetch fails. |
 | `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for Workout data.  |
-| `workout`    | Object containing workout information.  |
-| `_id`        | Workout identifier.  |
-| `name`       | The name of the workout.  |
-| `desc`       | The description of the workout.  |
-| `day`        | Reminder to exercise by day.  |
-| `time`       | Reminder to exercise by time.  |
-| `rest`       | Rest time between each set.  |
-| `moveset`    | Array Containing moveset information.  |
-| `set`        | A set of reps performed consecutively without a rest break. |
-| `rep`        | The number of times the movement is performed in one set.  |
-| `exerciseId` | Object containing exercise information.  |
-| `_id`        | Exercise identifier.  |
-| `name`       | The name of exercise.  |
-| `desc`       | The description of the exercise.  |
-| `levelId`    | Object containing level information.  |
-| `_id`        | Level identifier.  |
-| `name`       | The name of level.  |
-| `_id`        | Moveset identifier.  |
-
+| `data`       | Container for Workout data.                               |
+| `workout`    | Object containing workout information.                    |
+| `_id`        | Workout identifier.                                      |
+| `name`       | The name of the workout.                                  |
+| `desc`       | The description of the workout.                           |
+| `day`        | Reminder to exercise by day.                              |
+| `time`       | Reminder to exercise by time.                             |
+| `rest`       | Rest time between each set.                               |
+| `moveset`    | Array containing moveset information.                     |
+| `set`        | A set of reps performed consecutively without a rest break.|
+| `rep`        | The number of times the movement is performed in one set. |
+| `exerciseId` | Object containing exercise information.                   |
+| `_id`        | Exercise identifier.                                      |
+| `name`       | The name of the exercise.                                  |
+| `desc`       | The description of the exercise.                           |
+| `image`      | URL to the image illustrating the exercise.               |
+| `levelId`    | Object containing level information.                       |
+| `_id`        | Level identifier.                                         |
+| `name`       | The name of the level.                                     |
+| `start`      | Starting position parameters for the exercise.            |
+| `end`        | Ending position parameters for the exercise.              |
 
 
 **Example**
 
 ```
-curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb32583531d'
+curl --location -g 'http://localhost:3000/api/v1/user/workout/{{workoutId}}'
 ```
 
 ```JSON
@@ -248,17 +249,17 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
     PUT /api/v1/user/workout/{{workoutId}}
 ```
 
-**Query**
+**params**
+
+| Parameter   | Status      | Description                |
+| :---------- | :-------    | :------------------------- |
+| `workoutId` | `required`  | workout identifier |
+
+**HTTP Headers**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
 | `Authorization`      | User authentication token for API authorization.  |
-
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
 
 **Request Body**
 
@@ -268,13 +269,28 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
 | `desc`       | `Required` | The description of the workout. |
 | `rest`       | `Required` | Rest time between each set.     |
 
-**Response**
+**Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `name`       |   |
-| `desc`       |   |
-| `rest`       |   |
+| Parameter    | Description                                             |
+| :----------- | :------------------------------------------------------ |
+| `success`    | `true` if data edit is successful, `false` if the edit fails. |
+| `message`    | Explanation of the outcome (success or failure details).  |
+| `data`       | Container for edited Workout data.                        |
+| `workout`    | Object containing edited workout information.            |
+| `_id`        | Workout identifier.                                      |
+| `name`       | The edited name of the workout.                           |
+| `desc`       | The edited description of the workout.                    |
+| `day`        | The edited reminder to exercise by day.                   |
+| `time`       | The edited reminder to exercise by time.                  |
+| `rest`       | The edited rest time between each set.                    |
+| `moveset`    | Array containing edited moveset information.             |
+| `set`        | The edited set of reps performed consecutively without a rest break.|
+| `rep`        | The edited number of times the movement is performed in one set. |
+| `exerciseId` | The edited exercise identifier.                           |
+| `userId`     | The identifier of the user associated with the workout.   |
+| `createdAt`  | Timestamp indicating when the workout was created.        |
+| `updatedAt`  | Timestamp indicating when the workout was last updated.   |
+
 
 **Example**
 
@@ -332,7 +348,7 @@ curl --location -g --request PUT 'http://localhost:3000/api/v1/user/workout/{{wo
 | :----------- | :------------------------- |
 | `Authorization`      | User authentication token for API authorization.  |
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
@@ -384,19 +400,20 @@ curl --location 'http://localhost:3000/api/v1/user/workout/all'
     DELETE /api/v1/user/workout/{{workoutId}}
 ```
 
-**Query**
+**params**
+
+| Parameter   | Status      | Description                |
+| :---------- | :-------    | :------------------------- |
+| `workoutId` | `required`  | workout identifier |
+
+**Http Headers**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
 | `Authorization`      | User authentication token for API authorization.  |
 
-**Parameter**
 
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
-
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
@@ -424,17 +441,17 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
     POST /api/v1/user/workout/{{workoutId}}/moveset
 ```
 
-**Query**
+**params**
+
+| Parameter   | Status      | Description                |
+| :---------- | :-------    | :------------------------- |
+| `workoutId` | `required`  | workout identifier |
+
+**Http Headers**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
 | `Authorization`      | User authentication token for API authorization.  |
-
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
 
 **Request Body**
 
@@ -445,7 +462,7 @@ curl --location -g --request DELETE 'http://localhost:3000/api/v1/user/workout/6
 | `exerciseId` | `Required` | Exercise identifier. |
 
 
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
@@ -522,20 +539,20 @@ curl --location -g 'http://localhost:3000/api/v1/user/workout/6566e2a28b19eeb325
     DELETE /api/v1/user/workout/{{workoutId}}/moveset/{{movesetId}}
 ```
 
-**Query**
+**params**
+
+| Parameter   | Status      | Description                |
+| :---------- | :-------    | :------------------------- |
+| `workoutId` | `required`  | workout identifier |
+| `movesetId` | `required`  | moveset identifier |
+
+**Http Headers**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
 | `Authorization`      | User authentication token for API authorization.  |
 
-**Parameter**
-
-| Parameter   | Status   | Description                |
-| :---------- | :------- | :------------------------- |
-| `workoutId` | ``       |  |
-| `movesetId` | ``       |  |
-
-**Response**
+**Response Body**
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
