@@ -19,7 +19,7 @@ AllUserAuthenticate
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Request Body**
 
@@ -60,7 +60,7 @@ AllUserAuthenticate
 **Example**
 
 ```
-curl --location '{{base_url}}/api/v1/user/profile' \
+curl --location '{{base_url}}/api/v1/user/profile' -H 'Authorization: {{yourToken}}' \
 --data-urlencode 'firstname={{firstname}}' \
 --data-urlencode 'lastname={{lastname}}' \
 --data-urlencode 'gender={{gender}}' \
@@ -125,7 +125,7 @@ AllUserAuthenticate
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Request Body**
 
@@ -165,7 +165,7 @@ AllUserAuthenticate
 **Example**
 
 ```
-curl --location --request PUT '{{base_url}}/api/v1/user/profile' \
+curl --location --request PUT '{{base_url}}/api/v1/user/profile' -H 'Authorization: {{yourToken}}' \
 --data-urlencode 'firstname={{firstname}}' \
 --data-urlencode 'lastname={{lastname}}' \
 --data-urlencode 'gender={{gender}}' \
@@ -230,7 +230,7 @@ AllUserAuthenticate
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Response Body**
 
@@ -255,7 +255,7 @@ AllUserAuthenticate
 **Example**
 
 ```
-curl --location '{{base_url}}/api/v1/user/profile'
+curl --location '{{base_url}}/api/v1/user/profile' -H 'Authorization: {{yourToken}}'
 ```
 
 ```JSON

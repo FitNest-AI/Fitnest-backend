@@ -69,7 +69,7 @@ AllUserAuthenticate
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Response Body**
 
@@ -89,7 +89,7 @@ AllUserAuthenticate
 **Example**
 
 ```
-curl --location '{{base_url}}/api/v1/user'
+curl --location '{{base_url}}/api/v1/user' -H 'Authorization: {{yourToken}}'
 ```
 
 ```JSON
@@ -126,7 +126,7 @@ PUT /api/v1/user/image
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Request Body**
 
@@ -152,7 +152,7 @@ PUT /api/v1/user/image
 **Example**
 
 ```
-curl --location --request PUT '{{base_url}}/api/v1/user/image' \
+curl --location --request PUT '{{base_url}}/api/v1/user/image' -H 'Authorization: {{yourToken}}' \
 --form 'image=@"{{localPath}}"'
 ```
 
@@ -190,7 +190,7 @@ PUT /api/v1/user
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Request Body**
 
@@ -217,10 +217,10 @@ PUT /api/v1/user
 
 **Example**
 ```
-curl --location --request PUT '{{base_url}}/api/v1/user' \
+curl --location --request PUT '{{base_url}}/api/v1/user' -H 'Authorization: {{yourToken}}' \
 --data-urlencode 'username=yourUsername' \
 --data-urlencode 'password=newPassword' \
---data-urlencode 'confirmPassword=newPassword'
+--data-urlencode 'confirmPassword=newPassword' \
 ```
 
 ```JSON
@@ -252,7 +252,7 @@ PUT /api/v1/user/role
 
 | Parameter    | Description                |
 | :----------- | :------------------------- |
-| `token`      | User authentication token for API authorization.  |
+| `Authorization`      | User authentication token for API authorization.  |
 
 **Response Body**
 
@@ -272,7 +272,7 @@ PUT /api/v1/user/role
 **Example**
 
 ```
-curl --location --request PUT '{{base_url}}/api/v1/user/role'
+curl --location --request PUT '{{base_url}}/api/v1/user/role' -H 'Authorization: {{yourToken}}'
 ```
 
 ```JSON
