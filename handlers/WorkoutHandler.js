@@ -55,7 +55,7 @@ module.exports = {
 
     try {
       const workout = await WorkoutsModel.findOne({_id: workoutId, userId}).select('name desc rest day time moveset')
-          .populate({path: 'moveset.exerciseId', select: '_id name desc image levelId start end', populate: {path: 'levelId', select: '_id name'}});
+          .populate({path: 'moveset.exerciseId', select: '_id name desc image direction orientation instruction start end', populate: {path: 'levelId', select: '_id name'}, populate: {path: 'targetMuscleId', select: '_id name'}});
 
       if (!workout) {
         throw new CustomError(400, 'Workout data fetch failure');

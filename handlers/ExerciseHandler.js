@@ -81,7 +81,7 @@ module.exports = {
   },
 
   insertExerciseHandler: async (req, res, next) => {
-    const {name, desc, levelId, targetMuscleId, sideId, orientation, instruction} = req.body;
+    const {name, desc, levelId, targetMuscleId, direction, orientation, instruction, start, end} = req.body;
 
     try {
       let image = null;
@@ -97,7 +97,7 @@ module.exports = {
       }
 
       const exercise = new ExercisesModel({
-        name, desc, image, levelId, targetMuscleId, sideId, orientation, instruction,
+        name, desc, image, levelId, targetMuscleId, direction, orientation, instruction, start, end,
       });
 
       if (!exercise) {
@@ -155,7 +155,7 @@ module.exports = {
 
   editExerciseByIdHandler: async (req, res) => {
     const {id} = req.params;
-    const {name, desc, levelId, targetMuscleId, sideId, orientation, instruction} = req.body;
+    const {name, desc, levelId, targetMuscleId, direction, orientation, instruction, start, end} = req.body;
 
     try {
       let image = null;
@@ -175,7 +175,7 @@ module.exports = {
       }
 
       const updateExercise = await ExercisesModel.findByIdAndUpdate(id, {
-        name, desc, image, levelId, targetMuscleId, sideId, orientation, instruction,
+        name, desc, image, levelId, targetMuscleId, direction, orientation, instruction, start, end,
       }, {new: true, runValidators: true});
 
       return res.status(201).json({
@@ -267,7 +267,7 @@ module.exports = {
 
   searchExerciseHandler: async (req, res) => {
     let {page} = req.query;
-    const {q, targetMuscle, level, side} = req.query;
+    const {q, targetMuscle, level, direction} = req.query;
     try {
       const query = {};
 
@@ -287,8 +287,8 @@ module.exports = {
         query.levelId = {$in: level};
       }
 
-      if (side) {
-        query.sideId = {$in: side};
+      if (direction) {
+        query.direction = {$in: direction};
       }
 
       const exercise = await ExercisesModel.find(query).select('_id name image levelId').populate({path: 'levelId', select: '_id name'}).lean();
