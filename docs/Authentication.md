@@ -5,34 +5,36 @@ This Api will be used to authenticate new user
 ## 1.Auth Register
 
 **HTTP Request**
+
 ```
   POST /api/v1/auth/register
 ```
 
 **Request Body**
 
-| Parameter         | Status               | Description                |
-| :--------         | :-------             | :------------------------- |
-| `email`           | `required`           | Email address for creating a new account. |
-| `password`        | `required`           | Password (minimum 8 characters). |
-| `confirmPassword` | `required`           | Confirmation of the password. Must match the provided password. |
+| Parameter         | Status     | Description                                                     |
+| :---------------- | :--------- | :-------------------------------------------------------------- |
+| `email`           | `required` | Email address for creating a new account.                       |
+| `password`        | `required` | Password (minimum 8 characters).                                |
+| `confirmPassword` | `required` | Confirmation of the password. Must match the provided password. |
 
 **Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `True` if registration is successful, `False` if registration fails.  |
-| `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for registration information.  |
-| `user`       | Registered user details |
-| `email`      | Email address of the registered user.  |
-| `username`   | Default username assigned by the server.  |
-| `image`      | Default profile image or avatar assigned by the server.  |
-| `verify`     | Verification status of the user's account (`True` or `False`). |
-| `roleId`     | Identifier specifying the user's role or permissions.  |
-| `token`      | Authentication token for verifying the user's account.  |
+| Parameter  | Description                                                          |
+| :--------- | :------------------------------------------------------------------- |
+| `success`  | `True` if registration is successful, `False` if registration fails. |
+| `message`  | Explanation of the outcome (success or failure details).             |
+| `data`     | Container for registration information.                              |
+| `user`     | Registered user details                                              |
+| `email`    | Email address of the registered user.                                |
+| `username` | Default username assigned by the server.                             |
+| `image`    | Default profile image or avatar assigned by the server.              |
+| `verify`   | Verification status of the user's account (`True` or `False`).       |
+| `roleId`   | Identifier specifying the user's role or permissions.                |
+| `token`    | Authentication token for verifying the user's account.               |
 
 **Example**
+
 ```
 curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 --data-urlencode 'email=yourEmail@gmail.com' \
@@ -59,28 +61,30 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 ## 2.Auth Verify
 
 **HTTP Request**
+
 ```
   GET /api/v1/auth/verify?token={{token}}
 ```
 
 **Query**
 
-| Parameter         | Description                  |
-| :--------         | :-------------------------   |
-| `token`           | Token for verifying account. | 
+| Parameter | Description                  |
+| :-------- | :--------------------------- |
+| `token`   | Token for verifying account. |
 
 **Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `True` if verification is successful, `False` if verification fails.  |
-| `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for verification information.  |
-| `user`       | Verified user details.  |
-| `email`      | Email address of the registered user.  |
-| `verify`     | Verification status of the user's account (`True` or `False`).  |
+| Parameter | Description                                                          |
+| :-------- | :------------------------------------------------------------------- |
+| `success` | `True` if verification is successful, `False` if verification fails. |
+| `message` | Explanation of the outcome (success or failure details).             |
+| `data`    | Container for verification information.                              |
+| `user`    | Verified user details.                                               |
+| `email`   | Email address of the registered user.                                |
+| `verify`  | Verification status of the user's account (`True` or `False`).       |
 
 **Example**
+
 ```
     curl --location -g --request POST 'http://{{base_url}}/api/v1/auth/verify?token={{token}}'
 ```
@@ -99,26 +103,28 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 ## 3.Auth Resend Token Verify
 
 **HTTP Request**
+
 ```
   GET /api/v1/auth/resend-verify
 ```
 
 **Request Body**
 
-| Parameter         | Status     | Description                |
-| :--------         | :-------   | :------------------------- |
-| `email`           | `required` | Email address of the registered user. | 
+| Parameter | Status     | Description                           |
+| :-------- | :--------- | :------------------------------------ |
+| `email`   | `required` | Email address of the registered user. |
 
 **Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `True` if resend token is successful, `False` if resend token fails.  |
-| `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for verification information.  |
-| `token`      | Resend authentication token for verifying the user's account.  |
+| Parameter | Description                                                          |
+| :-------- | :------------------------------------------------------------------- |
+| `success` | `True` if resend token is successful, `False` if resend token fails. |
+| `message` | Explanation of the outcome (success or failure details).             |
+| `data`    | Container for verification information.                              |
+| `token`   | Resend authentication token for verifying the user's account.        |
 
 **Example**
+
 ```
     curl --location -g --request GET 'http://localhost:3000/api/v1/auth/resend-verify'
 ```
@@ -136,24 +142,25 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 ## 4. Auth Forget Password
 
 **HTTP Request**
+
 ```
     GET /api/v1/auth/forget-password
 ```
 
 **Request Body**
 
-| Parameter         | Status     | Description                |
-| :--------         | :-------   | :------------------------- |
-| `email`           | `required` | Email address of the registered user. | 
+| Parameter | Status     | Description                           |
+| :-------- | :--------- | :------------------------------------ |
+| `email`   | `required` | Email address of the registered user. |
 
 **Response Body**
 
-| Parameter    | Description                |
-| :---------   | :------------------------- |
-| `success`    | `True` if the token is successfully sent, `False` if sending fails.  |
-| `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for forget password information.  |
-| `token`      | Token access for resetting the user's account password.  |
+| Parameter | Description                                                         |
+| :-------- | :------------------------------------------------------------------ |
+| `success` | `True` if the token is successfully sent, `False` if sending fails. |
+| `message` | Explanation of the outcome (success or failure details).            |
+| `data`    | Container for forget password information.                          |
+| `token`   | Token access for resetting the user's account password.             |
 
 **Example**
 
@@ -175,23 +182,23 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 ## 5.Auth Reset Password
 
 **HTTP Request**
+
 ```
     GET /api/v1/auth/reset-password?token={{token}}
 ```
 
 **Query**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `token`   | Token for resetting the account password. | 
-
+| Parameter | Description                               |
+| :-------- | :---------------------------------------- |
+| `token`   | Token for resetting the account password. |
 
 **Response Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         | `True` if resetting the password is successful, `False` if resetting fails.  |
-| `message`         | Explanation of the outcome (success or failure details).  |
+| Parameter | Description                                                                 |
+| :-------- | :-------------------------------------------------------------------------- |
+| `success` | `True` if resetting the password is successful, `False` if resetting fails. |
+| `message` | Explanation of the outcome (success or failure details).                    |
 
 **Example**
 
@@ -209,31 +216,32 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/reset-password?token={{token
 ## 5.Auth Login
 
 **HTTP Request**
+
 ```
   POST /api/v1/auth/login
 ```
 
 **Request Body**
 
-| Parameter         | Status                | Description                |
-| :--------         | :-------              | :------------------------- |
-| `email`           | `required`            | Email address of the registered user. | 
-| `password`        | `required`            | Password (minimum 8 characters). | 
+| Parameter  | Status     | Description                           |
+| :--------- | :--------- | :------------------------------------ |
+| `email`    | `required` | Email address of the registered user. |
+| `password` | `required` | Password (minimum 8 characters).      |
 
 **Response Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         | `True` if authentication is successful, `False` if authentication fails.  |
-| `message`         | Explanation of the outcome (success or failure details).  |
-| `data`            | Container for login information.  |
-| `user`            | Authenticated user details.  |
-| `email`           | Email address of the registered user.  |
-| `username`        | Username by the user.  |
-| `image`           | URL of the user's profile image or avatar.  |
-| `verify`          | Verification status of the user's account (True or False).  |
-| `roleId`          | Identifier specifying the user's role or permissions.  |
-| `token`           | User authentication token for API authorization.  |
+| Parameter  | Description                                                              |
+| :--------- | :----------------------------------------------------------------------- |
+| `success`  | `True` if authentication is successful, `False` if authentication fails. |
+| `message`  | Explanation of the outcome (success or failure details).                 |
+| `data`     | Container for login information.                                         |
+| `user`     | Authenticated user details.                                              |
+| `email`    | Email address of the registered user.                                    |
+| `username` | Username by the user.                                                    |
+| `image`    | URL of the user's profile image or avatar.                               |
+| `verify`   | Verification status of the user's account (True or False).               |
+| `roleId`   | Identifier specifying the user's role or permissions.                    |
+| `token`    | User authentication token for API authorization.                         |
 
 **Example**
 
@@ -263,16 +271,17 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/login' \
 ## 6.Auth Logout
 
 **HTTP Request**
+
 ```
   GET /api/v1/auth/logout
 ```
 
 **Response Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `success`         | `True` if logout is successful, `False` if logout fails.  |
-| `message`         | Explanation of the outcome (success or failure details).  |
+| Parameter | Description                                              |
+| :-------- | :------------------------------------------------------- |
+| `success` | `True` if logout is successful, `False` if logout fails. |
+| `message` | Explanation of the outcome (success or failure details). |
 
 **Example**
 

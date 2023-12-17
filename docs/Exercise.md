@@ -31,104 +31,122 @@ curl --location 'http://{{base_url}}/api/v1/exercise/all'
 ```
 
 ```JSON
-    {
-    "success": true,
-    "message": "Exercise all data fetch successful",
-    "data": {
-        "exercise": [
-            {
-                "_id": "6552f13f03dbf0159e051060",
-                "name": "squat",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53486",
-                    "name": "newbie"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051061",
-                "name": "push-up",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53487",
-                    "name": "beginner"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051062",
-                "name": "pull-up",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53488",
-                    "name": "intermediate"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051063",
-                "name": "weighted dips",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53489",
-                    "name": "advanced"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051064",
-                "name": "crunches",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53487",
-                    "name": "beginner"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051065",
-                "name": "shoulder press",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53488",
-                    "name": "intermediate"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051066",
-                "name": "Romanian deadlift",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53489",
-                    "name": "advanced"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051067",
-                "name": "lunges",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53486",
-                    "name": "newbie"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051068",
-                "name": "tricep dips",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53487",
-                    "name": "beginner"
-                }
-            },
-            {
-                "_id": "6552f13f03dbf0159e051069",
-                "name": "barbell rows",
-                "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-                "levelId": {
-                    "_id": "65526a6fa4cc0197cdb53489",
-                    "name": "advanced"
-                }
-            }
-        ],
-        "count": 10
-    }
+{
+  "success": true,
+  "message": "Exercise all data fetch successful",
+  "data": {
+    "exercise": [
+      {
+        "_id": "657e34fa680cfbc894fcb50e",
+        "name": "squat",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb50f",
+        "name": "push-up",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb510",
+        "name": "sit-up",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb511",
+        "name": "Barbell Bicep Curl",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb512",
+        "name": "Hammer Curl",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb513",
+        "name": "Hip Thrust",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb514",
+        "name": "Lateral Raise",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb515",
+        "name": "Leg Raise",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb516",
+        "name": "Pull-up",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb517",
+        "name": "Russian Twist",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb518",
+        "name": "Tricep Dips",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      },
+      {
+        "_id": "657e34fa680cfbc894fcb519",
+        "name": "Tricep Pushdown",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
+        }
+      }
+    ],
+    "count": 12
+  }
 }
 ```
 
@@ -148,10 +166,12 @@ curl --location 'http://{{base_url}}/api/v1/exercise/all'
 | `desc`            | `required` | Exercise description. | 
 | `levelId`         | `required` | Identifier specifying the exercise level. | 
 | `targetMuscleId`  | `required` | Array of identifiers specifying the target muscles. | 
-| `SideId`          | `required` | Identifier specifying the exercise side. | 
+| `direction`       | `required` | Exercise direction (e.g., `front` or `side`). | 
 | `Orientation`     | `required` | Exercise orientation (e.g., `portrait` or `landscape`). | 
 | `Instruction`     | `required` | Exercise instructions. | 
 | `image`           | `required` | URL or file path for the exercise image. | 
+| `start`           | `required` | Exercise start position. | 
+| `end`             | `required` | Exercise end position. | 
 
 **Response Body**
 
@@ -166,48 +186,78 @@ curl --location 'http://{{base_url}}/api/v1/exercise/all'
 | `desc`            | Exercise description. |
 | `Image`           | URL for the exercise image.  |
 | `levelId`         | Identifier specifying the exercise level.  |
-| `SideId`          | Array of identifiers specifying the target muscles.  |
 | `targetMuscleId`  | Identifier specifying the exercise side.  |
+| `direction`       | Exercise direction.  |
 | `Orientation`     | Exercise orientation.  |
 | `Instruction`     | Exercise instructions.  |
+| `start`           | Exercise start position. | 
+| `end`             | Exercise end position. | 
 
 **Example**
 
 ```
 curl --location 'http://{{base_url}}/api/v1/exercise' \
---form 'name="plank"' \
+--form 'name="bench dip"' \
 --form 'desc="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups"' \
 --form 'levelId="{{levelId}}"' \
 --form 'targetMuscleId="{{targetMuscleId1}}"' \
 --form 'targetMuscleId="{{targetMuscleId2}}"' \
---form 'sideId="{{sideId}}"' \
---form 'orientation="potrait"' \
+--form 'direction="side"' \
+--form 'orientation="portrait"' \
 --form 'instruction="Lorem ipsum is placeholder text commonly used"' \
---form 'image=@"{{localPath}}"'
+--form 'image=@"{{localPath}}"' \
+--form 'start[right_knee]="150"' \
+--form 'start[left_knee]="150"' \
+--form 'start[right_hip]="150"' \
+--form 'start[left_hip]="150"' \
+--form 'start[right_elbow]="150"' \
+--form 'start[left_elbow]="150"' \
+--form 'end[right_knee]="150"' \
+--form 'end[left_knee]="150"' \
+--form 'end[right_hip]="150"' \
+--form 'end[left_hip]="150"' \
+--form 'end[right_elbow]="150"' \
+--form 'end[left_elbow]="150"'
 ```
 
 ```JSON
-    {
-        "success": true,
-        "message": "Exercise data insert successful",
-        "data": {
-            "exercise": {
-                "name": "plank",
-                "desc": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups",
-                "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/YC4JprjW5TtmS9PFqhwxAtW5OSA7MCg9-20231130-160328",
-                "levelId": "6560765f1844dab5919f6eab",
-                "targetMuscleId": [
-                    "6560765f1844dab5919f6ebf",
-                    "6560765f1844dab5919f6ec5"
-                ],
-                "sideId": "6560765f1844dab5919f6eba",
-                "orientation": "potrait",
-                "instruction": "Lorem ipsum is placeholder text commonly used",
-                "_id": "65684fe0dcff123cb04d6856",
-                "__v": 0
-            }
-        }
+{
+  "success": true,
+  "message": "Exercise data insert successful",
+  "data": {
+    "exercise": {
+      "name": "bench dip",
+      "desc": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups",
+      "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/SyiiRCjeeiqm12CqczG5DwYJ9cbEqE2u",
+      "levelId": "657e033a7744a82ac69b8e92",
+      "targetMuscleId": [
+        "657e033a7744a82ac69b8e9c",
+        "657e033a7744a82ac69b8e9f"
+      ],
+      "direction": "side",
+      "orientation": "portrait",
+      "instruction": "Lorem ipsum is placeholder text commonly used",
+      "start": {
+        "right_knee": "150",
+        "left_knee": "150",
+        "right_hip": "150",
+        "left_hip": "150",
+        "right_elbow": "150",
+        "left_elbow": "150"
+      },
+      "end": {
+        "right_knee": "150",
+        "left_knee": "150",
+        "right_hip": "150",
+        "left_hip": "150",
+        "right_elbow": "150",
+        "left_elbow": "150"
+      },
+      "_id": "657e886a72e22927cae1d00d",
+      "__v": 0
     }
+  }
+}
 ```
 
 ## 3.Fetch Detail Exercise Data
@@ -234,55 +284,65 @@ curl --location 'http://{{base_url}}/api/v1/exercise' \
 | `exercise`          | Object containing exercise information.  |
 | `levelId`           | Identifier specifying the exercise level.  |
 | `targetMuscleId`    | Array of identifiers specifying the target muscles.  |
-| `sideId`            | Identifier specifying the exercise side.  |
+| `direction`         | Exercise direction.  |
 | `Orientation`       | Exercise orientation.  |
 | `instruction`       | Exercise instructions.  |
+| `start`             | Exercise start position. | 
+| `end`               | Exercise end position. | 
 
 **Example**
 
 ```
-curl --location -g 'http://{{base_url}}/api/v1/exercise/6552f13f03dbf0159e051060'
+curl --location -g 'http://{{base_url}}/api/v1/exercise/657e886a72e22927cae1d00d'
 ```
 
 ```JSON
-    {
-     "success": true,
-     "message": "Exercise data fetch successful",
-     "data": {
-        "exercise": {
-            "_id": "6552f13f03dbf0159e051060",
-            "name": "squat",
-            "desc": "Squat is a fundamental lower body exercise that targets the quadriceps, hamstrings, and glutes. It also engages the core muscles for stability.",
-            "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-            "levelId": {
-                "_id": "65526a6fa4cc0197cdb53486",
-                "name": "newbie"
-            },
-            "targetMuscleId": [
-                {
-                    "_id": "65526a70a4cc0197cdb53494",
-                    "name": "legs"
-                },
-                {
-                    "_id": "65526a70a4cc0197cdb53497",
-                    "name": "chest"
-                },
-                {
-                    "_id": "65526a70a4cc0197cdb53498",
-                    "name": "back"
-                }
-            ],
-            "sideId": {
-                "_id": "65526a70a4cc0197cdb5349e",
-                "name": "front",
-                "instruction": "front instruction"
-            },
-            "orientation": "landscape",
-            "instruction": "Stand with your feet shoulder-width apart. Lower your body by bending your knees and hips, as if sitting back into a chair. Keep your back straight and chest up. Rise back up to the starting position.",
-            "__v": 0
+{
+  "success": true,
+  "message": "Exercise data fetch successful",
+  "data": {
+    "exercise": {
+      "_id": "657e886a72e22927cae1d00d",
+      "name": "bench dip",
+      "desc": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups",
+      "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/SyiiRCjeeiqm12CqczG5DwYJ9cbEqE2u",
+      "levelId": {
+        "_id": "657e033a7744a82ac69b8e92",
+        "name": "easy"
+      },
+      "targetMuscleId": [
+        {
+          "_id": "657e033a7744a82ac69b8e9c",
+          "name": "chest"
+        },
+        {
+          "_id": "657e033a7744a82ac69b8e9f",
+          "name": "shoulders"
         }
-     }
+      ],
+      "direction": "side",
+      "orientation": "portrait",
+      "instruction": "Lorem ipsum is placeholder text commonly used",
+      "start": {
+        "right_knee": "150",
+        "left_knee": "150",
+        "right_hip": "150",
+        "left_hip": "150",
+        "right_elbow": "150",
+        "left_elbow": "150"
+      },
+      "end": {
+        "right_knee": "150",
+        "left_knee": "150",
+        "right_hip": "150",
+        "left_hip": "150",
+        "right_elbow": "150",
+        "left_elbow": "150"
+      },
+      "__v": 0
     }
+  }
+}
 ```
 
 ## 4.Edit Exercise Data
@@ -301,16 +361,18 @@ curl --location -g 'http://{{base_url}}/api/v1/exercise/6552f13f03dbf0159e051060
 
 **Request Body**
 
-| Parameter         | Description                |
-| :---------------- | :------------------------- |
-| `name`            | Exercise name.  |
-| `desc`            | Exercise description.  |
-| `Image`           | URL or file path for the exercise image.  |
-| `levelId`         | Identifier specifying the exercise level.  |\
-| `targetMuscleId`  | Array of identifiers specifying the target muscles.  |
-| `SideId`          | Exercise orientation.  |
-| `Orientation`     | Exercise orientation.  |
-| `Instruction`     | Exercise instructions.  |
+| Parameter         | Status     | Description                |
+| :--------         | :-------   | :------------------------- |
+| `name`            | `required` | Exercise name. | 
+| `desc`            | `required` | Exercise description. | 
+| `levelId`         | `required` | Identifier specifying the exercise level. | 
+| `targetMuscleId`  | `required` | Array of identifiers specifying the target muscles. | 
+| `direction`       | `required` | Exercise direction (e.g., `front` or `side`). | 
+| `Orientation`     | `required` | Exercise orientation (e.g., `portrait` or `landscape`). | 
+| `Instruction`     | `required` | Exercise instructions. | 
+| `image`           | `required` | URL or file path for the exercise image. | 
+| `start`           | `required` | Exercise start position. | 
+| `end`             | `required` | Exercise end position. | 
 
 **Response Body**
 
@@ -322,47 +384,77 @@ curl --location -g 'http://{{base_url}}/api/v1/exercise/6552f13f03dbf0159e051060
 | `exercise`          | Object containing exercise information.  |
 | `levelId`           | Identifier specifying the exercise level.  |
 | `targetMuscleId`    | Array of identifiers specifying the target muscles.  |
-| `sideId`            | Identifier specifying the exercise side.  |
+| `direction`       | Exercise direction.  |
 | `Orientation`       | Exercise orientation.  |
 | `instruction`       | Exercise instructions.  |
+| `start`             | Exercise start position. | 
+| `end`               | Exercise end position. | 
 
 **Example**
 
 ```
 curl --location -g --request PUT 'http://{{base_url}}/api/v1/exercise/{{exerciseId}}' \
---form 'name="plank"' \
---form 'desc="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups"' \
+--form 'name="bench dip"' \
+--form 'desc="Bench Dip is an effective exercise for targeting the triceps and building upper body strength. It also engages the chest and shoulders."' \
 --form 'levelId="{{levelId}}"' \
 --form 'targetMuscleId="{{targetMuscleId1}}"' \
 --form 'targetMuscleId="{{targetMuscleId2}}"' \
---form 'sideId="{{sideId}}"' \
---form 'orientation="potrait"' \
---form 'instruction="Lorem ipsum is placeholder text commonly used"' \
---form 'image=@"c:\\Users\\zsyrhn22\\Downloads\\Virtual Background Bangkit 2023.png"'
+--form 'direction="side"' \
+--form 'orientation="portrait"' \
+--form 'instruction="To perform the Bench Dip, sit on the edge of a bench with your hands gripping the edge. Lower your body by bending your elbows until your upper arms are parallel to the ground. Push back up to the starting position."' \
+--form 'image=@"{{localPath}}"' \
+--form 'start[right_knee]="150"' \
+--form 'start[left_knee]="150"' \
+--form 'start[right_hip]="150"' \
+--form 'start[left_hip]="150"' \
+--form 'start[right_elbow]="150"' \
+--form 'start[left_elbow]="150"' \
+--form 'end[right_knee]="150"' \
+--form 'end[left_knee]="150"' \
+--form 'end[right_hip]="150"' \
+--form 'end[left_hip]="150"' \
+--form 'end[right_elbow]="150"' \
+--form 'end[left_elbow]="150"'
 ```
 
 ```JSON
-    {
-        "success": true,
-        "message": "Exercise Data edit successful",
-        "data": {
-            "exercise": {
-                "_id": "65684fe0dcff123cb04d6856",
-                "name": "plank",
-                "desc": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups",
-                "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/YPqcTyDuIfpaSyr6EiPj3nRbDA6EE3F5-20231130-161544",
-                "levelId": "6560765f1844dab5919f6eab",
-                "targetMuscleId": [
-                    "6560765f1844dab5919f6ebf",
-                    "6560765f1844dab5919f6ec5"
-                ],
-                "sideId": "6560765f1844dab5919f6eba",
-                "orientation": "potrait",
-                "instruction": "Lorem ipsum is placeholder text commonly used",
-                "__v": 0
-            }
-        }
+{
+  "success": true,
+  "message": "Exercise Data edit successful",
+  "data": {
+    "exercise": {
+      "_id": "657e886a72e22927cae1d00d",
+      "name": "owo",
+      "desc": "Bench Dip is an effective exercise for targeting the triceps and building upper body strength. It also engages the chest and shoulders.",
+      "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/SyiiRCjeeiqm12CqczG5DwYJ9cbEqE2u",
+      "levelId": "657e033a7744a82ac69b8e92",
+      "targetMuscleId": [
+        "657e033a7744a82ac69b8e9c",
+        "657e033a7744a82ac69b8e9f"
+      ],
+      "direction": "side",
+      "orientation": "portrait",
+      "instruction": "To perform the Bench Dip, sit on the edge of a bench with your hands gripping the edge. Lower your body by bending your elbows until your upper arms are parallel to the ground. Push back up to the starting position.",
+      "start": {
+        "right_knee": "150",
+        "left_knee": "150",
+        "right_hip": "150",
+        "left_hip": "150",
+        "right_elbow": "150",
+        "left_elbow": "150"
+      },
+      "end": {
+        "right_knee": "150",
+        "left_knee": "150",
+        "right_hip": "150",
+        "left_hip": "150",
+        "right_elbow": "150",
+        "left_elbow": "150"
+      },
+      "__v": 0
     }
+  }
+}
 ```
 
 ## 5.Delete Exercise Data
@@ -434,32 +526,27 @@ curl --location -g --request DELETE 'http://{{base_url}}/api/v1/exercise/6552f13
 **Example**
 
 ```
-curl --location 'http://{{base_url}}/api/v1/exercise/search?page=1&q=up&targetMuscle=6560765f1844dab5919f6ebe&level=6560765f1844dab5919f6eab&side=6560765f1844dab5919f6eba'
+curl --location 'http://{{base_url}}/api/v1/exercise/search?page=1&q=up&targetMuscle=657e033a7744a82ac69b8e9f&level=657e033a7744a82ac69b8e92&direction=side'
 ```
 
 ```JSON
-    {
-     "success": false,
-     "message": "Exercise data successfully found",
-     "exercise": [
-        {
-            "_id": "6552f13f03dbf0159e051062",
-            "name": "pull-up",
-            "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-            "levelId": {
-                "_id": "65526a6fa4cc0197cdb53488",
-                "name": "intermediate"
-            }
-        },
-        {
-            "_id": "6552f13f03dbf0159e051061",
-            "name": "push-up",
-            "image": "https://storage.googleapis.com/formal-outpost-402813-bucket/exercise/dYjuOFZi3Gu7b1O2dC5AFj6DjeYuak54-20231114-014533",
-            "levelId": {
-                "_id": "65526a6fa4cc0197cdb53487",
-                "name": "beginner"
-            }
+{
+  "success": true,
+  "message": "Exercise data successfully found",
+  "data": {
+    "exercise": [
+      {
+        "_id": "657e34fa680cfbc894fcb50f",
+        "name": "push-up",
+        "image": "https://storage.googleapis.com/fitnest-project-bucket/exercise/exercise.png",
+        "levelId": {
+          "_id": "657e033a7744a82ac69b8e92",
+          "name": "easy"
         }
-     ]
-    }
+      }
+    ],
+    "count": 1,
+    "pageCount": 0
+  }
+}
 ```

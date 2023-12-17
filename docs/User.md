@@ -12,19 +12,19 @@ GET /api/v1/user/all
 
 **Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `True` if data fetch is successful, `False` otherwise.  |
-| `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for user data.  |
-| `user`       | Array containing user information.  |
-| `_id`        | User ID.  |
-| `email`      | User's email address.  |
-| `username`   | User's username.  |
-| `image`      | URL of the user's profile image.  |
-| `verify`     | Verification status of the user's account (`True` or `False`).  |
-| `roleId`     | Identifier specifying the user's role or permissions.  |
-| `count`      | Total count of users fetched.  |
+| Parameter  | Description                                                    |
+| :--------- | :------------------------------------------------------------- |
+| `success`  | `True` if data fetch is successful, `False` otherwise.         |
+| `message`  | Explanation of the outcome (success or failure details).       |
+| `data`     | Container for user data.                                       |
+| `user`     | Array containing user information.                             |
+| `_id`      | User ID.                                                       |
+| `email`    | User's email address.                                          |
+| `username` | User's username.                                               |
+| `image`    | URL of the user's profile image.                               |
+| `verify`   | Verification status of the user's account (`True` or `False`). |
+| `roleId`   | Identifier specifying the user's role or permissions.          |
+| `count`    | Total count of users fetched.                                  |
 
 **Example**
 
@@ -54,7 +54,8 @@ curl --location '{{base_url}}/api/v1/user/all'
 
 ## 2.Fetch User Data
 
-***Note***
+**_Note_**
+
 ```
 AllUserAuthenticate
 ```
@@ -67,24 +68,24 @@ AllUserAuthenticate
 
 **HTTP Headers**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `Authorization`      | User authentication token for API authorization.  |
+| Parameter       | Description                                      |
+| :-------------- | :----------------------------------------------- |
+| `Authorization` | User authentication token for API authorization. |
 
 **Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `True` if data fetch is successful, `False` otherwise.  |
-| `message`    | Explanation of the outcome (success or failure details). |
-| `data`       | Container for user data.  |
-| `user`       | Object containing user information.  |
-| `_id`        | User ID.  |
-| `email`      | User's email address.  |
-| `username`   | User's username.  |
-| `image`      | URL of the user's profile image.  |
-| `verify`     | Verification status of the user's account (`True` or `False`).  |
-| `roleId`     | Identifier specifying the user's role or permissions. |
+| Parameter  | Description                                                    |
+| :--------- | :------------------------------------------------------------- |
+| `success`  | `True` if data fetch is successful, `False` otherwise.         |
+| `message`  | Explanation of the outcome (success or failure details).       |
+| `data`     | Container for user data.                                       |
+| `user`     | Object containing user information.                            |
+| `_id`      | User ID.                                                       |
+| `email`    | User's email address.                                          |
+| `username` | User's username.                                               |
+| `image`    | URL of the user's profile image.                               |
+| `verify`   | Verification status of the user's account (`True` or `False`). |
+| `roleId`   | Identifier specifying the user's role or permissions.          |
 
 **Example**
 
@@ -111,7 +112,8 @@ curl --location '{{base_url}}/api/v1/user' -H 'Authorization: {{yourToken}}'
 
 ## 3.Edit User Image
 
-***Note***
+**_Note_**
+
 ```
 AllUserAuthenticate
 ```
@@ -124,30 +126,30 @@ PUT /api/v1/user/image
 
 **HTTP Headers**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `Authorization`      | User authentication token for API authorization.  |
+| Parameter       | Description                                      |
+| :-------------- | :----------------------------------------------- |
+| `Authorization` | User authentication token for API authorization. |
 
 **Request Body**
 
-| Parameter         | Status     | Description                |
-| :--------         | :-------   | :------------------------- |
-| `image`           | `required` | Email address of the registered user. | 
+| Parameter | Status     | Description                           |
+| :-------- | :--------- | :------------------------------------ |
+| `image`   | `required` | Email address of the registered user. |
 
 **Response Body**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `success` | `True` if data edit is successful, `False` otherwise.  |
-| `message` | Explanation of the outcome (success or failure details).  |
-| `data`    | Container for user data.  |
-| `user`    | Object containing updated user information.  |
-| `_id`     | User ID.  |
-| `email`   | User's email address.  |
-| `username`| User's username.  |
-| `image`   | URL of the user's updated profile image.  |
-| `verify`  | Verification status of the user's account (`True` or `False`).  |
-| `roleId`  | Identifier specifying the user's role or permissions.  |
+| Parameter  | Description                                                    |
+| :--------- | :------------------------------------------------------------- |
+| `success`  | `True` if data edit is successful, `False` otherwise.          |
+| `message`  | Explanation of the outcome (success or failure details).       |
+| `data`     | Container for user data.                                       |
+| `user`     | Object containing updated user information.                    |
+| `_id`      | User ID.                                                       |
+| `email`    | User's email address.                                          |
+| `username` | User's username.                                               |
+| `image`    | URL of the user's updated profile image.                       |
+| `verify`   | Verification status of the user's account (`True` or `False`). |
+| `roleId`   | Identifier specifying the user's role or permissions.          |
 
 **Example**
 
@@ -175,7 +177,8 @@ curl --location --request PUT '{{base_url}}/api/v1/user/image' -H 'Authorization
 
 ## 4.Edit User Data
 
-***Note***
+**_Note_**
+
 ```
 AllUserAuthenticate
 ```
@@ -188,34 +191,35 @@ PUT /api/v1/user
 
 **HTTP Headers**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `Authorization`      | User authentication token for API authorization.  |
+| Parameter       | Description                                      |
+| :-------------- | :----------------------------------------------- |
+| `Authorization` | User authentication token for API authorization. |
 
 **Request Body**
 
-| Parameter             | Status     | Description                |
-| :--------             | :-------   | :------------------------- |
-| `username`            | `optional` | New username for the user. | 
-| `password`            | `optional` | New password for the user. |
-| `confirmPassword`     | `optional` | Confirmation of the new password. Must match the provided password. |
+| Parameter         | Status     | Description                                                         |
+| :---------------- | :--------- | :------------------------------------------------------------------ |
+| `username`        | `optional` | New username for the user.                                          |
+| `password`        | `optional` | New password for the user.                                          |
+| `confirmPassword` | `optional` | Confirmation of the new password. Must match the provided password. |
 
 **Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `True` if data edit is successful, `False` otherwise.  |
-| `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for user data.  |
-| `user`       | Object containing updated user information.  |
-| `_id`        | User ID.  |
-| `email`      | User's email address.  |
-| `username`   | User's updated username.  |
-| `image`      | URL of the user's profile image.  |
-| `verify`     | Verification status of the user's account (`True` or `False`).  |
-| `roleId`     | Identifier specifying the user's role or permissions.  |
+| Parameter  | Description                                                    |
+| :--------- | :------------------------------------------------------------- |
+| `success`  | `True` if data edit is successful, `False` otherwise.          |
+| `message`  | Explanation of the outcome (success or failure details).       |
+| `data`     | Container for user data.                                       |
+| `user`     | Object containing updated user information.                    |
+| `_id`      | User ID.                                                       |
+| `email`    | User's email address.                                          |
+| `username` | User's updated username.                                       |
+| `image`    | URL of the user's profile image.                               |
+| `verify`   | Verification status of the user's account (`True` or `False`). |
+| `roleId`   | Identifier specifying the user's role or permissions.          |
 
 **Example**
+
 ```
 curl --location --request PUT '{{base_url}}/api/v1/user' -H 'Authorization: {{yourToken}}' \
 --data-urlencode 'username=yourUsername' \
@@ -250,24 +254,24 @@ PUT /api/v1/user/role
 
 **HTTP Headers**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `Authorization`      | User authentication token for API authorization.  |
+| Parameter       | Description                                      |
+| :-------------- | :----------------------------------------------- |
+| `Authorization` | User authentication token for API authorization. |
 
 **Response Body**
 
-| Parameter    | Description                |
-| :----------- | :------------------------- |
-| `success`    | `True` if data edit is successful, `False` otherwise.  |
-| `message`    | Explanation of the outcome (success or failure details).  |
-| `data`       | Container for user data.  |
-| `user`       | Object containing updated user information.  |
-| `_id`        | User ID.  |
-| `email`      | User's email address.  |
-| `username`   | User's username.  |
-| `image`      | URL of the user's profile image.  |
-| `verify`     | Verification status of the user's account (`True` or `False`).  |
-| `roleId`     | Updated identifier specifying the user's role or permissions.  |
+| Parameter  | Description                                                    |
+| :--------- | :------------------------------------------------------------- |
+| `success`  | `True` if data edit is successful, `False` otherwise.          |
+| `message`  | Explanation of the outcome (success or failure details).       |
+| `data`     | Container for user data.                                       |
+| `user`     | Object containing updated user information.                    |
+| `_id`      | User ID.                                                       |
+| `email`    | User's email address.                                          |
+| `username` | User's username.                                               |
+| `image`    | URL of the user's profile image.                               |
+| `verify`   | Verification status of the user's account (`True` or `False`). |
+| `roleId`   | Updated identifier specifying the user's role or permissions.  |
 
 **Example**
 

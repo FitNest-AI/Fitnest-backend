@@ -12,21 +12,20 @@ This Api will be used to provide Level Data.
 
 **Request Body**
 
-| Parameter | Status      | Description       |
-| :-------- | :---------- | :---------------- |
-| `name`    | `Required`  | Insert the name of level. |
-
+| Parameter | Status     | Description               |
+| :-------- | :--------- | :------------------------ |
+| `name`    | `Required` | Insert the name of level. |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                    |
+| :-------- | :------------------------------------------------------------- |
 | `success` | `true` if insert data successful,`false` if insert data fails. |
-| `message` | Explanation of the outcome (success or failure details). |
-| `data`    | Container for level data  |
-| `level`   | Object containing level information.  |
-| `_id`     | Level ID |
-| `name`    | The name of goal.  |
+| `message` | Explanation of the outcome (success or failure details).       |
+| `data`    | Container for level data                                       |
+| `level`   | Object containing level information.                           |
+| `_id`     | Level ID                                                       |
+| `name`    | The name of goal.                                              |
 
 **Example**
 
@@ -53,7 +52,7 @@ curl --location 'http://{{base_url}}/api/v1/level' \
 
 ## 2.Fetch Level Data
 
-**HTTP Request** 
+**HTTP Request**
 
 ```
     GET /api/v1/level/{{levelId}}
@@ -61,20 +60,20 @@ curl --location 'http://{{base_url}}/api/v1/level' \
 
 **Query**
 
-| Parameter | Description    |
-| :-------- | :------------- |
-| `levelId`  | Insert level Id to fetch the data. |
+| Parameter | Description                        |
+| :-------- | :--------------------------------- |
+| `levelId` | Insert level Id to fetch the data. |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `success` | `true` if data fetch successful,`false` if data fetch fails.|
-| `message` | Explanation of the outcome (success or failure details). |
-| `data`    | Container for level data. |
-| `level`   | Object containing level information. |
-| `_id`     | Level ID. |
-| `name`    | The name of level.  |
+| Parameter | Description                                                  |
+| :-------- | :----------------------------------------------------------- |
+| `success` | `true` if data fetch successful,`false` if data fetch fails. |
+| `message` | Explanation of the outcome (success or failure details).     |
+| `data`    | Container for level data.                                    |
+| `level`   | Object containing level information.                         |
+| `_id`     | Level ID.                                                    |
+| `name`    | The name of level.                                           |
 
 **Example**
 
@@ -106,27 +105,26 @@ curl --location -g 'http://{{base_url}}/api/v1/level/65526a6fa4cc0197cdb53487'
 
 **Query**
 
-| Parameter | Description    |
-| :-------- | :------------- |
-| `levelId`  | Insert level Id to edit the data. |
+| Parameter | Description                       |
+| :-------- | :-------------------------------- |
+| `levelId` | Insert level Id to edit the data. |
 
 **Request Body**
 
-| Parameter | Status      | Description       |
-| :-------- | :---------- | :---------------- |
-| `name`    | `Optional`  | New name of level. |
-
+| Parameter | Status     | Description        |
+| :-------- | :--------- | :----------------- |
+| `name`    | `Optional` | New name of level. |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                |
+| :-------- | :--------------------------------------------------------- |
 | `success` | `true` if data edit successful,`false` if data edit fails. |
-| `message` | Explanation of the outcome (success or failure details). |
-| `data`    | Container for level data. |
-| `level`   | Object containing level information. |
-| `_id`     | Level ID. |
-| `name`    | The name of level.  |
+| `message` | Explanation of the outcome (success or failure details).   |
+| `data`    | Container for level data.                                  |
+| `level`   | Object containing level information.                       |
+| `_id`     | Level ID.                                                  |
+| `name`    | The name of level.                                         |
 
 **Example**
 
@@ -161,15 +159,15 @@ curl --location -g --request PUT 'http://{{base_url}}/api/v1/level/{{levelId}}' 
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                  |
+| :-------- | :----------------------------------------------------------- |
 | `success` | `true` if data fetch successful,`false` if data fetch fails. |
-| `message` | Explanation of the outcome (success or failure details). |
-| `data`    | container for level data. |
-| `level`   | Array containing level information.  |
-| `_id`     | Level Id. |
-| `name`    | The name of level. |
-| `count`   | Total count of lavel fetched. |
+| `message` | Explanation of the outcome (success or failure details).     |
+| `data`    | container for level data.                                    |
+| `level`   | Array containing level information.                          |
+| `_id`     | Level Id.                                                    |
+| `name`    | The name of level.                                           |
+| `count`   | Total count of lavel fetched.                                |
 
 **Example**
 
@@ -229,16 +227,16 @@ curl --location 'http://{{base_url}}/api/v1/level/all'
 
 **Query**
 
-| Parameter | Description    |
-| :-------- | :------------- |
-| `levelId`  | Insert level Id to delete the data. |
+| Parameter | Description                         |
+| :-------- | :---------------------------------- |
+| `levelId` | Insert level Id to delete the data. |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                    |
+| :-------- | :------------------------------------------------------------- |
 | `success` | `true` if delete data successful,`false` if delete data fails. |
-| `message` | Explanation of the outcome (success or failure details).  |
+| `message` | Explanation of the outcome (success or failure details).       |
 
 **Example**
 

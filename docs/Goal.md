@@ -12,15 +12,15 @@ This Api will be used to provide Goal Data.
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                  |
+| :-------- | :----------------------------------------------------------- |
 | `success` | `true` if data fetch successful,`false` if data fetch fails. |
-| `message` | Explanation of the outcome (success or failure details). |
-| `data`    | container for goals data. |
-| `goal`    | Array containing goal information.  |
-| `_id`     | Goals Id. |
-| `name`    | The name of goals. |
-| `count`   | Total count of goals fetched. |
+| `message` | Explanation of the outcome (success or failure details).     |
+| `data`    | container for goals data.                                    |
+| `goal`    | Array containing goal information.                           |
+| `_id`     | Goals Id.                                                    |
+| `name`    | The name of goals.                                           |
+| `count`   | Total count of goals fetched.                                |
 
 **Example**
 
@@ -70,20 +70,20 @@ curl --location 'http://{{base_url}}/api/v1/goal/all'
 
 **Query**
 
-| Parameter | Description    |
-| :-------- | :------------- |
+| Parameter | Description                      |
+| :-------- | :------------------------------- |
 | `goalId`  | Insert Goal Id to fetch the data |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
-| `success` | `true` if data fetch successful,`false` if data fetch fails.|
-| `message` | Explanation of the outcome (success or failure details). |
-| `data`    | Container for goal data. |
-| `goal`    | Object containing goal information. |
-| `_id`     | Goal ID. |
-| `name`    | The name of goal.  |
+| Parameter | Description                                                  |
+| :-------- | :----------------------------------------------------------- |
+| `success` | `true` if data fetch successful,`false` if data fetch fails. |
+| `message` | Explanation of the outcome (success or failure details).     |
+| `data`    | Container for goal data.                                     |
+| `goal`    | Object containing goal information.                          |
+| `_id`     | Goal ID.                                                     |
+| `name`    | The name of goal.                                            |
 
 **Example**
 
@@ -115,26 +115,26 @@ curl --location -g 'http://{{base_url}}/api/v1/goal/65526a70a4cc0197cdb534a4'
 
 **Query**
 
-| Parameter | Description    |
-| :-------- | :------------- |
+| Parameter | Description                     |
+| :-------- | :------------------------------ |
 | `goalId`  | Insert Goal Id to edit the data |
 
 **Request Body**
 
-| Parameter | Status      | Description       |
-| :-------- | :---------- | :---------------- |
-| `name`    | `Optional`  | New name of goal. |
+| Parameter | Status     | Description       |
+| :-------- | :--------- | :---------------- |
+| `name`    | `Optional` | New name of goal. |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                |
+| :-------- | :--------------------------------------------------------- |
 | `success` | `true` if data edit successful,`false` if data edit fails. |
-| `message` | Explanation of the outcome (success or failure details).  |
-| `data`    | Container for goal data.  |
-| `goal`    | Object containing goal information.  |
-| `_id`     | Goal ID.  |
-| `name`    | The name of goal.  |
+| `message` | Explanation of the outcome (success or failure details).   |
+| `data`    | Container for goal data.                                   |
+| `goal`    | Object containing goal information.                        |
+| `_id`     | Goal ID.                                                   |
+| `name`    | The name of goal.                                          |
 
 **Example**
 
@@ -169,16 +169,16 @@ curl --location -g --request PUT 'http://{{base_url}}/api/v1/goal/65526a70a4cc01
 
 **Query**
 
-| Parameter | Description    |
-| :-------- | :------------- |
-| `goalId`  | Insert Goal Id to delete the data|
+| Parameter | Description                       |
+| :-------- | :-------------------------------- |
+| `goalId`  | Insert Goal Id to delete the data |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                    |
+| :-------- | :------------------------------------------------------------- |
 | `success` | `true` if delete data successful,`false` if delete data fails. |
-| `message` | Explanation of the outcome (success or failure details).  |
+| `message` | Explanation of the outcome (success or failure details).       |
 
 **Example**
 
@@ -203,20 +203,20 @@ curl --location -g --request DELETE 'http://{{base_url}}/api/v1/goal/65667ebb5ba
 
 **Request Body**
 
-| Parameter | Status      | Description       |
-| :-------- | :---------- | :---------------- |
-| `name`    | `Required`  | New name of goal. |
+| Parameter | Status     | Description       |
+| :-------- | :--------- | :---------------- |
+| `name`    | `Required` | New name of goal. |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                    |
+| :-------- | :------------------------------------------------------------- |
 | `success` | `true` if insert data successful,`false` if insert data fails. |
-| `message` | Explanation of the outcome (success or failure details).  |
-| `data`    | Container for goal data.  |
-| `goal`    | Object containing goal information.  |
-| `_id`     | Goal ID.  |
-| `name`    | The name of goal.  |
+| `message` | Explanation of the outcome (success or failure details).       |
+| `data`    | Container for goal data.                                       |
+| `goal`    | Object containing goal information.                            |
+| `_id`     | Goal ID.                                                       |
+| `name`    | The name of goal.                                              |
 
 **Example**
 

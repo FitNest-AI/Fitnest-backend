@@ -5,31 +5,32 @@ This Api will be used to provide Diet Preference Data.
 ## 1.Insert Diet Preference
 
 **HTTP Request**
+
 ```
   POST api/v1/diet-pref
 ```
 
 **Request Body**
 
-| Parameter | Status      | Description       |
-| :-------- | :---------- | :---------------- |
-| `name`    | `Required`  | Insert the name of diet preference. |
-| `desc`    | `Required`  | The description of diet preference. |
-
+| Parameter | Status     | Description                         |
+| :-------- | :--------- | :---------------------------------- |
+| `name`    | `Required` | Insert the name of diet preference. |
+| `desc`    | `Required` | The description of diet preference. |
 
 **Response**
 
-| Parameter  | Description                |
-| :--------- | :------------------------- |
+| Parameter  | Description                                                    |
+| :--------- | :------------------------------------------------------------- |
 | `success`  | `true` if insert data successful,`false` if insert data fails. |
-| `message`  | Explanation of the outcome (success or failure details). |
-| `data`     | Container for diet preference data.  |
-| `dietPref` | Object containing diet preference information.  |
-| `name`     | The name of diet preference.  |
-| `desc`     | Containing the description of diet preference.  |
-| `_id`      | Diet Preference ID. |
+| `message`  | Explanation of the outcome (success or failure details).       |
+| `data`     | Container for diet preference data.                            |
+| `dietPref` | Object containing diet preference information.                 |
+| `name`     | The name of diet preference.                                   |
+| `desc`     | Containing the description of diet preference.                 |
+| `_id`      | Diet Preference ID.                                            |
 
 **Example**
+
 ```
 curl --location 'http://{{baseUrl}}}}/api/v1/diet-pref' \
 --data '{
@@ -56,27 +57,28 @@ curl --location 'http://{{baseUrl}}}}/api/v1/diet-pref' \
 ## 2.Fetch Diet Preference
 
 **HTTP Request**
+
 ```
     GET /api/v1/diet-pref/{{id}}
 ```
 
 **Parameter**
 
-| Parameter    | Description    |
-| :----------- | :------------- |
-| `dietPrefId` | Insert diet preference Id to fetch the data|
+| Parameter    | Description                                 |
+| :----------- | :------------------------------------------ |
+| `dietPrefId` | Insert diet preference Id to fetch the data |
 
 **Response**
 
-| Parameter  | Description                |
-| :--------- | :------------------------- |
+| Parameter  | Description                                                    |
+| :--------- | :------------------------------------------------------------- |
 | `success`  | `true` if insert data successful,`false` if insert data fails. |
-| `message`  | Explanation of the outcome (success or failure details). |
-| `data`     | Container for diet preference data.  |
-| `dietPref` | Object containing diet preference information.  |
-| `_id`      | Diet Preference ID. |
-| `name`     | The name of diet preference.  |
-| `desc`     | Containing the description of diet preference.  |
+| `message`  | Explanation of the outcome (success or failure details).       |
+| `data`     | Container for diet preference data.                            |
+| `dietPref` | Object containing diet preference information.                 |
+| `_id`      | Diet Preference ID.                                            |
+| `name`     | The name of diet preference.                                   |
+| `desc`     | Containing the description of diet preference.                 |
 
 **Example**
 
@@ -109,28 +111,28 @@ curl --location 'http://{{baseUrl}}}}/api/v1/diet-pref/665526a70a4cc0197cdb5348f
 
 **Query**
 
-| Parameter    | Description    |
-| :----------- | :------------- |
-| `dietPrefId` | Insert diet preference Id to edit the data|
+| Parameter    | Description                                |
+| :----------- | :----------------------------------------- |
+| `dietPrefId` | Insert diet preference Id to edit the data |
 
 **Request Body**
 
-| Parameter | Status      | Description       |
-| :-------- | :---------- | :---------------- |
-| `name`    | `Optional`  | Insert the name of diet preference. |
-| `desc`    | `Optional`  | Insert the new description of diet preference. |
+| Parameter | Status     | Description                                    |
+| :-------- | :--------- | :--------------------------------------------- |
+| `name`    | `Optional` | Insert the name of diet preference.            |
+| `desc`    | `Optional` | Insert the new description of diet preference. |
 
 **Response**
 
-| Parameter  | Description                |
-| :--------- | :------------------------- |
+| Parameter  | Description                                                |
+| :--------- | :--------------------------------------------------------- |
 | `success`  | `true` if edit data successful,`false` if edit data fails. |
-| `message`  | Explanation of the outcome (success or failure details). |
-| `data`     | Container for diet preference data.  |
-| `dietPref` | Object containing diet preference information.  |
-| `_id`      | Diet Preference ID. |
-| `name`     | The name of diet preference.  |
-| `desc`     | Containing the description of diet preference.  |
+| `message`  | Explanation of the outcome (success or failure details).   |
+| `data`     | Container for diet preference data.                        |
+| `dietPref` | Object containing diet preference information.             |
+| `_id`      | Diet Preference ID.                                        |
+| `name`     | The name of diet preference.                               |
+| `desc`     | Containing the description of diet preference.             |
 
 **Example**
 
@@ -167,16 +169,16 @@ curl --location --request PUT 'http://{{baseUrl}}}}/api/v1/diet-pref/6566c9fc8b1
 
 **Response**
 
-| Parameter  | Description                |
-| :--------- | :------------------------- |
+| Parameter  | Description                                                  |
+| :--------- | :----------------------------------------------------------- |
 | `success`  | `true` if fetch data successful,`false` if fetch data fails. |
-| `message`  | Explanation of the outcome (success or failure details). |
-| `data`     | Container for diet preference data.  |
-| `dietPref` | Array containing diet preference information.  |
-| `_id`      | Diet Preference ID. |
-| `name`     | The name of diet preference.  |
-| `desc`     | Containing the description of diet preference.  |
-| `count`    | Total count of diet Preference fetched. |
+| `message`  | Explanation of the outcome (success or failure details).     |
+| `data`     | Container for diet preference data.                          |
+| `dietPref` | Array containing diet preference information.                |
+| `_id`      | Diet Preference ID.                                          |
+| `name`     | The name of diet preference.                                 |
+| `desc`     | Containing the description of diet preference.               |
+| `count`    | Total count of diet Preference fetched.                      |
 
 **Example**
 
@@ -236,17 +238,16 @@ curl --location 'http://{{baseUrl}}}}/api/v1/diet-pref/all'
 
 **Query**
 
-| Parameter    | Description    |
-| :----------- | :------------- |
-| `dietPrefId` | Insert diet preference Id to delete the data|
+| Parameter    | Description                                  |
+| :----------- | :------------------------------------------- |
+| `dietPrefId` | Insert diet preference Id to delete the data |
 
 **Response**
 
-| Parameter | Description                |
-| :-------- | :------------------------- |
+| Parameter | Description                                                    |
+| :-------- | :------------------------------------------------------------- |
 | `success` | `true` if delete data successful,`false` if delete data fails. |
-| `message` | Explanation of the outcome (success or failure details).  |
-
+| `message` | Explanation of the outcome (success or failure details).       |
 
 **Example**
 
