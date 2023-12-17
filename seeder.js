@@ -131,6 +131,15 @@ const seeding = async () => {
     //       {
     //         name: 'hamstrings',
     //       },
+    //       {
+    //         "name": "hips"
+    //       },
+    //       {
+    //         name: 'forearms',
+    //       },
+    //       {
+    //         name: 'Quadriceps',
+    //       },
     //     ],
     //   },
 
