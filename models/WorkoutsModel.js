@@ -6,7 +6,6 @@ const WorkoutsSchema = new Schema({
   name: {
     type: String,
     required: [true, 'name is required'],
-    unique: [true, 'The workout already exists'],
   },
   desc: {
     type: String,
