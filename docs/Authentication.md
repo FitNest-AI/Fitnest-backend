@@ -105,7 +105,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 **HTTP Request**
 
 ```
-  GET /api/v1/auth/resend-verify
+  POST /api/v1/auth/resend-verify
 ```
 
 **Request Body**
@@ -144,7 +144,7 @@ curl --location -g 'http://{{base_url}}/api/v1/auth/register' \
 **HTTP Request**
 
 ```
-    GET /api/v1/auth/forget-password
+    POST /api/v1/auth/forget-password
 ```
 
 **Request Body**
