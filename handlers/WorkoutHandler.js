@@ -116,7 +116,7 @@ module.exports = {
       if (!workout) {
         throw new CustomError(400, 'Workout data insert failure');
       }
-      workout.save();
+      await workout.save();
 
       return res.status(201).json({
         success: true,

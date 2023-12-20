@@ -19,13 +19,13 @@ const content = (user, verify, subject, message) => {
   if (verify === 'register') {
     title = `<p style="margin: 0; padding: 0;">Your Fitnest account has been created!</p>`;
     text = `<p style="margin: 0; padding: 0;>Please verify your email address by clicking on this link to complete the signup process:</p>`;
-    link = `<p style="margin: 0; padding: 0;"><a href="http://localhost:${process.env.PORT}/api/v1/auth/verify?token=${user.token}"><p>${message}</p></a>`;
+    link = `<p style="margin: 0; padding: 0;"><a href="http://${process.env.URL}/api/v1/auth/verify?token=${user.token}"><p>${message}</p></a>`;
   }
 
   if (verify === 'resetPassword') {
     title = `<p style="margin: 0; padding: 0;">Your Fitnest account request reset Password!</p>`;
     text = `<p style="margin: 0; padding: 0;>Please reset your password by clicking on this link to complete the process:</p>`;
-    link = `<p style="margin: 0; padding: 0;"><a href="http://localhost:${process.env.PORT}/api/v1/auth/reset-password?token=${user.token}"><p>${message}</p></a>`;
+    link = `<p style="margin: 0; padding: 0;"><a href="http://${process.env.URL}/api/v1/auth/reset-password?token=${user.token}"><p>${message}</p></a>`;
   }
   if (verify === 'newPassword') {
     title = `<p style="margin: 0; padding: 0;">Your Fitnest account has been new password!</p>`;

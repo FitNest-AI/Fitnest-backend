@@ -207,7 +207,7 @@ module.exports = {
     } catch (error) {
       // console.log(error.stack);
 
-      //
+      // validation cusutom error handle
       if (error.name === 'CustomError') {
         return res.status(error.code).json({
           success: false,

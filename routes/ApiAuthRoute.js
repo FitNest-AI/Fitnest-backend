@@ -16,9 +16,9 @@ const route = Router();
 // authetication route
 route.post('/register', authRegisterHandler);
 route.get('/verify', authVerifyHandle);
-route.get('/resend-verify', authResendVerifyHandle);
+route.post('/resend-verify', authResendVerifyHandle);
 
-route.get('/forget-password', authForgetPasswordHandler);
+route.post('/forget-password', authForgetPasswordHandler);
 route.get('/reset-password', authResetPasswordhandler);
 
 route.post('/login', authLoginHandler);
