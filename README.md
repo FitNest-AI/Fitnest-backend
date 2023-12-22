@@ -34,9 +34,9 @@ If you want to create Google Cloud storage, you need to follow this steps:
 - First, open your Google Cloud Console. https://console.cloud.google.com/
 - Second open the Cloud Shell at the right top corner in the Google Cloud Console.
 - Third, copy the command below to create Google Cloud Storage using cloud shell
-  ```
+```
   gsutil mb -c standard -l asia-southeast1 gs://<your bucket name>
-  ```
+```
 - Fourth, Generate a Service Account key for Cloud Storage (Cloud Storage Object Creator).
 - Fifth ,Rename the Service Account to serviceAccountkey.json and save it for later.
 
