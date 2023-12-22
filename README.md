@@ -19,7 +19,7 @@
 
 ## How to run this API on your local machine 💻
 If you want to run this API Server on your local machine, you need to do this steps:
-- First, clone this repository. `git clone https://github.com/lahiardhan/RejuviFy.git`
+- First, clone this repository. `git clone https://github.com/FitNest-AI/fitnest-backend.git`
 - Second, open terminal and go to this project's root directory.
 - Third, type `npm install` in your terminal and hit enter button.
 - Fourth, type `npm run start-dev` in your terminal and hit enter button.
