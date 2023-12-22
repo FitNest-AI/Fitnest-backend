@@ -21,6 +21,7 @@
 ## Fitnest Architecture
 ![](https://github.com/FitNest-AI/fitnest-backend/blob/main/docs/Fitnest%20Architecture.jpg)
 
+
 ## How to run this API on your local machine 💻
 If you want to run this API Server on your local machine, you need to do these steps:
 - First, clone this repository. `git clone https://github.com/FitNest-AI/fitnest-backend.git`
@@ -28,6 +29,7 @@ If you want to run this API Server on your local machine, you need to do these s
 - Third, type `npm install` in your terminal and hit enter button.
 - Fourth, type `npm run start-dev` in your terminal and hit enter button.
 - Finally, the server will run on your http://localhost:3000
+
 
 ## How to Create Google Cloud Storage
 If you want to create Google Cloud storage, you need to follow this steps:
@@ -39,6 +41,7 @@ If you want to create Google Cloud storage, you need to follow this steps:
 ```
 - Fourth, Generate a Service Account key for Cloud Storage (Cloud Storage Object Creator).
 - Fifth ,Rename the Service Account to serviceAccountkey.json and save it for later.
+
 
 ## How to deploy this API to Cloud Run 🚀
 If you want to deploy this API server to Cloud Run, you need to follow this steps:
