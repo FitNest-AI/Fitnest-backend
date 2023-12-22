@@ -45,9 +45,9 @@ If you want to deploy this API server to Cloud Run, you need to follow this step
 - First, open your Google Cloud Console. https://console.cloud.google.com/
 - Second, open the Cloud Shell at the right top corner in the Google Cloud Console. Make sure you enable Cloud Run API and Cloud Build API before.
 - Third, copy the command below to cloning this repository into the Cloud Shell.
- ```
+```
 git clone https://github.com/FitNest-AI/fitnest-backend.git
- ```
+```
 - Fourth, go to fitnest-backend folder in the Cloud Shell.
 ```
 cd fitnest-backend
@@ -55,7 +55,7 @@ export PROJECT_ID= <Your GCP project ID>
 ```
 - Fifth, insert serviceAccountkey.json into fitnest-backend.
 - Sixth, add the .env file with Variables to the fitnest-backend.
-  ```
+```
   MONGO_URI: <your MONGO_URI>
   ACCESS_SECRET_KEY: <your SECRET_KEY>
   SECRET_SESSION: <your SECRET_SESSION>
@@ -67,13 +67,13 @@ export PROJECT_ID= <Your GCP project ID>
   DEFAULT_AVATAR= "default.png"
   GOOGLE_CLIENT_ID= <your GOOGLE_CLIENT_ID>
   GOOGLE_CLIENT_SECRET =<your GOOGLE_CLIENT_SECRET>
-  ```
+```
 - Seventh, copy the command below to build the image container and upload it to the Container Registry.
  ```
 gcloud builds submit \
   --tag gcr.io/$PROJECT_ID/fitnest-backend
   ```
-- eighth, copy the command below to deploy your image container to Cloud Run.
+- Eighth, copy the command below to deploy your image container to Cloud Run.
  ```
  gcloud run deploy fitnest-backend \
   --image gcr.io/$PROJECT_ID/fitnest-backend \
