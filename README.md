@@ -18,6 +18,8 @@
   - [Food Recomender](https://github.com/FitNest-AI/Food-Recomender)
   - [Workout Recomender](https://github.com/FitNest-AI/Workout-Recomender)
 
+## Fitnest Architecture
+![](https://github.com/FitNest-AI/fitnest-backend/blob/main/docs/Fitnest%20Architecture.jpg)
 
 ## How to run this API on your local machine 💻
 If you want to run this API Server on your local machine, you need to do these steps:
