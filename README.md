@@ -52,6 +52,8 @@ gcloud builds submit \
  gcloud run deploy fitnest-backend \
   --image gcr.io/$PROJECT_ID/fitnest-backend \
   --platform managed \
+  --cpu=1 \
+  --memory=512Mi \
   --region asia-southeast2 \
   --allow-unauthenticated \
   --max-instances=3 \
