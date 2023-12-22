@@ -38,10 +38,10 @@ If you want to deploy this API server to Cloud Run, you need to follow this step
 git clone https://github.com/FitNest-AI/fitnest-backend.git
  ```
 - Fourth, go to this project's root directory in the Cloud Shell.
-  ```
-  cd fitnest-backend
-  export PROJECT_ID= <Your GCP project ID>
-  ```
+```
+cd fitnest-backend
+export PROJECT_ID= <Your GCP project ID>
+```
 - Fifth, copy the command below to build the image container and upload it to the Container Registry.
  ```
 gcloud builds submit \
